@@ -57,13 +57,13 @@
           <a class="btn btn-secondary btn-lg social" href="https://github.com/ahscodingclub">Github</a>
           <a class="btn btn-secondary btn-lg social" href="https://www.researchgate.net/profile/Jake_Sauter">ResearchGate</a>
         </div>
-        <div class="card" style="width: 20rem;" id="card">
+        <div class="card" style="width: 30em;" id="card">
           <div class="card-block">
             <h4 class="card-title">Contact Me</h4>
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">Cell: 845-891-9910</li>
-            <li class="list-group-item">Email: <a href="mailto:jsauter@oswego.edu">jsauter@oswego.edu</a></li>
+            <li class="list-group-item">Email: <a href="mailto:jake.sauter3@gmail.com">jake.sauter3@gmail.com</a></li>
           </ul>
         </div>
       </div>
