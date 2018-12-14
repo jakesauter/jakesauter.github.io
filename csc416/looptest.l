@@ -1,0 +1,17 @@
+( defun looper () 
+  ( setf x 0 )
+  ( setf y 0 )
+  ( loop   
+   ( format t "y: ~A" y)
+   ( terpri )
+   ( setf y ( + y 1 ) )
+   ( if ( > y 100 ) ( return ) )
+    ( loop 
+      ( format t "x: ~A" x)
+      ( terpri )
+      ( setf x ( + x 1 ) )
+      ( if ( > x 100 ) ( return ) )
+    )
+  )
+  ( write-line "done" )
+)

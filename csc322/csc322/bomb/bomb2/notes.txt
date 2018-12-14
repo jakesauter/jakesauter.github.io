@@ -1,0 +1,7 @@
+* function send_msg sends the message to the server, so break on that
+	* totally worked, so far . . . 
+	gdb bomb
+	break send_msg
+* should probably also start by looking at intialize_bomb
+* there is a fun7 function and a secret_phase function, should be fun for later
+* have to use stepi when you are stepping through assembly 

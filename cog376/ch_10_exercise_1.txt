@@ -1,0 +1,1 @@
+This python code parses the required proof goal, and the two assumptions. Then it creates a Prover9 instance, and call its prove() method on the goal, given the list of assumptions. The prove() method will prove in this case that if Freedonia is not north of Sylvania, then Sylvania is north of Freedonia.

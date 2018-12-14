@@ -1,0 +1,32 @@
+;; Dribble of #<IO TERMINAL-STREAM> started on 2016-10-16 16:06:45.
+#<OUTPUT BUFFERED FILE-STREAM CHARACTER #P"mapping_example.txt">
+[2]> ( load "lp.l" )
+;; Loading file lp.l ...
+;; Loaded file lp.l
+T
+[3]> ( mapcar #'cons '( 1 2 3 ) '( ( a b ) ( c d ) ( e f ) ) )
+((1 A B) (2 C D) (3 E F))
+[4]> ( mapcan #'cons '( 1 2 3 ) '( ( a b ) ( c d ) ( e f ) ) )
+(1 A B 2 C D 3 E F)
+[5]> ( mapcar #'expt ( iota 5 ) ( duplicate 2 5 ) )
+(1 32)
+[6]> ( mapcan #'expt ( iota 5 ) ( duplicate 2 5 ) )
+32
+[7]> ( mapcar #'rac '( ( a b c ) ( d e f ) ) )
+(C F)
+[8]> ( mapcan #'rac '( ( a b c ) ( d e f ) ) )
+F
+[9]> ( mapcar #'list '( a b ) '( c d ) )
+((A C) (B D))
+[10]> ( mapcan #'list '( a b ) '( c d ) )
+(A C B D)
+[11]> ( mapcar #'snoc '( 1 2 3 ) '( ( a b ) ( c d ) ( e f ) ) )
+((A B 1) (C D 2) (E F 3))
+[12]> ( mapcan #'snoc '( 1 2 3 ) '( ( a b ) ( c d ) ( e f ) ) )
+(A B 1 C D 2 E F 3)
+[13]> ( mapcar #'iota '( 3 4 ) )
+((1 2 3) (1 2 3 4))
+[14]> ( mapcan #'iota '( 3 4 ) )
+(1 2 3 1 2 3 4)
+[15]> (bye)
+Bye.

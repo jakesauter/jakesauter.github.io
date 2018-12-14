@@ -1,0 +1,11 @@
+( defun sublist ( ( i integer ) ( j integer ) ( l list ) )
+  ( setf rl ( list ( nth i l ) ) )
+  ( setf i ( + i 1 ) )
+  ( loop
+    ( format t "i: ~A" i )
+    ( format t "nth i l: ~A" (nth i l ) )
+    ( if ( = i j ) ( return-from sublist rl ) )
+    ( setf rl ( append rl ( list ( nth i l ) ) ) )
+    ( setf i ( + i 1 ) )
+  )
+)

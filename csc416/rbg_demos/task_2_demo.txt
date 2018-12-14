@@ -1,0 +1,24 @@
+;; Dribble of #<IO TERMINAL-STREAM> started on 2016-11-25 12:15:08.
+#<OUTPUT BUFFERED FILE-STREAM CHARACTER #P"rbg_demos/task_2_demo.txt">
+[2]> ( load "rbg.l" )
+;; Loading file rbg.l ...
+;;  Loading file lp.l ...
+;;  Loaded file lp.l
+;; Loaded file rbg.l
+T
+[3]> ( setf s ( rbg-string ) )
+(B B R B B B R R R B G R R G R R R G G B B G R B G)
+[4]> s
+(B B R B B B R R R B G R R G R R R G G B B G R B G)
+[5]> ( setf s ( mutation s ) )
+(B B R B B B R R R B G R R B R R R G G B B G R B G)
+[6]> ( setf s ( mutation s ) )
+(B B R B B B R R R B G R R G R R R G G B B G R B G)
+[7]> ( setf s ( mutation s ) )
+(B B R B B B R R R G G R R G R R R G G B B G R B G)
+[8]> ( setf s ( mutation s ) )
+(B B R B B B R R G G G R R G R R R G G B B G R B G)
+[9]> ( setf s ( mutation s ) )
+(B B R B B B R R G G G R R G R R R G G B B R R B G)
+[10]> ( bye )
+Bye.

@@ -1,0 +1,34 @@
+[2]> (setf oo-languages '(simula smaltalk clos java))
+(SIMULA SMALTALK CLOS JAVA)
+[3]> oo-languages 
+(SIMULA SMALTALK CLOS JAVA)
+[4]> 'oo-languages 
+OO-LANGUAGES
+[5]> (quote oo-languages )
+OO-LANGUAGES
+[6]> (car oo-languages )
+SIMULA
+[7]> (cdr oo-languages )
+(SMALTALK CLOS JAVA)
+[8]> (car (cdr oo-languages ))
+SMALTALK
+[9]> (cdr (cdr oo-languages ))
+(CLOS JAVA)
+[10]> (cadr oo-languages )
+SMALTALK
+[11]> (cddr oo-languages) 
+(CLOS JAVA)
+[12]> (first oo-languages )
+SIMULA
+[13]> (second oo-languages )
+SMALTALK
+[14]> (nth 2 oo-languages )
+CLOS
+[15]> (cons (car oo-languages ) (cdr oo-languages ))
+(SIMULA SMALTALK CLOS JAVA)
+[16]> (list (car oo-languages ) (nth 2 oo-languages ))
+(SIMULA CLOS)
+[17]> (append oo-languages 'python)
+(SIMULA SMALTALK CLOS JAVA . PYTHON)
+[18]> (bye)
+Bye.

@@ -1,0 +1,33 @@
+;; Dribble of #<IO TERMINAL-STREAM> started on 2016-11-25 20:06:50.
+#<OUTPUT BUFFERED FILE-STREAM CHARACTER #P"rbg_demos/task_8_maybe_mutate_demo.txt">
+[2]> ( load "rbg.l" )
+;; Loading file rbg.l ...
+;;  Loading file lp.l ...
+;;  Loaded file lp.l
+;; Loaded file rbg.l
+T
+[3]> ( maybe-mutate-demo )
+0     (B B R R R B G R R G R R R G G B B G R B G G B G R)  7     
+0     (B B R R R B G R R G R R R G G B B G R B G G B G R)  7     
+0     (B B R R R B G R G G R R R G G B B G R B G G B G R)  7      *
+0     (B B R R R B G R B G R R R G G B B G R B G G B G R)  8      *
+0     (B B R R R B B R B G R R R G G B B G R B G G B G R)  9      *
+0     (B B R R R B B R B G R R R G G G B G R B G G B G R)  8      *
+0     (B B R R R B B R B G R R R G G B B G R B G G B G R)  9      *
+0     (B B R R R B B R R G R R R G G B B G R B G G B G R)  8      *
+0     (B B R R B B B R R G R R R G G B B G R B G G B G R)  9      *
+0     (B B R R B B B R R G R R R G G B B G R B G G B G G)  9      *
+0     (B B R R B B B R R G R R R G G B B G R B G G B G B)  10     *
+0     (B R R R B B B R R G R R R G G B B G R B G G B G B)  9      *
+0     (B R R R B B B R R G R R R G G B B G R B G G B G B)  9     
+0     (B R R R B B B R R G R R R G G G B G R B G G B G B)  8      *
+0     (B R R R B B B R R G R R R G G G B G R B G G B G B)  8     
+0     (B R R R B B B R R G R R R G G G B G R B G G B G B)  8     
+0     (R R R R B B B R R G R R R G G G B G R B G G B G B)  7      *
+0     (R R R R B B B R R G R R R G G G B G R B G G B G B)  7     
+0     (R R R R B B B R R G R R R G G G B G R B B G B G B)  8      *
+0     (R R R R B B B R R G R R R G G G B G R B B G B G G)  7      *
+0     (R R R R B B B R R G R R R G G G B G R B B G B G G)  7     
+NIL
+[4]> ( bye )
+Bye.

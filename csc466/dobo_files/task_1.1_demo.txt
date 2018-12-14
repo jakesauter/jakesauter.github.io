@@ -1,0 +1,19 @@
+;; Dribble of #<IO TERMINAL-STREAM> started on 2017-03-22 19:27:21.
+#<OUTPUT BUFFERED FILE-STREAM CHARACTER #P"task_files/task_1.1_demo.txt">
+[2]> ( load "dobo.l" )
+;; Loading file dobo.l ...
+;;  Loading file lp.l ...
+;;  Loaded file lp.l
+;; Loaded file dobo.l
+T
+[3]> ( dobo-demo-1.1 )
+Making a game state ...
+Displaying the game state ...
+
+  1  1  1
+  1  1  1
+  1  1  1
+
+#<STATE #x000333D92750>
+[4]> ( bye )
+Bye.

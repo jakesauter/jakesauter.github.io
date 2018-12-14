@@ -1,0 +1,1 @@
+This python code converts a list of strings of the form symbol => value into a Valuation object. 

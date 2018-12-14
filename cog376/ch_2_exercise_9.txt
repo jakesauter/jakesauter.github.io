@@ -1,0 +1,72 @@
+Python 2.7.12 (default, Nov 19 2016, 06:48:10)
+[GCC 5.4.0 20160609] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import nltk
+>>> from nltk.corpus import brown
+>>> brown.categories()
+[u'adventure', u'belles_lettres', u'editorial', u'fiction', u'government', u'hobbies', u'humor', u'learned', u'lore', u'mystery', u'news', u'religion', u'reviews', u'romance', u'science_fiction']
+>>> news = nltk.Text(brown.words(categories="news")
+... )
+>>> romance = nltk.Text(brown.words(categories="romance"))
+>>> def lexical_richness(text):
+...	return len(text)/len(set([w.lower() for w in text]))
+...
+>>> from __future__ import division
+>>> len(news)
+100554
+>>> len(romance)
+70022
+>>> lexical_richness(news)
+7
+>>> lexical_richness(romance)
+8
+>>> news.concordance("warm")
+Displaying 3 of 3 matches:
+ is by individual gas-fired , forced warm air systems . Construction in 1962 w
+ approach of the sophisticated , but warm look in contemporary . These two , H
+onality , and ability to establish a warm rapport with his audience . He skips
+>>> romance.Kconcordance("warm")
+Displaying 10 of 10 matches:
+ interrupted in his daydreaming by a warm wetness lapping against his chin , a
+ mouth opened wide , he squirted the warm white milk against the roof of his m
+cked up the baby and nuzzled her fat warm little neck . `` She'll be just as b
+as and light bills ; ; about keeping warm , about keeping well , about meeting
+ . It is not having his baby nestled warm and fat against your breast and it i
+he night , so poetic . With all that warm rain and the fog it might have been
+d their feeling had been as deep and warm , as steeped in light , as the air a
+ couple of days '' . This was a very warm , sympathetic girl , he decided . Sy
+flesh and skin , vivid and alive and warm . The eyes were clear and black and
+ew , my brother's son , handsome and warm and newly-scrubbed , with happiness
+>>> news.concordance("love")
+Displaying 3 of 3 matches:
+'' . Sunday he had added , `` We can love Eisenhower the man , even if we cons
+t there never is any need . The boys love it '' . Mrs. John Charles Cotty is c
+ppets for lamp bases . Most children love the animated puppet faces and their
+>>> romance.concordance("love")
+Displaying 25 of 36 matches:
+yards in which no one knew privacy . Love and hatred and fear were one here ,
+l leave you '' . `` Sounds like real love '' , Owen said . `` It sort of bring
+ to satisfy any egotist . It was for love that he had served the Navy . To hav
+rved the Navy . To have someday that love returned was what he had lived for .
+is not having the only man you could love , whether he drives a bread truck or
+ you can stay alive and hate him and love him and want him even if it means yo
+e him , not even with God . If it is love , you don't . And I'll take you with
+her woman , the one that never could love him the way you do , the one who got
+ts women under stress indulge in . I love you , I hate you , I feel like killi
+ myself , and in the same sequence I love you I think you're the most wonderfu
+t , I can understand that by now and love them still , because everyone must j
+ of women in towns , dispossessed of love , hanging on to makeshifts , and alt
+d like the tails of sage hens making love . Walitzee whitened his leggings wit
+said , jollying Lucy a little . `` I love you . Susan ready '' ? ? Lucy listen
+e said , and the single word mingled love and exasperation in an equal blend .
+g gave her as a token of his undying love . `` You going to marry the King ''
+ the aqua-lung I could swim better , love my woman better . I chuckled aloud ,
+anger in her . We undressed and made love with the comfortable acceptance I ha
+ Sue baby '' , he'd said . Much as I love you -- well , a guy's a guy and Luci
+arren . But it didn't seem fair . My love for Johnnie was young and clean -- h
+oved me and wanted me . But the only love I was giving him was the pure kind .
+, we both knew we were hopelessly in love . Yet even then we did nothing much
+hnnie and I had been innocent in our love , and that was the way I wanted to k
+ darkness , begging this man to make love to me . `` Love me , Johnnie '' . ``
+ing this man to make love to me . `` Love me , Johnnie '' . `` I will , kitten
+>>> exit()

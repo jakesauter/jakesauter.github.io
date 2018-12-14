@@ -1,0 +1,14 @@
+;; Dribble of #<IO TERMINAL-STREAM> started on 2016-09-28 11:22:13.
+#<OUTPUT BUFFERED FILE-STREAM CHARACTER #P"take-from.txt">
+[2]> ( load "lp.l" )
+;; Loading file lp.l ...
+;; Loaded file lp.l
+T
+[3]> ( take-from 1 '( 1 2 1 1 11 4 2 1 1 ) )
+(2 11 4 2)
+[4]> ( take-from 'blue '( blue red blue teal indigo violet blue ) )
+(RED TEAL INDIGO VIOLET)
+[5]> ( take-from "hello" '("hello" "world" ) )
+("world")
+[6]> (bye)
+Bye.

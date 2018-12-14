@@ -1,0 +1,15 @@
+( defun fun1 ()
+  ( let* ((i 0) (j 0))
+    ( setf i 0 )
+    ( loop   
+      ( format t "i in fun1: ~A" i )
+      ( fun2 )
+      ( if ( > i 10 ) ( return-from fun1 nil ) )
+      ( setf i ( + i 1 ) )
+    )
+  )
+)
+
+( defun fun2 ()
+  ( setf i 0 )
+)

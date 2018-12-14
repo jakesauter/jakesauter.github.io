@@ -1,0 +1,13 @@
+* ~0 and -1 is the same bit representation of 111...1
+* the exponenet of a floating point is unsigned
+* all 1s for the exponenet of the floating point is infinity
+* all 0s for the exponent of the floating point is a denormalized number
+* the value of the bias is how many left shift needed to map the range of the exponent to tmin and tmax
+* bias = half of full range + E
+* bias = 2^(k-1)-1
+* when we are looking for the largest off integer that can be represeneted exactly we are looking for the point
+	that we can stop representing every integer
+* we move the decimal point over all of the current fractional bits to achieve a 0 as the least significan bit
+	E = 23, meaning 23 shifts, calculate the value acheievable
+0 
+_ _ _ _ _ _ _ _ _ _ 

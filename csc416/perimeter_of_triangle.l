@@ -1,0 +1,12 @@
+(defun distance ( x1 y1 x2 y2)
+	(sqrt (+ (expt (- x2 x1) 2) (expt (- y2 y1) 2) ) ) 
+)
+
+(defun perimeter ( x1 y1 x2 y2 x3 y3 )
+	(let (d1 d2 d3)
+		(setf d1 (distance x1 y1 x2 y2))
+		(setf d2 (distance x2 y2 x3 y3))
+		(setf d3 (distance x3 y3 x1 y1))
+		(setf perimeter ( + d1 d2 d3 )) 
+	)	
+)

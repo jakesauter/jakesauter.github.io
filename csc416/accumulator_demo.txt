@@ -1,0 +1,22 @@
+;; Dribble of #<IO TERMINAL-STREAM> started on 2016-11-06 13:32:51.
+#<OUTPUT BUFFERED FILE-STREAM CHARACTER #P"accumulator_demo.txt">
+[2]> ( load "accumulator.l" )
+;; Loading file accumulator.l ...
+;; Loaded file accumulator.l
+T
+[3]> ( setf counter ( make-instance 'accumulator ) )
+#<ACCUMULATOR #x0003342CE6E0>
+[4]> ( inc counter 1 )
+1
+[5]> ( dec counter 1 )
+0
+[6]> ( inc counter ( * 3 9 ) )
+27
+[7]> ( reset counter )
+0
+[8]> ( dec counter 7 )
+-7
+[9]> ( reset counter )
+0
+[10]> ( bye )
+Bye.

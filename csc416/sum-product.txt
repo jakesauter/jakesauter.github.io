@@ -1,0 +1,102 @@
+;; Dribble of #<IO TERMINAL-STREAM> started on 2016-09-28 11:05:04.
+#<OUTPUT BUFFERED FILE-STREAM CHARACTER #P"sum-product.txt">
+[2]> ( load "lp.l")
+;; Loading file lp.l ...
+;; Loaded file lp.l
+T
+[3]> ( trace sum product )
+;; Tracing function SUM.
+;; Tracing function PRODUCT.
+(SUM PRODUCT)
+[4]> ( sum '() )
+1. Trace: (SUM 'NIL)
+1. Trace: SUM ==> 0
+0
+[5]> ( product '() )
+1. Trace: (PRODUCT 'NIL)
+1. Trace: PRODUCT ==> 1
+1
+[6]> ( sum '( 496 ) )
+1. Trace: (SUM '(496))
+2. Trace: (SUM 'NIL)
+2. Trace: SUM ==> 0
+1. Trace: SUM ==> 496
+496
+[7]> ( product '( 496 ) )
+1. Trace: (PRODUCT '(496))
+2. Trace: (PRODUCT 'NIL)
+2. Trace: PRODUCT ==> 1
+1. Trace: PRODUCT ==> 496
+496
+[8]> ( sum '( 1 11 111 ) )
+1. Trace: (SUM '(1 11 111))
+2. Trace: (SUM '(11 111))
+3. Trace: (SUM '(111))
+4. Trace: (SUM 'NIL)
+4. Trace: SUM ==> 0
+3. Trace: SUM ==> 111
+2. Trace: SUM ==> 122
+1. Trace: SUM ==> 123
+123
+[9]> ( product '( 1 11 111 ) )
+1. Trace: (PRODUCT '(1 11 111))
+2. Trace: (PRODUCT '(11 111))
+3. Trace: (PRODUCT '(111))
+4. Trace: (PRODUCT 'NIL)
+4. Trace: PRODUCT ==> 1
+3. Trace: PRODUCT ==> 111
+2. Trace: PRODUCT ==> 1221
+1. Trace: PRODUCT ==> 1221
+1221
+[10]> ( sum '( 1 2 3 4 5 6 7 8 9 10 ) )
+1. Trace: (SUM '(1 2 3 4 5 6 7 8 9 10))
+2. Trace: (SUM '(2 3 4 5 6 7 8 9 10))
+3. Trace: (SUM '(3 4 5 6 7 8 9 10))
+4. Trace: (SUM '(4 5 6 7 8 9 10))
+5. Trace: (SUM '(5 6 7 8 9 10))
+6. Trace: (SUM '(6 7 8 9 10))
+7. Trace: (SUM '(7 8 9 10))
+8. Trace: (SUM '(8 9 10))
+9. Trace: (SUM '(9 10))
+10. Trace: (SUM '(10))
+11. Trace: (SUM 'NIL)
+11. Trace: SUM ==> 0
+10. Trace: SUM ==> 10
+9. Trace: SUM ==> 19
+8. Trace: SUM ==> 27
+7. Trace: SUM ==> 34
+6. Trace: SUM ==> 40
+5. Trace: SUM ==> 45
+4. Trace: SUM ==> 49
+3. Trace: SUM ==> 52
+2. Trace: SUM ==> 54
+1. Trace: SUM ==> 55
+55
+[11]> ( product '( 1 2 3 4 5 6 7 8 9 10 ) )
+1. Trace: (PRODUCT '(1 2 3 4 5 6 7 8 9 10))
+2. Trace: (PRODUCT '(2 3 4 5 6 7 8 9 10))
+3. Trace: (PRODUCT '(3 4 5 6 7 8 9 10))
+4. Trace: (PRODUCT '(4 5 6 7 8 9 10))
+5. Trace: (PRODUCT '(5 6 7 8 9 10))
+6. Trace: (PRODUCT '(6 7 8 9 10))
+7. Trace: (PRODUCT '(7 8 9 10))
+8. Trace: (PRODUCT '(8 9 10))
+9. Trace: (PRODUCT '(9 10))
+10. Trace: (PRODUCT '(10))
+11. Trace: (PRODUCT 'NIL)
+11. Trace: PRODUCT ==> 1
+10. Trace: PRODUCT ==> 10
+9. Trace: PRODUCT ==> 90
+8. Trace: PRODUCT ==> 720
+7. Trace: PRODUCT ==> 5040
+6. Trace: PRODUCT ==> 30240
+5. Trace: PRODUCT ==> 151200
+4. Trace: PRODUCT ==> 604800
+3. Trace: PRODUCT ==> 1814400
+2. Trace: PRODUCT ==> 3628800
+1. Trace: PRODUCT ==> 3628800
+3628800
+[12]> ( untrace sum product )
+(SUM PRODUCT)
+[13]> ( bye )
+Bye.

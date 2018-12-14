@@ -1,0 +1,365 @@
+;; Dribble of #<IO TERMINAL-STREAM> started on 2016-12-13 22:42:58.
+#<OUTPUT BUFFERED FILE-STREAM CHARACTER #P"tsp_copies_demo.txt">
+[2]> ( load "tsp.l" )
+;; Loading file tsp.l ...
+;;  Loading file lp.l ...
+;;  Loaded file lp.l
+;; Loaded file tsp.l
+T
+[3]> ( perform-copies-demo )
+
+
+
+Generation 1 population . . . 
+
+
+
+
+the sample of individuals ...
+46    (E B C D A)  4500  
+55    (A B C D E)  3600  
+31    (B C A D E)  4400  
+100   (A E C D B)  4800  
+87    (B C E A D)  4700  
+10    (C E A D B)  4700  
+88    (B D C E A)  4800  
+96    (C E D A B)  4500  
+35    (B A D C E)  5500  
+68    (D A B E C)  5500  
+
+the most fit of the sample ...
+55    (A B C D E)  3600  
+
+Selected individual = 
+55    (A B C D E)  3600  
+Possibly mutated individual = 
+55    (A B C D E)  3600  
+Renumbered individual = 
+1     (A B C D E)  3600  
+
+
+
+Generation 1 population . . . 
+
+1     (A B C D E)  3600  
+
+
+
+the sample of individuals ...
+78    (B E D C A)  4500  
+67    (E A B C D)  3600  
+100   (A E C D B)  4800  
+83    (E A D C B)  4500  
+53    (A B D E C)  4700  
+75    (B A D E C)  4500  
+48    (C B D E A)  3700  
+43    (A D E C B)  4500  
+94    (C B A E D)  3600  
+16    (B E C A D)  5600  
+
+the most fit of the sample ...
+67    (E A B C D)  3600  
+
+Selected individual = 
+67    (E A B C D)  3600  
+Possibly mutated individual = 
+0     (E A B D C)  4800  
+Renumbered individual = 
+2     (E A B D C)  4800  
+
+
+
+Generation 1 population . . . 
+
+1     (A B C D E)  3600  
+2     (E A B D C)  4800  
+
+
+
+the sample of individuals ...
+65    (D A C B E)  4400  
+45    (C E D B A)  4700  
+64    (C B A E D)  3600  
+51    (B E C D A)  5500  
+95    (C D A B E)  5500  
+25    (E B C A D)  4400  
+32    (D A B C E)  4500  
+49    (B D A E C)  4700  
+81    (A C D E B)  4500  
+89    (E C D A B)  5500  
+
+the most fit of the sample ...
+64    (C B A E D)  3600  
+
+Selected individual = 
+64    (C B A E D)  3600  
+Possibly mutated individual = 
+64    (C B A E D)  3600  
+Renumbered individual = 
+3     (C B A E D)  3600  
+
+
+
+Generation 1 population . . . 
+
+1     (A B C D E)  3600  
+2     (E A B D C)  4800  
+3     (C B A E D)  3600  
+
+
+
+the sample of individuals ...
+70    (A E D B C)  3700  
+13    (D A C B E)  4400  
+57    (C A E B D)  4700  
+19    (E A C B D)  3700  
+8     (D B A C E)  4700  
+8     (D B A C E)  4700  
+65    (D A C B E)  4400  
+5     (C B A D E)  4500  
+87    (B C E A D)  4700  
+6     (C E B A D)  5500  
+
+the most fit of the sample ...
+70    (A E D B C)  3700  
+
+Selected individual = 
+70    (A E D B C)  3700  
+Possibly mutated individual = 
+70    (A E D B C)  3700  
+Renumbered individual = 
+4     (A E D B C)  3700  
+
+
+
+Generation 1 population . . . 
+
+1     (A B C D E)  3600  
+2     (E A B D C)  4800  
+3     (C B A E D)  3600  
+4     (A E D B C)  3700  
+
+
+
+the sample of individuals ...
+79    (B D A C E)  5600  
+43    (A D E C B)  4500  
+90    (B A D E C)  4500  
+88    (B D C E A)  4800  
+51    (B E C D A)  5500  
+34    (D B A E C)  4800  
+65    (D A C B E)  4400  
+91    (E D B C A)  3700  
+37    (D E B C A)  4400  
+38    (C D E B A)  4500  
+
+the most fit of the sample ...
+91    (E D B C A)  3700  
+
+Selected individual = 
+91    (E D B C A)  3700  
+Possibly mutated individual = 
+91    (E D B C A)  3700  
+Renumbered individual = 
+5     (E D B C A)  3700  
+
+
+
+Generation 1 population . . . 
+
+1     (A B C D E)  3600  
+2     (E A B D C)  4800  
+3     (C B A E D)  3600  
+4     (A E D B C)  3700  
+5     (E D B C A)  3700  
+
+
+
+the sample of individuals ...
+59    (C B E A D)  4500  
+71    (B E A C D)  4700  
+40    (D A B E C)  5500  
+32    (D A B C E)  4500  
+21    (A B C D E)  3600  
+84    (E A B C D)  3600  
+62    (D B A E C)  4800  
+32    (D A B C E)  4500  
+1     (A B C D E)  3600  
+95    (C D A B E)  5500  
+
+the most fit of the sample ...
+21    (A B C D E)  3600  
+
+Selected individual = 
+21    (A B C D E)  3600  
+Possibly mutated individual = 
+21    (A B C D E)  3600  
+Renumbered individual = 
+6     (A B C D E)  3600  
+
+
+
+Generation 1 population . . . 
+
+1     (A B C D E)  3600  
+2     (E A B D C)  4800  
+3     (C B A E D)  3600  
+4     (A E D B C)  3700  
+5     (E D B C A)  3700  
+6     (A B C D E)  3600  
+
+
+
+the sample of individuals ...
+4     (D E B A C)  4500  
+76    (D C B A E)  3600  
+27    (C D A B E)  5500  
+90    (B A D E C)  4500  
+34    (D B A E C)  4800  
+40    (D A B E C)  5500  
+97    (B D C E A)  4800  
+28    (C B E D A)  4400  
+84    (E A B C D)  3600  
+7     (A D B C E)  4700  
+
+the most fit of the sample ...
+76    (D C B A E)  3600  
+
+Selected individual = 
+76    (D C B A E)  3600  
+Possibly mutated individual = 
+0     (D E B A C)  4500  
+Renumbered individual = 
+7     (D E B A C)  4500  
+
+
+
+Generation 1 population . . . 
+
+1     (A B C D E)  3600  
+2     (E A B D C)  4800  
+3     (C B A E D)  3600  
+4     (A E D B C)  3700  
+5     (E D B C A)  3700  
+6     (A B C D E)  3600  
+7     (D E B A C)  4500  
+
+
+
+the sample of individuals ...
+19    (E A C B D)  3700  
+94    (C B A E D)  3600  
+60    (D E A B C)  3600  
+34    (D B A E C)  4800  
+41    (E C B A D)  4500  
+25    (E B C A D)  4400  
+34    (D B A E C)  4800  
+33    (E B C D A)  4500  
+46    (E B C D A)  4500  
+59    (C B E A D)  4500  
+
+the most fit of the sample ...
+94    (C B A E D)  3600  
+
+Selected individual = 
+94    (C B A E D)  3600  
+Possibly mutated individual = 
+94    (C B A E D)  3600  
+Renumbered individual = 
+8     (C B A E D)  3600  
+
+
+
+Generation 1 population . . . 
+
+1     (A B C D E)  3600  
+2     (E A B D C)  4800  
+3     (C B A E D)  3600  
+4     (A E D B C)  3700  
+5     (E D B C A)  3700  
+6     (A B C D E)  3600  
+7     (D E B A C)  4500  
+8     (C B A E D)  3600  
+
+
+
+the sample of individuals ...
+87    (B C E A D)  4700  
+85    (E A D B C)  4700  
+13    (D A C B E)  4400  
+51    (B E C D A)  5500  
+14    (B D A E C)  4700  
+5     (C B A D E)  4500  
+97    (B D C E A)  4800  
+9     (A E C B D)  4700  
+6     (A B C D E)  3600  
+22    (E C B A D)  4500  
+
+the most fit of the sample ...
+6     (A B C D E)  3600  
+
+Selected individual = 
+6     (A B C D E)  3600  
+Possibly mutated individual = 
+6     (A B C D E)  3600  
+Renumbered individual = 
+9     (A B C D E)  3600  
+
+
+
+Generation 1 population . . . 
+
+1     (A B C D E)  3600  
+2     (E A B D C)  4800  
+3     (C B A E D)  3600  
+4     (A E D B C)  3700  
+5     (E D B C A)  3700  
+6     (A B C D E)  3600  
+7     (D E B A C)  4500  
+8     (C B A E D)  3600  
+9     (A B C D E)  3600  
+
+
+
+the sample of individuals ...
+98    (B C D A E)  4500  
+54    (E D A C B)  4400  
+7     (A D B C E)  4700  
+26    (D A C B E)  4400  
+29    (B C A E D)  3700  
+46    (E B C D A)  4500  
+33    (E B C D A)  4500  
+9     (A B C D E)  3600  
+66    (D A B E C)  5500  
+31    (B C A D E)  4400  
+
+the most fit of the sample ...
+9     (A B C D E)  3600  
+
+Selected individual = 
+9     (A B C D E)  3600  
+Possibly mutated individual = 
+9     (A B C D E)  3600  
+Renumbered individual = 
+10    (A B C D E)  3600  
+
+
+
+Generation 1 population . . . 
+
+1     (A B C D E)  3600  
+2     (E A B D C)  4800  
+3     (C B A E D)  3600  
+4     (A E D B C)  3700  
+5     (E D B C A)  3700  
+6     (A B C D E)  3600  
+7     (D E B A C)  4500  
+8     (C B A E D)  3600  
+9     (A B C D E)  3600  
+10    (A B C D E)  3600  
+
+
+
+NIL
+[4]> ( bye )
+Bye.

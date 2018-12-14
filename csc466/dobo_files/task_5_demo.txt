@@ -1,0 +1,524 @@
+;; Dribble of #<IO TERMINAL-STREAM> started on 2017-04-06 10:48:04.
+#<OUTPUT BUFFERED FILE-STREAM CHARACTER #P"task_files/task_5_demo.txt">
+[2]> ( load "dobo.l" )
+;; Loading file dobo.l ...
+;;  Loading file lp.l ...
+;;  Loaded file lp.l
+;; Loaded file dobo.l
+T
+[3]> ( dobo-demo-5 )
+Making an instance of a state-probability tuple ...
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 0
+hits: 0
+probability: 0
+
+Making an instance of a state-probability tuple ...
+state: 
+  0  1  1
+  0  1  1
+  0  1  1
+
+wins: 0
+hits: 0
+probability: 0
+
+Making an instance of a state-probability tuple ...
+state: 
+  0  1  1
+  0  1  1
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 0
+
+Making an instance of a state-probability tuple ...
+state: 
+  0  1  1
+  0  0  0
+  1  1  0
+
+wins: 5
+hits: 15
+probability: 0.33333334
+
+Making an instance of a state-probability tuple ...
+state: 
+  0  1  1
+  0  0  1
+  1  1  1
+
+wins: 4
+hits: 7
+probability: 0.5714286
+dobo-demo-5.1 returned #<STATE-PROBABILITY-TUPLE #x000335561158>
+Empty game state table: 
+Adding the entry to the table ...
+Updated game state table: 
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+dobo-demo-5.2 returned #<GAME-STATE-TABLE #x000335564648>
+Original State: 
+
+  1  0  0
+  0  0  0
+  0  0  1
+
+Horizontal reflection of the state: 
+
+  0  0  1
+  0  0  0
+  1  0  0
+
+Vertical reflection of the state: 
+
+  0  0  1
+  0  0  0
+  1  0  0
+
+Single rotation of the state: 
+
+  0  0  1
+  0  0  0
+  1  0  0
+
+Double rotation of the state: 
+
+  1  0  0
+  0  0  0
+  0  0  1
+
+Triple rotation of the state: 
+
+  0  0  1
+  0  0  0
+  1  0  0
+
+dobo-demo-5.3 returned NIL
+state 1: 
+
+  1  0  0
+  0  0  0
+  0  0  0
+
+state 2: 
+
+  0  0  0
+  0  0  0
+  0  0  1
+
+similar s1 s2: T
+
+state 1: 
+
+  0  0  0
+  0  0  0
+  0  0  1
+
+state 2: 
+
+  1  0  0
+  0  0  0
+  0  0  0
+
+similar s1 s2: T dobo-demo-5.4 returned NIL
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 0
+hits: 0
+probability: 0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 0
+hits: 0
+probability: 0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 0
+hits: 0
+probability: 0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 0
+hits: 0
+probability: 0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 0
+hits: 0
+probability: 0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 0
+hits: 0
+probability: 0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 0
+hits: 0
+probability: 0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 0
+hits: 0
+probability: 0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 0
+hits: 0
+probability: 0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 0
+hits: 0
+probability: 0
+_____________________________
+
+
+calling insert ...
+
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 0
+hits: 0
+probability: 0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 0
+hits: 0
+probability: 0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 0
+hits: 0
+probability: 0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 0
+hits: 0
+probability: 0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 0
+hits: 0
+probability: 0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 0
+hits: 0
+probability: 0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 0
+hits: 0
+probability: 0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 0
+hits: 0
+probability: 0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 0
+hits: 0
+probability: 0
+_____________________________
+dobo-demo-5.5 returned #<GAME-STATE-TABLE #x00033554D688>
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 0
+hits: 0
+probability: 0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 0
+hits: 0
+probability: 0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 0
+hits: 0
+probability: 0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 0
+hits: 0
+probability: 0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 0
+hits: 0
+probability: 0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 0
+hits: 0
+probability: 0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 0
+hits: 0
+probability: 0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 0
+hits: 0
+probability: 0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 0
+hits: 0
+probability: 0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 0
+hits: 0
+probability: 0
+_____________________________
+
+
+calling insert ...
+
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 0
+hits: 0
+probability: 0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 0
+hits: 0
+probability: 0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 0
+hits: 0
+probability: 0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 0
+hits: 0
+probability: 0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 0
+hits: 0
+probability: 0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 0
+hits: 0
+probability: 0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 0
+hits: 0
+probability: 0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 0
+hits: 0
+probability: 0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  1
+
+wins: 0
+hits: 0
+probability: 0
+_____________________________
+
+
+Searching for probability of:
+
+  1  1  1
+  1  1  1
+  1  1  1
+
+
+found probability: 1.0
+dobo-demo-5.6 returned NIL
+NIL
+[4]> ( bye )
+Bye.

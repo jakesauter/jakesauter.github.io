@@ -1,0 +1,46 @@
+Python 2.7.12 (default, Nov 19 2016, 06:48:10) 
+[GCC 5.4.0 20160609] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from nltk import pos_tag, word_tokenize
+>>> #sentence 1
+>>> sentence = "Johnny likes to walk to the park and feed the birds."
+>>> pos_tag(word_tokenize(sentence))
+[('Johnny', 'NNP'), ('likes', 'VBZ'), ('to', 'TO'), ('walk', 'VB'), ('to', 'TO'), ('the', 'DT'), ('park', 'NN'), ('and', 'CC'), ('feed', 'VB'), ('the', 'DT'), ('birds', 'NNS'), ('.', '.')]
+>>> #sentence 2
+>>> sentence = "Cats like to climb trees and not come down."
+>>> pos_tag(word_tokenize(sentence))
+[('Cats', 'NNS'), ('like', 'IN'), ('to', 'TO'), ('climb', 'VB'), ('trees', 'NNS'), ('and', 'CC'), ('not', 'RB'), ('come', 'VB'), ('down', 'RP'), ('.', '.')]
+>>> #sentence 3
+>>> sentence = "The tallest trees in the world are Redwoods."
+>>> pos_tag(word_tokenize(sentence))
+[('The', 'DT'), ('tallest', 'JJS'), ('trees', 'NNS'), ('in', 'IN'), ('the', 'DT'), ('world', 'NN'), ('are', 'VBP'), ('Redwoods', 'NNP'), ('.', '.')]
+>>> #sentence 4
+>>> sentence = "The oldest tree on Earth is the Bristlecone Pine, which is also the world's oldest living orgranism."
+>>> pos_tag(word_tokenize(sentence))
+[('The', 'DT'), ('oldest', 'JJS'), ('tree', 'NN'), ('on', 'IN'), ('Earth', 'NNP'), ('is', 'VBZ'), ('the', 'DT'), ('Bristlecone', 'NNP'), ('Pine', 'NNP'), (',', ','), ('which', 'WDT'), ('is', 'VBZ'), ('also', 'RB'), ('the', 'DT'), ('world', 'NN'), ("'s", 'POS'), ('oldest', 'JJS'), ('living', 'NN'), ('orgranism', 'NN'), ('.', '.')]
+>>> #sentence 5
+>>> sentence = "The Giant Sequoia is estimated to be the world's heaviest tree with some specimens growing taller than 300 feet."
+>>> pos_tag(word_tokenize(sentence))
+[('The', 'DT'), ('Giant', 'NNP'), ('Sequoia', 'NNP'), ('is', 'VBZ'), ('estimated', 'VBN'), ('to', 'TO'), ('be', 'VB'), ('the', 'DT'), ('world', 'NN'), ("'s", 'POS'), ('heaviest', 'JJS'), ('tree', 'NN'), ('with', 'IN'), ('some', 'DT'), ('specimens', 'NNS'), ('growing', 'VBG'), ('taller', 'NN'), ('than', 'IN'), ('300', 'CD'), ('feet', 'NNS'), ('.', '.')]
+>>> #sentence 6
+>>> sentence = "A cat that has climed atop a Redwood tree would have a difficult time getting down!"
+>>> pos_tag(word_tokenize(sentence))
+[('A', 'DT'), ('cat', 'NN'), ('that', 'WDT'), ('has', 'VBZ'), ('climed', 'VBN'), ('atop', 'IN'), ('a', 'DT'), ('Redwood', 'NNP'), ('tree', 'NN'), ('would', 'MD'), ('have', 'VB'), ('a', 'DT'), ('difficult', 'JJ'), ('time', 'NN'), ('getting', 'VBG'), ('down', 'RP'), ('!', '.')]
+>>> #sentence 7
+>>> sentence = "Monkeypod trees have the largest crown diameters on Earth, enabling them to absorb lots of sunlight."
+>>> pos_tag(word_tokenize(sentence))
+[('Monkeypod', 'NNP'), ('trees', 'NNS'), ('have', 'VBP'), ('the', 'DT'), ('largest', 'JJS'), ('crown', 'JJ'), ('diameters', 'NNS'), ('on', 'IN'), ('Earth', 'NNP'), (',', ','), ('enabling', 'VBG'), ('them', 'PRP'), ('to', 'TO'), ('absorb', 'VB'), ('lots', 'NNS'), ('of', 'IN'), ('sunlight', 'NN'), ('.', '.')]
+>>> #sentence 8
+>>> sentence = "Some cats would enjoy very much to play in the branches of the Monkeypad tree."
+>>> pos_tag(word_tokenize(sentence))
+[('Some', 'DT'), ('cats', 'NNS'), ('would', 'MD'), ('enjoy', 'VB'), ('very', 'RB'), ('much', 'RB'), ('to', 'TO'), ('play', 'VB'), ('in', 'IN'), ('the', 'DT'), ('branches', 'NNS'), ('of', 'IN'), ('the', 'DT'), ('Monkeypad', 'NNP'), ('tree', 'NN'), ('.', '.')]
+>>> #sentence 9
+>>> sentence = "The Japanese Wisteria tree is a beautiful sight to see when it is flowering."
+>>> pos_tag(word_tokenize(sentence))
+[('The', 'DT'), ('Japanese', 'JJ'), ('Wisteria', 'NNP'), ('tree', 'NN'), ('is', 'VBZ'), ('a', 'DT'), ('beautiful', 'JJ'), ('sight', 'NN'), ('to', 'TO'), ('see', 'VB'), ('when', 'WRB'), ('it', 'PRP'), ('is', 'VBZ'), ('flowering', 'VBG'), ('.', '.')]
+>>> #sentence 10
+>>> sentence = "The blooming Royal Poinciana is an interesting sight to see."
+>>> pos_tag(word_tokenize(sentence))
+[('The', 'DT'), ('blooming', 'NN'), ('Royal', 'NNP'), ('Poinciana', 'NNP'), ('is', 'VBZ'), ('an', 'DT'), ('interesting', 'JJ'), ('sight', 'NN'), ('to', 'TO'), ('see', 'VB'), ('.', '.')]
+>>> exit()
+

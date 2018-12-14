@@ -1,0 +1,70 @@
+[2]> 15
+15
+[3]> "Common List with Objects"
+"Common List with Objects"
+[2]> 15
+15
+[3]> "Common Lisp with Objects"
+"Common Lisp with Objects"
+[4]> pie
+
+*** - SYSTEM::READ-EVAL-PRINT: variable PIE has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of PIE.
+STORE-VALUE    :R2      Input a new value for PIE.
+ABORT          :R3      Abort main loop
+Break 1 [5]> :a
+[6]> pi
+3.1415926535897932385L0
+[7]> ( + 2 3 5 7)
+17
+[8]> ( * ( + 3 6 9 ) ( - 8 5 ) )
+54
+[9]> ( double 5 )
+
+*** - EVAL: undefined function DOUBLE
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (FDEFINITION 'DOUBLE).
+RETRY          :R2      Retry
+STORE-VALUE    :R3      Input a new value for (FDEFINITION 'DOUBLE).
+ABORT          :R4      Abort main loop
+Break 1 [10]> :a
+[11]> ( quote pie )
+PIE
+[12]> ( quote ( double 5 ) )
+(DOUBLE 5)
+[13]> 'pie
+PIE
+[14]> '( double 5 ) 
+(DOUBLE 5)
+[15]> ( setf  pie 'cherry )
+CHERRY
+[16]> pie
+CHERRY
+[17]> ( setf dozen 12 )
+12
+[18]> dozen
+12
+[19]> ( defun double ( x ) ( * x 2 ) )
+DOUBLE
+[20]> ( double 5 )
+10
+[21]> ( double dozen )
+24
+[22]> ( double 5 )
+10
+[23]> ( double pi )
+6.283185307179586477L0
+[24]> ( double pi )
+6.283185307179586477L0
+[25]> ( double pi )
+6.283185307179586477L0
+[26]> ( double pie )
+
+*** - *: CHERRY is not a number
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead.
+ABORT          :R2      Abort main loop
+Break 1 [27]> :a
+[28]> (bye)
+Bye.

@@ -1,0 +1,304 @@
+body {
+    font-family: "Lato", sans-serif;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overflow-y: scroll;
+}
+
+h1 a{
+	text-decoration: none;
+	color:white;
+}
+
+.home-button{
+  text-decoration:none;
+	float:right;
+	margin-right:10%;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+::-webkit-scrollbar-track {
+    background-color: #222222;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #222222;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #222222;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: #222222;
+}
+
+h1{
+  text-align: center;
+  font-family: 'Great Vibes', Helvetica, sans-serif;
+  color:white;
+  margin-top: .5em;
+	font-size:3em;
+}
+
+img{
+  width: 7em;
+  height: 7em;
+  margin-bottom: .5em;
+  border-radius: .5em;
+  margin-left: 1%;
+}
+
+.row{
+	margin-top: 2;
+	margin-left:10%;
+	overflow-y: hidden;
+}
+
+.col-xs-12{
+	margin-left:5%;
+	margin-right:20%;
+	text-align: justify;
+}
+
+.col-xs-3 {
+  align-content: center;
+  margin-left: 5%;
+	overflow: hidden;
+	overflow-y: hidden;	
+}
+
+.col-xs-3 p {
+  width: 16em;
+  height: 6em;
+  overflow-y:hidden;
+  overflow: hidden;
+  margin-left:auto;
+}
+
+.col-xs-3 h2  {
+	margin-left:auto;
+}
+
+.col-xs-3:last-of-type p {
+  width: 14em;
+}
+
+.col-xs-3:first-of-type {
+  margin-left: 13%
+}
+
+.col-md-7 {
+  position: relative;
+  left: 32%;
+}
+
+
+.center {
+  align-self: center;
+  align-content: center;
+  justify-content: center;
+  margin-bottom: -1.3em;
+}
+
+.col-lg-10 {
+  margin-top: -.4em;
+  margin-left: 6%;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+		overflow-y: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    overflow: scroll;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+.sidenav .clossebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.social {
+  font-size: 1.5em;
+  margin-right: -1.6em;
+  margin-top: -1em;
+}
+
+#social {
+  position: absolute;
+  bottom: 7%;
+  right: 6%;
+}
+
+#social a{
+	margin-left: -.1em;
+	margin-right:-.2em;	
+	font-size:1.5em;
+}
+
+#card{
+	position: relative;
+	bottom: 2.2em;
+}
+
+.card-title{
+	margin-top:5%;
+	margin-left:7%;
+}
+
+.list-group-item
+{
+  width: 100%;
+	font-size:1.4em;
+}
+
+.btn-primary{
+  background-color: #464545;
+  color: white;
+	font-size:1.5em;
+}
+
+.btn-primary:hover
+{
+  background-color: #222222;
+}
+
+.btn-default {
+	font-size:1.5em;
+	margin-left: -5%;
+}
+
+@media screen and (max-width: 755px) {
+  .sidenav {padding-top: 15%;}
+  .sidenav a {font-size: 18px;}
+  .btn-primary {
+    margin-top: 5%;
+		margin-bottom: 5%;
+  }
+
+  .home-button{
+		float:none;
+   }
+
+  #social {
+    position: static ;
+    margin-top: 10% ;
+    margin-bottom: 10% ;
+  }
+
+	#social a {
+		font-size: 1em;
+    
+	}
+
+  #card{
+    position: static;
+    align-self: center;
+  }
+
+  h1 {
+    margin-top: 2em;
+    margin-bottom: .5em;
+  }
+
+  .research {
+      width: 85%;
+      margin-left: 2%;
+      margin-right: 10%;
+  }
+
+  .teaching {
+      width: 85%;
+      margin-left: 2%;
+      margin-right: 10%;
+  }
+
+  .scholarship {
+    position:
+      width: 85%;
+      margin-left: 2%;
+      margin-right: 10%;
+  }
+
+
+  .col-xs-3 p {
+    width: 80%;
+    align-self: center;
+  }
+
+	.col-xs-12 {
+		margin-right:4em;
+		margin-left:0em;
+	}
+
+	.col-xs-12 p {
+		font-size: 2000%;
+	}
+}
+
+/* @media screen and (max-height: 600px) {
+  .col-xs-3 p {
+      width: 16em;
+      height: 12%;
+      overflow-y: hidden;
+  }
+
+  .col-xs-3 {
+      margin-top: -2%;
+  }
+
+  .sidenav {padding-top: 15%;}
+  .sidenav a {font-size: 2em;}
+  .btn-primary {
+    margin-top: 5%;
+		margin-left:7%;
+		width:60%;
+		height: 3em;;
+		font-size:1.1em;
+  }
+
+  #social {
+    position: static;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+
+  #card{
+    position: static;
+    align-self: center;
+  }
+
+  #social a{
+    margin-top:.1em;
+    font-size: .3em;
+  }
+
+  h1 {
+    margin-top: 10%;
+  }
+}
+*/

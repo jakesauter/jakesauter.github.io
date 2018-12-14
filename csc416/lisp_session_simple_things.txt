@@ -1,0 +1,63 @@
+[2]> (setf pt1 (list 3 4))
+(3 4)
+[3]> (setf pt2 (list 5 7))
+(5 7)
+[4]> (setf Xdist (abs (- (car pt1) (car pt2))))
+2
+[5]> (setf Ydist (abs (- (cadr pt1) (cadr pt2))))
+3
+[6]> (setf distance (/ Xdist Ydist))
+2/3
+[7]> (setf listContainingX '(A B X C D))
+(A B X C D)
+[8]> (cadr (cdr listContainingX))
+X
+[9]> (setf listContainingX '(A B (X) C D))
+(A B (X) C D)
+[10]> (car (car (cdr (cdr listContainingX))))
+X
+[11]> (setf listContainingX '(( A (B X C D))))
+((A (B X C D)))
+[12]> (cadr (cadr (car listContainingX)))
+X
+[20]> (setf colors '(RED BLUE GREEN MAGENTA YELLOW PURPLE ORANGE))
+(RED BLUE GREEN MAGENTA YELLOW PURPLE ORANGE)
+[21]> (quote colors)
+COLORS
+[22]> 'colors
+COLORS
+[23]> colors
+(RED BLUE GREEN MAGENTA YELLOW PURPLE ORANGE)
+[24]> (describe 'colors)
+
+COLORS is the symbol COLORS, lies in #<PACKAGE COMMON-LISP-USER>,
+is accessible in 1 package COMMON-LISP-USER, a variable, value:
+(RED BLUE GREEN MAGENTA YELLOW PURPLE ORANGE).
+
+ #<PACKAGE COMMON-LISP-USER> is the package named
+ COMMON-LISP-USER. It has 2 nicknames CL-USER, USER.
+ It imports the external symbols of 2 packages COMMON-LISP, EXT
+ and exports no symbols, but no package uses these exports.
+
+ (RED BLUE GREEN MAGENTA YELLOW PURPLE ORANGE) is a list of
+ length 7.
+
+[25]> (describe colors)
+
+(RED BLUE GREEN MAGENTA YELLOW PURPLE ORANGE) is a list of length
+7.
+
+[26]> (type-of 'colors)
+SYMBOL
+[27]> (type-of colors)
+CONS
+[28]> (typep colors 'cons)
+T
+[29]> (typep colors 'list)
+T
+[30]> (typep colors 'symbol)
+NIL
+[31]> (typep 'colors 'cons)
+NIL
+[32]> (bye)
+Bye.

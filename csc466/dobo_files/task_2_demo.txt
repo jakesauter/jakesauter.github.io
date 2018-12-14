@@ -1,0 +1,44 @@
+;; Dribble of #<IO TERMINAL-STREAM> started on 2017-03-22 19:29:03.
+#<OUTPUT BUFFERED FILE-STREAM CHARACTER #P"task_files/task_2_demo.txt">
+[2]> ( load "dobo.l" )
+;; Loading file dobo.l ...
+;;  Loading file lp.l ...
+;;  Loaded file lp.l
+;; Loaded file dobo.l
+T
+[3]> ( dobo-demo-2 )
+Making a generic player ...
+Displaying the generic player ...
+
+Name: JOHN-DOE
+Wins: 0
+Losses: 0
+Win Ratio: Undetermined
+
+Changing generic player's name ...
+Displaying the generic player ...
+
+Name: BILLY-JOE
+Wins: 0
+Losses: 0
+Win Ratio: Undetermined
+
+The player won 5 out of 5 games played and has a perfect win ratio ...
+Displaying the generic player ...
+
+Name: BILLY-JOE
+Wins: 5
+Losses: 0
+Win Ratio: 1.0
+
+The player lost the next 3 games ...
+Displaying the generic player ...
+
+Name: BILLY-JOE
+Wins: 5
+Losses: 3
+Win Ratio: 0.625
+
+#<PLAYER #x000333EC16F8>
+[4]> ( bye )
+Bye.

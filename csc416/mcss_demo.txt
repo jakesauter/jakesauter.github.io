@@ -1,0 +1,2378 @@
+;; Dribble of #<IO TERMINAL-STREAM> started on 2016-11-28 12:49:31.
+#<OUTPUT BUFFERED FILE-STREAM CHARACTER #P"mcss_demo.txt">
+[2]> ( mc )
+
+*** - EVAL: undefined function MC
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (FDEFINITION 'MC).
+RETRY          :R2      Retry
+STORE-VALUE    :R3      Input a new value for (FDEFINITION 'MC).
+ABORT          :R4      Abort main loop
+Break 1 [3]> ( bye )
+Bye.
+;; Dribble of #<IO TERMINAL-STREAM> started on 2016-11-28 12:49:51.
+#<OUTPUT BUFFERED FILE-STREAM CHARACTER #P"mcss_demo.txt">
+[2]> ( load "mcss.l" )
+;; Loading file mcss.l ...
+;;  Loading file missionaries_and_canniabls_state_space_problem_solver.l ...
+;;  Loaded file missionaries_and_canniabls_state_space_problem_solver.l
+;;  Loading file accumulator.l ...
+;;  Loaded file accumulator.l
+;;  Loading file name_generator.l ...
+;;  Loaded file name_generator.l
+;; Loaded file mcss.l
+T
+[3]> ( mc )
+
+>>>Solve
+
+EXPLORED
+
+
+UNEXPLORED
+
+node name: ROOT 
+
+left: (M M M C C C . B)
+right: NIL
+
+
+----------------the children of ------------------------
+node name: ROOT 
+
+left: (M M M C C C . B)
+right: NIL
+
+--------------------are---------------------------------
+node name: N3 
+node parent: ROOT 
+node operator: MOVE-C-LR
+left: (M M M C C)
+right: (C . B)
+
+node name: N2 
+node parent: ROOT 
+node operator: MOVE-CC-LR
+left: (M M M C)
+right: (C C . B)
+
+node name: N1 
+node parent: ROOT 
+node operator: MOVE-CM-LR
+left: (M M C C)
+right: (M C . B)
+
+--------------------------------------------------------
+
+>>>Solve
+
+EXPLORED
+
+node name: ROOT 
+
+left: (M M M C C C . B)
+right: NIL
+
+
+UNEXPLORED
+
+node name: N3 
+node parent: ROOT 
+node operator: MOVE-C-LR
+left: (M M M C C)
+right: (C . B)
+
+node name: N2 
+node parent: ROOT 
+node operator: MOVE-CC-LR
+left: (M M M C)
+right: (C C . B)
+
+node name: N1 
+node parent: ROOT 
+node operator: MOVE-CM-LR
+left: (M M C C)
+right: (M C . B)
+
+
+----------------the children of ------------------------
+node name: N3 
+node parent: ROOT 
+node operator: MOVE-C-LR
+left: (M M M C C)
+right: (C . B)
+
+--------------------are---------------------------------
+node name: N4 
+node parent: N3 
+node operator: MOVE-C-RL
+left: (M M M C C C . B)
+right: NIL
+
+--------------------------------------------------------
+
+>>>Solve
+
+EXPLORED
+
+node name: N3 
+node parent: ROOT 
+node operator: MOVE-C-LR
+left: (M M M C C)
+right: (C . B)
+
+node name: ROOT 
+
+left: (M M M C C C . B)
+right: NIL
+
+
+UNEXPLORED
+
+node name: N2 
+node parent: ROOT 
+node operator: MOVE-CC-LR
+left: (M M M C)
+right: (C C . B)
+
+node name: N1 
+node parent: ROOT 
+node operator: MOVE-CM-LR
+left: (M M C C)
+right: (M C . B)
+
+node name: N4 
+node parent: N3 
+node operator: MOVE-C-RL
+left: (M M M C C C . B)
+right: NIL
+
+
+----------------the children of ------------------------
+node name: N2 
+node parent: ROOT 
+node operator: MOVE-CC-LR
+left: (M M M C)
+right: (C C . B)
+
+--------------------are---------------------------------
+node name: N6 
+node parent: N2 
+node operator: MOVE-C-RL
+left: (M M M C C . B)
+right: (C)
+
+node name: N5 
+node parent: N2 
+node operator: MOVE-CC-RL
+left: (M M M C C C . B)
+right: NIL
+
+--------------------------------------------------------
+
+>>>Solve
+
+EXPLORED
+
+node name: N2 
+node parent: ROOT 
+node operator: MOVE-CC-LR
+left: (M M M C)
+right: (C C . B)
+
+node name: N3 
+node parent: ROOT 
+node operator: MOVE-C-LR
+left: (M M M C C)
+right: (C . B)
+
+node name: ROOT 
+
+left: (M M M C C C . B)
+right: NIL
+
+
+UNEXPLORED
+
+node name: N1 
+node parent: ROOT 
+node operator: MOVE-CM-LR
+left: (M M C C)
+right: (M C . B)
+
+node name: N4 
+node parent: N3 
+node operator: MOVE-C-RL
+left: (M M M C C C . B)
+right: NIL
+
+node name: N6 
+node parent: N2 
+node operator: MOVE-C-RL
+left: (M M M C C . B)
+right: (C)
+
+node name: N5 
+node parent: N2 
+node operator: MOVE-CC-RL
+left: (M M M C C C . B)
+right: NIL
+
+
+----------------the children of ------------------------
+node name: N1 
+node parent: ROOT 
+node operator: MOVE-CM-LR
+left: (M M C C)
+right: (M C . B)
+
+--------------------are---------------------------------
+node name: N8 
+node parent: N1 
+node operator: MOVE-M-RL
+left: (M M M C C . B)
+right: (C)
+
+node name: N7 
+node parent: N1 
+node operator: MOVE-CM-RL
+left: (M M M C C C . B)
+right: NIL
+
+--------------------------------------------------------
+
+>>>Solve
+
+EXPLORED
+
+node name: N1 
+node parent: ROOT 
+node operator: MOVE-CM-LR
+left: (M M C C)
+right: (M C . B)
+
+node name: N2 
+node parent: ROOT 
+node operator: MOVE-CC-LR
+left: (M M M C)
+right: (C C . B)
+
+node name: N3 
+node parent: ROOT 
+node operator: MOVE-C-LR
+left: (M M M C C)
+right: (C . B)
+
+node name: ROOT 
+
+left: (M M M C C C . B)
+right: NIL
+
+
+UNEXPLORED
+
+node name: N4 
+node parent: N3 
+node operator: MOVE-C-RL
+left: (M M M C C C . B)
+right: NIL
+
+node name: N6 
+node parent: N2 
+node operator: MOVE-C-RL
+left: (M M M C C . B)
+right: (C)
+
+node name: N5 
+node parent: N2 
+node operator: MOVE-CC-RL
+left: (M M M C C C . B)
+right: NIL
+
+node name: N8 
+node parent: N1 
+node operator: MOVE-M-RL
+left: (M M M C C . B)
+right: (C)
+
+node name: N7 
+node parent: N1 
+node operator: MOVE-CM-RL
+left: (M M M C C C . B)
+right: NIL
+
+
+
+>>>Solve
+
+EXPLORED
+
+node name: N1 
+node parent: ROOT 
+node operator: MOVE-CM-LR
+left: (M M C C)
+right: (M C . B)
+
+node name: N2 
+node parent: ROOT 
+node operator: MOVE-CC-LR
+left: (M M M C)
+right: (C C . B)
+
+node name: N3 
+node parent: ROOT 
+node operator: MOVE-C-LR
+left: (M M M C C)
+right: (C . B)
+
+node name: ROOT 
+
+left: (M M M C C C . B)
+right: NIL
+
+
+UNEXPLORED
+
+node name: N6 
+node parent: N2 
+node operator: MOVE-C-RL
+left: (M M M C C . B)
+right: (C)
+
+node name: N5 
+node parent: N2 
+node operator: MOVE-CC-RL
+left: (M M M C C C . B)
+right: NIL
+
+node name: N8 
+node parent: N1 
+node operator: MOVE-M-RL
+left: (M M M C C . B)
+right: (C)
+
+node name: N7 
+node parent: N1 
+node operator: MOVE-CM-RL
+left: (M M M C C C . B)
+right: NIL
+
+
+----------------the children of ------------------------
+node name: N6 
+node parent: N2 
+node operator: MOVE-C-RL
+left: (M M M C C . B)
+right: (C)
+
+--------------------are---------------------------------
+node name: N11 
+node parent: N6 
+node operator: MOVE-C-LR
+left: (M M M C)
+right: (C C . B)
+
+node name: N10 
+node parent: N6 
+node operator: MOVE-M-LR
+left: (M M C C)
+right: (M C . B)
+
+node name: N9 
+node parent: N6 
+node operator: MOVE-CC-LR
+left: (M M M)
+right: (C C C . B)
+
+--------------------------------------------------------
+
+>>>Solve
+
+EXPLORED
+
+node name: N6 
+node parent: N2 
+node operator: MOVE-C-RL
+left: (M M M C C . B)
+right: (C)
+
+node name: N1 
+node parent: ROOT 
+node operator: MOVE-CM-LR
+left: (M M C C)
+right: (M C . B)
+
+node name: N2 
+node parent: ROOT 
+node operator: MOVE-CC-LR
+left: (M M M C)
+right: (C C . B)
+
+node name: N3 
+node parent: ROOT 
+node operator: MOVE-C-LR
+left: (M M M C C)
+right: (C . B)
+
+node name: ROOT 
+
+left: (M M M C C C . B)
+right: NIL
+
+
+UNEXPLORED
+
+node name: N5 
+node parent: N2 
+node operator: MOVE-CC-RL
+left: (M M M C C C . B)
+right: NIL
+
+node name: N8 
+node parent: N1 
+node operator: MOVE-M-RL
+left: (M M M C C . B)
+right: (C)
+
+node name: N7 
+node parent: N1 
+node operator: MOVE-CM-RL
+left: (M M M C C C . B)
+right: NIL
+
+node name: N11 
+node parent: N6 
+node operator: MOVE-C-LR
+left: (M M M C)
+right: (C C . B)
+
+node name: N10 
+node parent: N6 
+node operator: MOVE-M-LR
+left: (M M C C)
+right: (M C . B)
+
+node name: N9 
+node parent: N6 
+node operator: MOVE-CC-LR
+left: (M M M)
+right: (C C C . B)
+
+
+
+>>>Solve
+
+EXPLORED
+
+node name: N6 
+node parent: N2 
+node operator: MOVE-C-RL
+left: (M M M C C . B)
+right: (C)
+
+node name: N1 
+node parent: ROOT 
+node operator: MOVE-CM-LR
+left: (M M C C)
+right: (M C . B)
+
+node name: N2 
+node parent: ROOT 
+node operator: MOVE-CC-LR
+left: (M M M C)
+right: (C C . B)
+
+node name: N3 
+node parent: ROOT 
+node operator: MOVE-C-LR
+left: (M M M C C)
+right: (C . B)
+
+node name: ROOT 
+
+left: (M M M C C C . B)
+right: NIL
+
+
+UNEXPLORED
+
+node name: N8 
+node parent: N1 
+node operator: MOVE-M-RL
+left: (M M M C C . B)
+right: (C)
+
+node name: N7 
+node parent: N1 
+node operator: MOVE-CM-RL
+left: (M M M C C C . B)
+right: NIL
+
+node name: N11 
+node parent: N6 
+node operator: MOVE-C-LR
+left: (M M M C)
+right: (C C . B)
+
+node name: N10 
+node parent: N6 
+node operator: MOVE-M-LR
+left: (M M C C)
+right: (M C . B)
+
+node name: N9 
+node parent: N6 
+node operator: MOVE-CC-LR
+left: (M M M)
+right: (C C C . B)
+
+
+
+>>>Solve
+
+EXPLORED
+
+node name: N6 
+node parent: N2 
+node operator: MOVE-C-RL
+left: (M M M C C . B)
+right: (C)
+
+node name: N1 
+node parent: ROOT 
+node operator: MOVE-CM-LR
+left: (M M C C)
+right: (M C . B)
+
+node name: N2 
+node parent: ROOT 
+node operator: MOVE-CC-LR
+left: (M M M C)
+right: (C C . B)
+
+node name: N3 
+node parent: ROOT 
+node operator: MOVE-C-LR
+left: (M M M C C)
+right: (C . B)
+
+node name: ROOT 
+
+left: (M M M C C C . B)
+right: NIL
+
+
+UNEXPLORED
+
+node name: N7 
+node parent: N1 
+node operator: MOVE-CM-RL
+left: (M M M C C C . B)
+right: NIL
+
+node name: N11 
+node parent: N6 
+node operator: MOVE-C-LR
+left: (M M M C)
+right: (C C . B)
+
+node name: N10 
+node parent: N6 
+node operator: MOVE-M-LR
+left: (M M C C)
+right: (M C . B)
+
+node name: N9 
+node parent: N6 
+node operator: MOVE-CC-LR
+left: (M M M)
+right: (C C C . B)
+
+
+
+>>>Solve
+
+EXPLORED
+
+node name: N6 
+node parent: N2 
+node operator: MOVE-C-RL
+left: (M M M C C . B)
+right: (C)
+
+node name: N1 
+node parent: ROOT 
+node operator: MOVE-CM-LR
+left: (M M C C)
+right: (M C . B)
+
+node name: N2 
+node parent: ROOT 
+node operator: MOVE-CC-LR
+left: (M M M C)
+right: (C C . B)
+
+node name: N3 
+node parent: ROOT 
+node operator: MOVE-C-LR
+left: (M M M C C)
+right: (C . B)
+
+node name: ROOT 
+
+left: (M M M C C C . B)
+right: NIL
+
+
+UNEXPLORED
+
+node name: N11 
+node parent: N6 
+node operator: MOVE-C-LR
+left: (M M M C)
+right: (C C . B)
+
+node name: N10 
+node parent: N6 
+node operator: MOVE-M-LR
+left: (M M C C)
+right: (M C . B)
+
+node name: N9 
+node parent: N6 
+node operator: MOVE-CC-LR
+left: (M M M)
+right: (C C C . B)
+
+
+
+>>>Solve
+
+EXPLORED
+
+node name: N6 
+node parent: N2 
+node operator: MOVE-C-RL
+left: (M M M C C . B)
+right: (C)
+
+node name: N1 
+node parent: ROOT 
+node operator: MOVE-CM-LR
+left: (M M C C)
+right: (M C . B)
+
+node name: N2 
+node parent: ROOT 
+node operator: MOVE-CC-LR
+left: (M M M C)
+right: (C C . B)
+
+node name: N3 
+node parent: ROOT 
+node operator: MOVE-C-LR
+left: (M M M C C)
+right: (C . B)
+
+node name: ROOT 
+
+left: (M M M C C C . B)
+right: NIL
+
+
+UNEXPLORED
+
+node name: N10 
+node parent: N6 
+node operator: MOVE-M-LR
+left: (M M C C)
+right: (M C . B)
+
+node name: N9 
+node parent: N6 
+node operator: MOVE-CC-LR
+left: (M M M)
+right: (C C C . B)
+
+
+
+>>>Solve
+
+EXPLORED
+
+node name: N6 
+node parent: N2 
+node operator: MOVE-C-RL
+left: (M M M C C . B)
+right: (C)
+
+node name: N1 
+node parent: ROOT 
+node operator: MOVE-CM-LR
+left: (M M C C)
+right: (M C . B)
+
+node name: N2 
+node parent: ROOT 
+node operator: MOVE-CC-LR
+left: (M M M C)
+right: (C C . B)
+
+node name: N3 
+node parent: ROOT 
+node operator: MOVE-C-LR
+left: (M M M C C)
+right: (C . B)
+
+node name: ROOT 
+
+left: (M M M C C C . B)
+right: NIL
+
+
+UNEXPLORED
+
+node name: N9 
+node parent: N6 
+node operator: MOVE-CC-LR
+left: (M M M)
+right: (C C C . B)
+
+
+----------------the children of ------------------------
+node name: N9 
+node parent: N6 
+node operator: MOVE-CC-LR
+left: (M M M)
+right: (C C C . B)
+
+--------------------are---------------------------------
+node name: N13 
+node parent: N9 
+node operator: MOVE-C-RL
+left: (M M M C . B)
+right: (C C)
+
+node name: N12 
+node parent: N9 
+node operator: MOVE-CC-RL
+left: (M M M C C . B)
+right: (C)
+
+--------------------------------------------------------
+
+>>>Solve
+
+EXPLORED
+
+node name: N9 
+node parent: N6 
+node operator: MOVE-CC-LR
+left: (M M M)
+right: (C C C . B)
+
+node name: N6 
+node parent: N2 
+node operator: MOVE-C-RL
+left: (M M M C C . B)
+right: (C)
+
+node name: N1 
+node parent: ROOT 
+node operator: MOVE-CM-LR
+left: (M M C C)
+right: (M C . B)
+
+node name: N2 
+node parent: ROOT 
+node operator: MOVE-CC-LR
+left: (M M M C)
+right: (C C . B)
+
+node name: N3 
+node parent: ROOT 
+node operator: MOVE-C-LR
+left: (M M M C C)
+right: (C . B)
+
+node name: ROOT 
+
+left: (M M M C C C . B)
+right: NIL
+
+
+UNEXPLORED
+
+node name: N13 
+node parent: N9 
+node operator: MOVE-C-RL
+left: (M M M C . B)
+right: (C C)
+
+node name: N12 
+node parent: N9 
+node operator: MOVE-CC-RL
+left: (M M M C C . B)
+right: (C)
+
+
+----------------the children of ------------------------
+node name: N13 
+node parent: N9 
+node operator: MOVE-C-RL
+left: (M M M C . B)
+right: (C C)
+
+--------------------are---------------------------------
+node name: N15 
+node parent: N13 
+node operator: MOVE-C-LR
+left: (M M M)
+right: (C C C . B)
+
+node name: N14 
+node parent: N13 
+node operator: MOVE-MM-LR
+left: (M C)
+right: (M M C C . B)
+
+--------------------------------------------------------
+
+>>>Solve
+
+EXPLORED
+
+node name: N13 
+node parent: N9 
+node operator: MOVE-C-RL
+left: (M M M C . B)
+right: (C C)
+
+node name: N9 
+node parent: N6 
+node operator: MOVE-CC-LR
+left: (M M M)
+right: (C C C . B)
+
+node name: N6 
+node parent: N2 
+node operator: MOVE-C-RL
+left: (M M M C C . B)
+right: (C)
+
+node name: N1 
+node parent: ROOT 
+node operator: MOVE-CM-LR
+left: (M M C C)
+right: (M C . B)
+
+node name: N2 
+node parent: ROOT 
+node operator: MOVE-CC-LR
+left: (M M M C)
+right: (C C . B)
+
+node name: N3 
+node parent: ROOT 
+node operator: MOVE-C-LR
+left: (M M M C C)
+right: (C . B)
+
+node name: ROOT 
+
+left: (M M M C C C . B)
+right: NIL
+
+
+UNEXPLORED
+
+node name: N12 
+node parent: N9 
+node operator: MOVE-CC-RL
+left: (M M M C C . B)
+right: (C)
+
+node name: N15 
+node parent: N13 
+node operator: MOVE-C-LR
+left: (M M M)
+right: (C C C . B)
+
+node name: N14 
+node parent: N13 
+node operator: MOVE-MM-LR
+left: (M C)
+right: (M M C C . B)
+
+
+
+>>>Solve
+
+EXPLORED
+
+node name: N13 
+node parent: N9 
+node operator: MOVE-C-RL
+left: (M M M C . B)
+right: (C C)
+
+node name: N9 
+node parent: N6 
+node operator: MOVE-CC-LR
+left: (M M M)
+right: (C C C . B)
+
+node name: N6 
+node parent: N2 
+node operator: MOVE-C-RL
+left: (M M M C C . B)
+right: (C)
+
+node name: N1 
+node parent: ROOT 
+node operator: MOVE-CM-LR
+left: (M M C C)
+right: (M C . B)
+
+node name: N2 
+node parent: ROOT 
+node operator: MOVE-CC-LR
+left: (M M M C)
+right: (C C . B)
+
+node name: N3 
+node parent: ROOT 
+node operator: MOVE-C-LR
+left: (M M M C C)
+right: (C . B)
+
+node name: ROOT 
+
+left: (M M M C C C . B)
+right: NIL
+
+
+UNEXPLORED
+
+node name: N15 
+node parent: N13 
+node operator: MOVE-C-LR
+left: (M M M)
+right: (C C C . B)
+
+node name: N14 
+node parent: N13 
+node operator: MOVE-MM-LR
+left: (M C)
+right: (M M C C . B)
+
+
+
+>>>Solve
+
+EXPLORED
+
+node name: N13 
+node parent: N9 
+node operator: MOVE-C-RL
+left: (M M M C . B)
+right: (C C)
+
+node name: N9 
+node parent: N6 
+node operator: MOVE-CC-LR
+left: (M M M)
+right: (C C C . B)
+
+node name: N6 
+node parent: N2 
+node operator: MOVE-C-RL
+left: (M M M C C . B)
+right: (C)
+
+node name: N1 
+node parent: ROOT 
+node operator: MOVE-CM-LR
+left: (M M C C)
+right: (M C . B)
+
+node name: N2 
+node parent: ROOT 
+node operator: MOVE-CC-LR
+left: (M M M C)
+right: (C C . B)
+
+node name: N3 
+node parent: ROOT 
+node operator: MOVE-C-LR
+left: (M M M C C)
+right: (C . B)
+
+node name: ROOT 
+
+left: (M M M C C C . B)
+right: NIL
+
+
+UNEXPLORED
+
+node name: N14 
+node parent: N13 
+node operator: MOVE-MM-LR
+left: (M C)
+right: (M M C C . B)
+
+
+----------------the children of ------------------------
+node name: N14 
+node parent: N13 
+node operator: MOVE-MM-LR
+left: (M C)
+right: (M M C C . B)
+
+--------------------are---------------------------------
+node name: N17 
+node parent: N14 
+node operator: MOVE-MM-RL
+left: (M M M C . B)
+right: (C C)
+
+node name: N16 
+node parent: N14 
+node operator: MOVE-CM-RL
+left: (M M C C . B)
+right: (M C)
+
+--------------------------------------------------------
+
+>>>Solve
+
+EXPLORED
+
+node name: N14 
+node parent: N13 
+node operator: MOVE-MM-LR
+left: (M C)
+right: (M M C C . B)
+
+node name: N13 
+node parent: N9 
+node operator: MOVE-C-RL
+left: (M M M C . B)
+right: (C C)
+
+node name: N9 
+node parent: N6 
+node operator: MOVE-CC-LR
+left: (M M M)
+right: (C C C . B)
+
+node name: N6 
+node parent: N2 
+node operator: MOVE-C-RL
+left: (M M M C C . B)
+right: (C)
+
+node name: N1 
+node parent: ROOT 
+node operator: MOVE-CM-LR
+left: (M M C C)
+right: (M C . B)
+
+node name: N2 
+node parent: ROOT 
+node operator: MOVE-CC-LR
+left: (M M M C)
+right: (C C . B)
+
+node name: N3 
+node parent: ROOT 
+node operator: MOVE-C-LR
+left: (M M M C C)
+right: (C . B)
+
+node name: ROOT 
+
+left: (M M M C C C . B)
+right: NIL
+
+
+UNEXPLORED
+
+node name: N17 
+node parent: N14 
+node operator: MOVE-MM-RL
+left: (M M M C . B)
+right: (C C)
+
+node name: N16 
+node parent: N14 
+node operator: MOVE-CM-RL
+left: (M M C C . B)
+right: (M C)
+
+
+
+>>>Solve
+
+EXPLORED
+
+node name: N14 
+node parent: N13 
+node operator: MOVE-MM-LR
+left: (M C)
+right: (M M C C . B)
+
+node name: N13 
+node parent: N9 
+node operator: MOVE-C-RL
+left: (M M M C . B)
+right: (C C)
+
+node name: N9 
+node parent: N6 
+node operator: MOVE-CC-LR
+left: (M M M)
+right: (C C C . B)
+
+node name: N6 
+node parent: N2 
+node operator: MOVE-C-RL
+left: (M M M C C . B)
+right: (C)
+
+node name: N1 
+node parent: ROOT 
+node operator: MOVE-CM-LR
+left: (M M C C)
+right: (M C . B)
+
+node name: N2 
+node parent: ROOT 
+node operator: MOVE-CC-LR
+left: (M M M C)
+right: (C C . B)
+
+node name: N3 
+node parent: ROOT 
+node operator: MOVE-C-LR
+left: (M M M C C)
+right: (C . B)
+
+node name: ROOT 
+
+left: (M M M C C C . B)
+right: NIL
+
+
+UNEXPLORED
+
+node name: N16 
+node parent: N14 
+node operator: MOVE-CM-RL
+left: (M M C C . B)
+right: (M C)
+
+
+----------------the children of ------------------------
+node name: N16 
+node parent: N14 
+node operator: MOVE-CM-RL
+left: (M M C C . B)
+right: (M C)
+
+--------------------are---------------------------------
+node name: N19 
+node parent: N16 
+node operator: MOVE-MM-LR
+left: (C C)
+right: (M M M C . B)
+
+node name: N18 
+node parent: N16 
+node operator: MOVE-CM-LR
+left: (M C)
+right: (M M C C . B)
+
+--------------------------------------------------------
+
+>>>Solve
+
+EXPLORED
+
+node name: N16 
+node parent: N14 
+node operator: MOVE-CM-RL
+left: (M M C C . B)
+right: (M C)
+
+node name: N14 
+node parent: N13 
+node operator: MOVE-MM-LR
+left: (M C)
+right: (M M C C . B)
+
+node name: N13 
+node parent: N9 
+node operator: MOVE-C-RL
+left: (M M M C . B)
+right: (C C)
+
+node name: N9 
+node parent: N6 
+node operator: MOVE-CC-LR
+left: (M M M)
+right: (C C C . B)
+
+node name: N6 
+node parent: N2 
+node operator: MOVE-C-RL
+left: (M M M C C . B)
+right: (C)
+
+node name: N1 
+node parent: ROOT 
+node operator: MOVE-CM-LR
+left: (M M C C)
+right: (M C . B)
+
+node name: N2 
+node parent: ROOT 
+node operator: MOVE-CC-LR
+left: (M M M C)
+right: (C C . B)
+
+node name: N3 
+node parent: ROOT 
+node operator: MOVE-C-LR
+left: (M M M C C)
+right: (C . B)
+
+node name: ROOT 
+
+left: (M M M C C C . B)
+right: NIL
+
+
+UNEXPLORED
+
+node name: N19 
+node parent: N16 
+node operator: MOVE-MM-LR
+left: (C C)
+right: (M M M C . B)
+
+node name: N18 
+node parent: N16 
+node operator: MOVE-CM-LR
+left: (M C)
+right: (M M C C . B)
+
+
+----------------the children of ------------------------
+node name: N19 
+node parent: N16 
+node operator: MOVE-MM-LR
+left: (C C)
+right: (M M M C . B)
+
+--------------------are---------------------------------
+node name: N21 
+node parent: N19 
+node operator: MOVE-C-RL
+left: (C C C . B)
+right: (M M M)
+
+node name: N20 
+node parent: N19 
+node operator: MOVE-MM-RL
+left: (M M C C . B)
+right: (M C)
+
+--------------------------------------------------------
+
+>>>Solve
+
+EXPLORED
+
+node name: N19 
+node parent: N16 
+node operator: MOVE-MM-LR
+left: (C C)
+right: (M M M C . B)
+
+node name: N16 
+node parent: N14 
+node operator: MOVE-CM-RL
+left: (M M C C . B)
+right: (M C)
+
+node name: N14 
+node parent: N13 
+node operator: MOVE-MM-LR
+left: (M C)
+right: (M M C C . B)
+
+node name: N13 
+node parent: N9 
+node operator: MOVE-C-RL
+left: (M M M C . B)
+right: (C C)
+
+node name: N9 
+node parent: N6 
+node operator: MOVE-CC-LR
+left: (M M M)
+right: (C C C . B)
+
+node name: N6 
+node parent: N2 
+node operator: MOVE-C-RL
+left: (M M M C C . B)
+right: (C)
+
+node name: N1 
+node parent: ROOT 
+node operator: MOVE-CM-LR
+left: (M M C C)
+right: (M C . B)
+
+node name: N2 
+node parent: ROOT 
+node operator: MOVE-CC-LR
+left: (M M M C)
+right: (C C . B)
+
+node name: N3 
+node parent: ROOT 
+node operator: MOVE-C-LR
+left: (M M M C C)
+right: (C . B)
+
+node name: ROOT 
+
+left: (M M M C C C . B)
+right: NIL
+
+
+UNEXPLORED
+
+node name: N18 
+node parent: N16 
+node operator: MOVE-CM-LR
+left: (M C)
+right: (M M C C . B)
+
+node name: N21 
+node parent: N19 
+node operator: MOVE-C-RL
+left: (C C C . B)
+right: (M M M)
+
+node name: N20 
+node parent: N19 
+node operator: MOVE-MM-RL
+left: (M M C C . B)
+right: (M C)
+
+
+
+>>>Solve
+
+EXPLORED
+
+node name: N19 
+node parent: N16 
+node operator: MOVE-MM-LR
+left: (C C)
+right: (M M M C . B)
+
+node name: N16 
+node parent: N14 
+node operator: MOVE-CM-RL
+left: (M M C C . B)
+right: (M C)
+
+node name: N14 
+node parent: N13 
+node operator: MOVE-MM-LR
+left: (M C)
+right: (M M C C . B)
+
+node name: N13 
+node parent: N9 
+node operator: MOVE-C-RL
+left: (M M M C . B)
+right: (C C)
+
+node name: N9 
+node parent: N6 
+node operator: MOVE-CC-LR
+left: (M M M)
+right: (C C C . B)
+
+node name: N6 
+node parent: N2 
+node operator: MOVE-C-RL
+left: (M M M C C . B)
+right: (C)
+
+node name: N1 
+node parent: ROOT 
+node operator: MOVE-CM-LR
+left: (M M C C)
+right: (M C . B)
+
+node name: N2 
+node parent: ROOT 
+node operator: MOVE-CC-LR
+left: (M M M C)
+right: (C C . B)
+
+node name: N3 
+node parent: ROOT 
+node operator: MOVE-C-LR
+left: (M M M C C)
+right: (C . B)
+
+node name: ROOT 
+
+left: (M M M C C C . B)
+right: NIL
+
+
+UNEXPLORED
+
+node name: N21 
+node parent: N19 
+node operator: MOVE-C-RL
+left: (C C C . B)
+right: (M M M)
+
+node name: N20 
+node parent: N19 
+node operator: MOVE-MM-RL
+left: (M M C C . B)
+right: (M C)
+
+
+----------------the children of ------------------------
+node name: N21 
+node parent: N19 
+node operator: MOVE-C-RL
+left: (C C C . B)
+right: (M M M)
+
+--------------------are---------------------------------
+node name: N23 
+node parent: N21 
+node operator: MOVE-C-LR
+left: (C C)
+right: (M M M C . B)
+
+node name: N22 
+node parent: N21 
+node operator: MOVE-CC-LR
+left: (C)
+right: (M M M C C . B)
+
+--------------------------------------------------------
+
+>>>Solve
+
+EXPLORED
+
+node name: N21 
+node parent: N19 
+node operator: MOVE-C-RL
+left: (C C C . B)
+right: (M M M)
+
+node name: N19 
+node parent: N16 
+node operator: MOVE-MM-LR
+left: (C C)
+right: (M M M C . B)
+
+node name: N16 
+node parent: N14 
+node operator: MOVE-CM-RL
+left: (M M C C . B)
+right: (M C)
+
+node name: N14 
+node parent: N13 
+node operator: MOVE-MM-LR
+left: (M C)
+right: (M M C C . B)
+
+node name: N13 
+node parent: N9 
+node operator: MOVE-C-RL
+left: (M M M C . B)
+right: (C C)
+
+node name: N9 
+node parent: N6 
+node operator: MOVE-CC-LR
+left: (M M M)
+right: (C C C . B)
+
+node name: N6 
+node parent: N2 
+node operator: MOVE-C-RL
+left: (M M M C C . B)
+right: (C)
+
+node name: N1 
+node parent: ROOT 
+node operator: MOVE-CM-LR
+left: (M M C C)
+right: (M C . B)
+
+node name: N2 
+node parent: ROOT 
+node operator: MOVE-CC-LR
+left: (M M M C)
+right: (C C . B)
+
+node name: N3 
+node parent: ROOT 
+node operator: MOVE-C-LR
+left: (M M M C C)
+right: (C . B)
+
+node name: ROOT 
+
+left: (M M M C C C . B)
+right: NIL
+
+
+UNEXPLORED
+
+node name: N20 
+node parent: N19 
+node operator: MOVE-MM-RL
+left: (M M C C . B)
+right: (M C)
+
+node name: N23 
+node parent: N21 
+node operator: MOVE-C-LR
+left: (C C)
+right: (M M M C . B)
+
+node name: N22 
+node parent: N21 
+node operator: MOVE-CC-LR
+left: (C)
+right: (M M M C C . B)
+
+
+
+>>>Solve
+
+EXPLORED
+
+node name: N21 
+node parent: N19 
+node operator: MOVE-C-RL
+left: (C C C . B)
+right: (M M M)
+
+node name: N19 
+node parent: N16 
+node operator: MOVE-MM-LR
+left: (C C)
+right: (M M M C . B)
+
+node name: N16 
+node parent: N14 
+node operator: MOVE-CM-RL
+left: (M M C C . B)
+right: (M C)
+
+node name: N14 
+node parent: N13 
+node operator: MOVE-MM-LR
+left: (M C)
+right: (M M C C . B)
+
+node name: N13 
+node parent: N9 
+node operator: MOVE-C-RL
+left: (M M M C . B)
+right: (C C)
+
+node name: N9 
+node parent: N6 
+node operator: MOVE-CC-LR
+left: (M M M)
+right: (C C C . B)
+
+node name: N6 
+node parent: N2 
+node operator: MOVE-C-RL
+left: (M M M C C . B)
+right: (C)
+
+node name: N1 
+node parent: ROOT 
+node operator: MOVE-CM-LR
+left: (M M C C)
+right: (M C . B)
+
+node name: N2 
+node parent: ROOT 
+node operator: MOVE-CC-LR
+left: (M M M C)
+right: (C C . B)
+
+node name: N3 
+node parent: ROOT 
+node operator: MOVE-C-LR
+left: (M M M C C)
+right: (C . B)
+
+node name: ROOT 
+
+left: (M M M C C C . B)
+right: NIL
+
+
+UNEXPLORED
+
+node name: N23 
+node parent: N21 
+node operator: MOVE-C-LR
+left: (C C)
+right: (M M M C . B)
+
+node name: N22 
+node parent: N21 
+node operator: MOVE-CC-LR
+left: (C)
+right: (M M M C C . B)
+
+
+
+>>>Solve
+
+EXPLORED
+
+node name: N21 
+node parent: N19 
+node operator: MOVE-C-RL
+left: (C C C . B)
+right: (M M M)
+
+node name: N19 
+node parent: N16 
+node operator: MOVE-MM-LR
+left: (C C)
+right: (M M M C . B)
+
+node name: N16 
+node parent: N14 
+node operator: MOVE-CM-RL
+left: (M M C C . B)
+right: (M C)
+
+node name: N14 
+node parent: N13 
+node operator: MOVE-MM-LR
+left: (M C)
+right: (M M C C . B)
+
+node name: N13 
+node parent: N9 
+node operator: MOVE-C-RL
+left: (M M M C . B)
+right: (C C)
+
+node name: N9 
+node parent: N6 
+node operator: MOVE-CC-LR
+left: (M M M)
+right: (C C C . B)
+
+node name: N6 
+node parent: N2 
+node operator: MOVE-C-RL
+left: (M M M C C . B)
+right: (C)
+
+node name: N1 
+node parent: ROOT 
+node operator: MOVE-CM-LR
+left: (M M C C)
+right: (M C . B)
+
+node name: N2 
+node parent: ROOT 
+node operator: MOVE-CC-LR
+left: (M M M C)
+right: (C C . B)
+
+node name: N3 
+node parent: ROOT 
+node operator: MOVE-C-LR
+left: (M M M C C)
+right: (C . B)
+
+node name: ROOT 
+
+left: (M M M C C C . B)
+right: NIL
+
+
+UNEXPLORED
+
+node name: N22 
+node parent: N21 
+node operator: MOVE-CC-LR
+left: (C)
+right: (M M M C C . B)
+
+
+----------------the children of ------------------------
+node name: N22 
+node parent: N21 
+node operator: MOVE-CC-LR
+left: (C)
+right: (M M M C C . B)
+
+--------------------are---------------------------------
+node name: N26 
+node parent: N22 
+node operator: MOVE-C-RL
+left: (C C . B)
+right: (M M M C)
+
+node name: N25 
+node parent: N22 
+node operator: MOVE-M-RL
+left: (M C . B)
+right: (M M C C)
+
+node name: N24 
+node parent: N22 
+node operator: MOVE-CC-RL
+left: (C C C . B)
+right: (M M M)
+
+--------------------------------------------------------
+
+>>>Solve
+
+EXPLORED
+
+node name: N22 
+node parent: N21 
+node operator: MOVE-CC-LR
+left: (C)
+right: (M M M C C . B)
+
+node name: N21 
+node parent: N19 
+node operator: MOVE-C-RL
+left: (C C C . B)
+right: (M M M)
+
+node name: N19 
+node parent: N16 
+node operator: MOVE-MM-LR
+left: (C C)
+right: (M M M C . B)
+
+node name: N16 
+node parent: N14 
+node operator: MOVE-CM-RL
+left: (M M C C . B)
+right: (M C)
+
+node name: N14 
+node parent: N13 
+node operator: MOVE-MM-LR
+left: (M C)
+right: (M M C C . B)
+
+node name: N13 
+node parent: N9 
+node operator: MOVE-C-RL
+left: (M M M C . B)
+right: (C C)
+
+node name: N9 
+node parent: N6 
+node operator: MOVE-CC-LR
+left: (M M M)
+right: (C C C . B)
+
+node name: N6 
+node parent: N2 
+node operator: MOVE-C-RL
+left: (M M M C C . B)
+right: (C)
+
+node name: N1 
+node parent: ROOT 
+node operator: MOVE-CM-LR
+left: (M M C C)
+right: (M C . B)
+
+node name: N2 
+node parent: ROOT 
+node operator: MOVE-CC-LR
+left: (M M M C)
+right: (C C . B)
+
+node name: N3 
+node parent: ROOT 
+node operator: MOVE-C-LR
+left: (M M M C C)
+right: (C . B)
+
+node name: ROOT 
+
+left: (M M M C C C . B)
+right: NIL
+
+
+UNEXPLORED
+
+node name: N26 
+node parent: N22 
+node operator: MOVE-C-RL
+left: (C C . B)
+right: (M M M C)
+
+node name: N25 
+node parent: N22 
+node operator: MOVE-M-RL
+left: (M C . B)
+right: (M M C C)
+
+node name: N24 
+node parent: N22 
+node operator: MOVE-CC-RL
+left: (C C C . B)
+right: (M M M)
+
+
+----------------the children of ------------------------
+node name: N26 
+node parent: N22 
+node operator: MOVE-C-RL
+left: (C C . B)
+right: (M M M C)
+
+--------------------are---------------------------------
+node name: N28 
+node parent: N26 
+node operator: MOVE-C-LR
+left: (C)
+right: (M M M C C . B)
+
+node name: N27 
+node parent: N26 
+node operator: MOVE-CC-LR
+left: NIL
+right: (M M M C C C . B)
+
+--------------------------------------------------------
+
+>>>Solve
+
+EXPLORED
+
+node name: N26 
+node parent: N22 
+node operator: MOVE-C-RL
+left: (C C . B)
+right: (M M M C)
+
+node name: N22 
+node parent: N21 
+node operator: MOVE-CC-LR
+left: (C)
+right: (M M M C C . B)
+
+node name: N21 
+node parent: N19 
+node operator: MOVE-C-RL
+left: (C C C . B)
+right: (M M M)
+
+node name: N19 
+node parent: N16 
+node operator: MOVE-MM-LR
+left: (C C)
+right: (M M M C . B)
+
+node name: N16 
+node parent: N14 
+node operator: MOVE-CM-RL
+left: (M M C C . B)
+right: (M C)
+
+node name: N14 
+node parent: N13 
+node operator: MOVE-MM-LR
+left: (M C)
+right: (M M C C . B)
+
+node name: N13 
+node parent: N9 
+node operator: MOVE-C-RL
+left: (M M M C . B)
+right: (C C)
+
+node name: N9 
+node parent: N6 
+node operator: MOVE-CC-LR
+left: (M M M)
+right: (C C C . B)
+
+node name: N6 
+node parent: N2 
+node operator: MOVE-C-RL
+left: (M M M C C . B)
+right: (C)
+
+node name: N1 
+node parent: ROOT 
+node operator: MOVE-CM-LR
+left: (M M C C)
+right: (M C . B)
+
+node name: N2 
+node parent: ROOT 
+node operator: MOVE-CC-LR
+left: (M M M C)
+right: (C C . B)
+
+node name: N3 
+node parent: ROOT 
+node operator: MOVE-C-LR
+left: (M M M C C)
+right: (C . B)
+
+node name: ROOT 
+
+left: (M M M C C C . B)
+right: NIL
+
+
+UNEXPLORED
+
+node name: N25 
+node parent: N22 
+node operator: MOVE-M-RL
+left: (M C . B)
+right: (M M C C)
+
+node name: N24 
+node parent: N22 
+node operator: MOVE-CC-RL
+left: (C C C . B)
+right: (M M M)
+
+node name: N28 
+node parent: N26 
+node operator: MOVE-C-LR
+left: (C)
+right: (M M M C C . B)
+
+node name: N27 
+node parent: N26 
+node operator: MOVE-CC-LR
+left: NIL
+right: (M M M C C C . B)
+
+
+----------------the children of ------------------------
+node name: N25 
+node parent: N22 
+node operator: MOVE-M-RL
+left: (M C . B)
+right: (M M C C)
+
+--------------------are---------------------------------
+node name: N30 
+node parent: N25 
+node operator: MOVE-M-LR
+left: (C)
+right: (M M M C C . B)
+
+node name: N29 
+node parent: N25 
+node operator: MOVE-CM-LR
+left: NIL
+right: (M M M C C C . B)
+
+--------------------------------------------------------
+
+>>>Solve
+
+EXPLORED
+
+node name: N25 
+node parent: N22 
+node operator: MOVE-M-RL
+left: (M C . B)
+right: (M M C C)
+
+node name: N26 
+node parent: N22 
+node operator: MOVE-C-RL
+left: (C C . B)
+right: (M M M C)
+
+node name: N22 
+node parent: N21 
+node operator: MOVE-CC-LR
+left: (C)
+right: (M M M C C . B)
+
+node name: N21 
+node parent: N19 
+node operator: MOVE-C-RL
+left: (C C C . B)
+right: (M M M)
+
+node name: N19 
+node parent: N16 
+node operator: MOVE-MM-LR
+left: (C C)
+right: (M M M C . B)
+
+node name: N16 
+node parent: N14 
+node operator: MOVE-CM-RL
+left: (M M C C . B)
+right: (M C)
+
+node name: N14 
+node parent: N13 
+node operator: MOVE-MM-LR
+left: (M C)
+right: (M M C C . B)
+
+node name: N13 
+node parent: N9 
+node operator: MOVE-C-RL
+left: (M M M C . B)
+right: (C C)
+
+node name: N9 
+node parent: N6 
+node operator: MOVE-CC-LR
+left: (M M M)
+right: (C C C . B)
+
+node name: N6 
+node parent: N2 
+node operator: MOVE-C-RL
+left: (M M M C C . B)
+right: (C)
+
+node name: N1 
+node parent: ROOT 
+node operator: MOVE-CM-LR
+left: (M M C C)
+right: (M C . B)
+
+node name: N2 
+node parent: ROOT 
+node operator: MOVE-CC-LR
+left: (M M M C)
+right: (C C . B)
+
+node name: N3 
+node parent: ROOT 
+node operator: MOVE-C-LR
+left: (M M M C C)
+right: (C . B)
+
+node name: ROOT 
+
+left: (M M M C C C . B)
+right: NIL
+
+
+UNEXPLORED
+
+node name: N24 
+node parent: N22 
+node operator: MOVE-CC-RL
+left: (C C C . B)
+right: (M M M)
+
+node name: N28 
+node parent: N26 
+node operator: MOVE-C-LR
+left: (C)
+right: (M M M C C . B)
+
+node name: N27 
+node parent: N26 
+node operator: MOVE-CC-LR
+left: NIL
+right: (M M M C C C . B)
+
+node name: N30 
+node parent: N25 
+node operator: MOVE-M-LR
+left: (C)
+right: (M M M C C . B)
+
+node name: N29 
+node parent: N25 
+node operator: MOVE-CM-LR
+left: NIL
+right: (M M M C C C . B)
+
+
+
+>>>Solve
+
+EXPLORED
+
+node name: N25 
+node parent: N22 
+node operator: MOVE-M-RL
+left: (M C . B)
+right: (M M C C)
+
+node name: N26 
+node parent: N22 
+node operator: MOVE-C-RL
+left: (C C . B)
+right: (M M M C)
+
+node name: N22 
+node parent: N21 
+node operator: MOVE-CC-LR
+left: (C)
+right: (M M M C C . B)
+
+node name: N21 
+node parent: N19 
+node operator: MOVE-C-RL
+left: (C C C . B)
+right: (M M M)
+
+node name: N19 
+node parent: N16 
+node operator: MOVE-MM-LR
+left: (C C)
+right: (M M M C . B)
+
+node name: N16 
+node parent: N14 
+node operator: MOVE-CM-RL
+left: (M M C C . B)
+right: (M C)
+
+node name: N14 
+node parent: N13 
+node operator: MOVE-MM-LR
+left: (M C)
+right: (M M C C . B)
+
+node name: N13 
+node parent: N9 
+node operator: MOVE-C-RL
+left: (M M M C . B)
+right: (C C)
+
+node name: N9 
+node parent: N6 
+node operator: MOVE-CC-LR
+left: (M M M)
+right: (C C C . B)
+
+node name: N6 
+node parent: N2 
+node operator: MOVE-C-RL
+left: (M M M C C . B)
+right: (C)
+
+node name: N1 
+node parent: ROOT 
+node operator: MOVE-CM-LR
+left: (M M C C)
+right: (M C . B)
+
+node name: N2 
+node parent: ROOT 
+node operator: MOVE-CC-LR
+left: (M M M C)
+right: (C C . B)
+
+node name: N3 
+node parent: ROOT 
+node operator: MOVE-C-LR
+left: (M M M C C)
+right: (C . B)
+
+node name: ROOT 
+
+left: (M M M C C C . B)
+right: NIL
+
+
+UNEXPLORED
+
+node name: N28 
+node parent: N26 
+node operator: MOVE-C-LR
+left: (C)
+right: (M M M C C . B)
+
+node name: N27 
+node parent: N26 
+node operator: MOVE-CC-LR
+left: NIL
+right: (M M M C C C . B)
+
+node name: N30 
+node parent: N25 
+node operator: MOVE-M-LR
+left: (C)
+right: (M M M C C . B)
+
+node name: N29 
+node parent: N25 
+node operator: MOVE-CM-LR
+left: NIL
+right: (M M M C C C . B)
+
+
+
+>>>Solve
+
+EXPLORED
+
+node name: N25 
+node parent: N22 
+node operator: MOVE-M-RL
+left: (M C . B)
+right: (M M C C)
+
+node name: N26 
+node parent: N22 
+node operator: MOVE-C-RL
+left: (C C . B)
+right: (M M M C)
+
+node name: N22 
+node parent: N21 
+node operator: MOVE-CC-LR
+left: (C)
+right: (M M M C C . B)
+
+node name: N21 
+node parent: N19 
+node operator: MOVE-C-RL
+left: (C C C . B)
+right: (M M M)
+
+node name: N19 
+node parent: N16 
+node operator: MOVE-MM-LR
+left: (C C)
+right: (M M M C . B)
+
+node name: N16 
+node parent: N14 
+node operator: MOVE-CM-RL
+left: (M M C C . B)
+right: (M C)
+
+node name: N14 
+node parent: N13 
+node operator: MOVE-MM-LR
+left: (M C)
+right: (M M C C . B)
+
+node name: N13 
+node parent: N9 
+node operator: MOVE-C-RL
+left: (M M M C . B)
+right: (C C)
+
+node name: N9 
+node parent: N6 
+node operator: MOVE-CC-LR
+left: (M M M)
+right: (C C C . B)
+
+node name: N6 
+node parent: N2 
+node operator: MOVE-C-RL
+left: (M M M C C . B)
+right: (C)
+
+node name: N1 
+node parent: ROOT 
+node operator: MOVE-CM-LR
+left: (M M C C)
+right: (M C . B)
+
+node name: N2 
+node parent: ROOT 
+node operator: MOVE-CC-LR
+left: (M M M C)
+right: (C C . B)
+
+node name: N3 
+node parent: ROOT 
+node operator: MOVE-C-LR
+left: (M M M C C)
+right: (C . B)
+
+node name: ROOT 
+
+left: (M M M C C C . B)
+right: NIL
+
+
+UNEXPLORED
+
+node name: N27 
+node parent: N26 
+node operator: MOVE-CC-LR
+left: NIL
+right: (M M M C C C . B)
+
+node name: N30 
+node parent: N25 
+node operator: MOVE-M-LR
+left: (C)
+right: (M M M C C . B)
+
+node name: N29 
+node parent: N25 
+node operator: MOVE-CM-LR
+left: NIL
+right: (M M M C C C . B)
+
+
+
+
+move-cc-lr
+move-c-rl
+move-cc-lr
+move-c-rl
+move-mm-lr
+move-cm-rl
+move-mm-lr
+move-c-rl
+move-cc-lr
+move-c-rl
+move-cc-lr
+NIL
+[4]> ( bye )
+Bye.

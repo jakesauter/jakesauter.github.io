@@ -1,0 +1,63 @@
+;; Dribble of #<IO TERMINAL-STREAM> started on 2017-05-03 19:34:12.
+#<OUTPUT BUFFERED FILE-STREAM CHARACTER #P"task_files/task_10.1_demo.txt">
+[2]> ( load "dobo.l" )
+;; Loading file dobo.l ...
+;;  Loading file lp.l ...
+;;  Loaded file lp.l
+;; Loaded file dobo.l
+T
+[3]> ( dobo-demo-10.1 )
+Initializing a 9-3-1 neural network ...
+The neural network: 
+--------Weights--------
+  1
+  1
+  1
+
+
+  1  1  1
+  1  1  1
+  1  1  1
+  1  1  1
+  1  1  1
+  1  1  1
+  1  1  1
+  1  1  1
+  1  1  1
+
+--------Biases---------
+  0
+
+
+  0  0  0
+
+The list representation of the neural network: 
+(1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0)
+maninpulated list: 
+(0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0)
+The maninpulated list transformed to the weights of a neural network: 
+--------Weights--------
+  1
+  1
+  1
+
+
+  0  1  1
+  1  1  1
+  1  1  1
+  1  1  1
+  1  1  1
+  1  1  1
+  1  1  1
+  1  1  1
+  1  1  1
+
+--------Biases---------
+  0
+
+
+  0  0  0
+
+NIL
+[4]> ( bye )
+Bye.

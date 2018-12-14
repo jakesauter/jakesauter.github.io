@@ -1,0 +1,90 @@
+;; Dribble of #<IO TERMINAL-STREAM> started on 2017-04-11 12:43:07.
+#<OUTPUT BUFFERED FILE-STREAM CHARACTER #P"task_files/task_6_demo.txt">
+[2]> ( load "dobo.l" )
+;; Loading file dobo.l ...
+;;  Loading file lp.l ...
+;;  Loaded file lp.l
+;; Loaded file dobo.l
+T
+[3]> ( dobo-demo-6 )
+Making a table lookup player ...
+Making a starting game state ...
+
+Name: TABLE-LOOKUP-PLAYER
+Wins: 0
+Losses: 0
+Win Ratio: Undetermined
+
+
+  1  1  1
+  1  1  1
+  1  1  1
+
+Begin TABLE-LOOKUP-PLAYER move ...
+searching database for best move ...
+probability-list: (1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1)
+selecting ((0 2) (1 2) (2 2)) for my move 
+max-p: 0, max: 1.1
+
+  1  1  0
+  1  1  0
+  1  1  0
+
+Begin TABLE-LOOKUP-PLAYER move ...
+searching database for best move ...
+probability-list: (1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1)
+selecting ((0 1) (1 1) (2 1)) for my move 
+max-p: 0, max: 1.1
+
+  1  0  0
+  1  0  0
+  1  0  0
+
+Begin TABLE-LOOKUP-PLAYER move ...
+searching database for best move ...
+probability-list: (1.1 1.1 1.1 1.1 1.1 1.1)
+selecting ((0 0) (1 0) (2 0)) for my move 
+max-p: 0, max: 1.1
+NIL
+[4]> ( dobo-demo-6 )
+Making a table lookup player ...
+Making a starting game state ...
+
+Name: TABLE-LOOKUP-PLAYER
+Wins: 0
+Losses: 0
+Win Ratio: Undetermined
+
+
+  1  1  1
+  1  1  1
+  1  1  1
+
+Begin TABLE-LOOKUP-PLAYER move ...
+searching database for best move ...
+probability-list: (1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1)
+selecting ((0 2) (1 2) (2 2)) for my move 
+max-p: 0, max: 1.1
+
+  1  1  0
+  1  1  0
+  1  1  0
+
+Begin TABLE-LOOKUP-PLAYER move ...
+searching database for best move ...
+probability-list: (1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1 1.1)
+selecting ((0 1) (1 1) (2 1)) for my move 
+max-p: 0, max: 1.1
+
+  1  0  0
+  1  0  0
+  1  0  0
+
+Begin TABLE-LOOKUP-PLAYER move ...
+searching database for best move ...
+probability-list: (1.1 1.1 1.1 1.1 1.1 1.1)
+selecting ((0 0) (1 0) (2 0)) for my move 
+max-p: 0, max: 1.1
+NIL
+[5]> ( bye )
+Bye.

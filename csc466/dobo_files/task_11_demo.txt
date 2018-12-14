@@ -1,0 +1,67 @@
+;; Dribble of #<IO TERMINAL-STREAM> started on 2017-05-03 19:18:25.
+#<OUTPUT BUFFERED FILE-STREAM CHARACTER #P"task_files/task_11_demo.txt">
+[2]> ( Load "dobo.l" )
+;; Loading file dobo.l ...
+;;  Loading file lp.l ...
+;;  Loaded file lp.l
+;; Loaded file dobo.l
+T
+[3]> ( dobo-demo-11 )
+Making a neural net player ...
+Making a starting game state ...
+
+Name: NEURAL-NET-PLAYER
+Wins: 0
+Losses: 0
+Win Ratio: Undetermined
+
+
+  1  1  1
+  1  1  1
+  1  1  1
+
+Begin NEURAL-NET-PLAYER move ...
+searching database for best move ...
+probability-list: 
+(0.46383244 0.47094998 0.45549908 0.4729389 0.47907862 0.47776917 0.48582932 0.4821831 0.48580974 0.4826709 0.4836527 0.47031483 0.48125437 0.47525418 0.470441 0.47267646
+ 0.4666509 0.47743803 0.4648273 0.474945 0.47917774 0.4629539 0.4668293 0.4767274 0.4683234 0.47683164 0.4799228)
+selecting ((0 0) (1 0) (2 0)) for my move 
+max-p: 6, max: 0.48582932
+
+  0  1  1
+  0  1  1
+  0  1  1
+
+
+  0  1  1
+  0  1  1
+  0  1  1
+
+Begin NEURAL-NET-PLAYER move ...
+searching database for best move ...
+probability-list: (0.48040196 0.49562734 0.46248376 0.48126495 0.48016876 0.49086183 0.5002727 0.50398624 0.47647467 0.48478898 0.4797574 0.4845918 0.4784917 0.47081718 0.49094176)
+selecting ((2 2)) for my move 
+max-p: 7, max: 0.50398624
+
+  0  1  1
+  0  1  1
+  0  1  0
+
+
+  0  1  1
+  0  1  1
+  0  1  0
+
+Begin NEURAL-NET-PLAYER move ...
+searching database for best move ...
+probability-list: (0.48040196 0.500256 0.5034682 0.503446 0.5002727 0.4999994 0.49562734 0.50293225 0.49227238 0.48905256 0.5026959)
+selecting ((1 1) (2 1)) for my move 
+max-p: 2, max: 0.5034682
+
+  0  1  1
+  0  0  1
+  0  0  0
+
+NIL
+[4]> ( bye )
+Bye.

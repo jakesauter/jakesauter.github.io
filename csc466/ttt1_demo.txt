@@ -1,0 +1,20 @@
+;; Dribble of #<IO TERMINAL-STREAM> started on 2017-02-06 20:28:37.
+#<OUTPUT BUFFERED FILE-STREAM CHARACTER #P"ttt1_demo.txt">
+[2]> ( load "ttt1.l" )
+;; Loading file ttt1.l ...
+;;  Loading file lp.l ...
+;;  Loaded file lp.l
+;; Loaded file ttt1.l
+T
+[3]> ( play )
+(W NW C SW SE E NE S N)
+[4]> ( play )
+(NE N W E NW C S SW SE)
+[5]> ( play )
+(NW S SW W C NE N SE E)
+[6]> ( play )
+(NW E NE C SW N S SE W)
+[7]> ( play )
+(N E NE SE C S SW NW W)
+[8]> ( bye )
+Bye.

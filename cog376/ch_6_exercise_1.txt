@@ -1,0 +1,8 @@
+Machine translation (both statistical and example based) require lots of
+  data. It is clear that example based (otherwise known as translation by analogy)
+  needs a lot of data because it must be provided lots of examples (analogies) in
+  order to get a correct idea of the translation from one language to another. Statistical
+  translation also requires a lot of data because it plays off of bayes theorm, and uses it
+  in such a way that the best translation is one that is most likely to be seen in the language
+  being translated to, which requires lots of data to analyze.
+

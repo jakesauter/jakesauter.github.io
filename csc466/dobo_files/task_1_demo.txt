@@ -1,0 +1,77 @@
+;; Dribble of #<IO TERMINAL-STREAM> started on 2017-03-22 19:28:33.
+#<OUTPUT BUFFERED FILE-STREAM CHARACTER #P"task_files/task_1_demo.txt">
+[2]> ( load "dobo.l" )
+;; Loading file dobo.l ...
+;;  Loading file lp.l ...
+;;  Loaded file lp.l
+;; Loaded file dobo.l
+T
+[3]> ( dobo-demo-1 )
+Making a game state ...
+Displaying the game state ...
+
+  1  1  1
+  1  1  1
+  1  1  1
+
+dobo-demo-1.1 returned #<STATE #x0003344216F8>
+Making a game state ...
+Displaying the game state ...
+
+  1  1  1
+  1  1  1
+  1  1  1
+
+Move ((1 1)) will be applied ...
+Now displaying the modified game state ...
+
+  1  1  1
+  1  0  1
+  1  1  1
+
+Making a game state ...
+Displaying the game state ...
+
+  1  1  1
+  1  1  1
+  1  1  1
+
+Move ((0 0) (0 1) (0 2)) will be applied ...
+Now displaying the modified game state ...
+
+  0  0  0
+  1  1  1
+  1  1  1
+
+Making a game state ...
+Displaying the game state ...
+
+  1  1  1
+  1  1  1
+  1  1  1
+
+Move ((0 0) (1 0) (2 0)) will be applied ...
+Now displaying the modified game state ...
+
+  0  1  1
+  0  1  1
+  0  1  1
+
+Making a game state ...
+Displaying the game state ...
+
+  1  1  1
+  1  1  1
+  1  1  1
+
+Move ((1 1) (1 2)) will be applied ...
+Now displaying the modified game state ...
+
+  1  1  1
+  1  0  0
+  1  1  1
+
+dobo-demo-1.2 returned NIL
+NIL
+[4]> ( bye )
+Bye.

@@ -1,0 +1,65 @@
+;; Dribble of #<IO TERMINAL-STREAM> started on 2016-11-06 13:51:56.
+#<OUTPUT BUFFERED FILE-STREAM CHARACTER #P"die_empirical_problem_solving.txt">
+[2]> ( load "die.l" )
+;; Loading file die.l ...
+;;  Loading file accumulator.l ...
+;;  Loaded file accumulator.l
+;; Loaded file die.l
+T
+[3]> ( setf d1 ( make-instance 'die ) )
+#<DIE #x00033496EF48>
+[4]> ( setf d2 ( make-instance 'die ) )
+#<DIE #x000334970220>
+[5]> ( roll-for-pair-e d1 d2 )
+empirical result: 5.99622 times
+NIL
+[6]> ( setf d1 ( make-instance 'die :num-faces 3 ) )
+#<DIE #x0003349A5440>
+[7]> ( setf d2 ( make-instance 'die :num-faces 12 ) )
+#<DIE #x0003349A6278>
+[8]> ( roll-for-pair-e d1 d2 )
+empirical result: 11.97466 times
+NIL
+[9]> ( setf d1 ( make-instance 'die ) )
+#<DIE #x0003349574E8>
+[10]> ( setf d2 ( make-instance 'die ) )
+#<DIE #x0003349582E0>
+[11]> ( roll-for-sum-e d1 d2 7 )
+empirical result: 5.9956 times
+NIL
+[12]> ( setf d1 ( make-instance 'die :num-faces 3 ) )
+#<DIE #x0003349BAEE8>
+[13]> ( setf d2 ( make-instance 'die :num-faces 12 ) )
+#<DIE #x0003349BBD28>
+[14]> ( roll-for-sum-e d1 d2 7 )
+empirical result: 12.01182 times
+NIL
+[15]> ( setf d1 ( make-instance 'die ) )
+#<DIE #x0003349B51E8>
+[16]> ( setf d2 ( make-instance 'die ) )
+#<DIE #x0003349B5FE0>
+[17]> ( roll-for-sum-e d1 d2 11 )
+empirical result: 17.96621 times
+NIL
+[18]> ( setf d1 ( make-instance 'die :num-faces 3 ) )
+#<DIE #x000334954D70>
+[19]> ( setf d2 ( make-instance 'die :num-faces 12 ) )
+#<DIE #x000334955BB0>
+[20]> ( roll-for-sum-e d1 d2 11 )
+empirical result: 11.99117 times
+[21]> ( setf d1 ( make-instance 'die ) )
+#<DIE #x0003353E52E0>
+[22]> ( setf d2 ( make-instance 'die ) )
+#<DIE #x0003353E65B8>
+[23]> ( roll-for-7-11-pair-e d1 d2 )
+empirical result: 4.67054 times
+NIL
+[24]> ( setf d1 ( make-instance 'die :num-faces 3) )
+#<DIE #x0003353B93F8>
+[25]> ( setf d2 ( make-instance 'die :num-faces 12) )
+#<DIE #x0003353BA238>
+[26]> ( roll-for-7-11-pair-e d1 d2 )
+empirical result: 9.99841 times
+NIL
+[27]> (bye)
+Bye.

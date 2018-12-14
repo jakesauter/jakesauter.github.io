@@ -1,0 +1,160 @@
+;; Dribble of #<IO TERMINAL-STREAM> started on 2016-11-06 13:14:32.
+#<OUTPUT BUFFERED FILE-STREAM CHARACTER #P"die_demo.txt">
+[2]> ( load "die.l" )
+;; Loading file die.l ...
+;;  Loading file accumulator.l ...
+;;  Loaded file accumulator.l
+;; Loaded file die.l
+T
+[3]> ( setf six-sided-die ( make-instance 'die :num-faces 6 ) )
+#<DIE #x000333DF3FB0>
+[4]> ( setf four-sided-die ( make-instance 'die :num-faces 4 ) )
+#<DIE #x000333DF5360>
+[5]> ( setf twelve-sided-die ( make-instance 'die :num-faces 12 ) )
+#<DIE #x000333DF6238>
+[6]> ( roll-die six-sided-die )
+NIL
+[7]> ( die-top-face six-sided-die )
+3
+[8]> ( die-face-history six-sided-die )
+(1)
+[9]> ( roll-die six-sided-die )
+NIL
+[10]> ( die-top-face six-sided-die )
+2
+[11]> ( die-face-history six-sided-die )
+(1 3)
+[12]> ( roll-die six-sided-die )
+NIL
+[13]> ( die-top-face six-sided-die )
+5
+[14]> ( die-face-history six-sided-die )
+(1 3 2)
+[15]> ( roll-die six-sided-die )
+NIL
+[16]> ( die-top-face six-sided-die )
+1
+[17]> ( die-face-history six-sided-die )
+(1 3 2 5)
+[18]> ( roll-die six-sided-die )
+NIL
+[19]> ( die-top-face six-sided-die )
+1
+[20]> ( die-face-history six-sided-die )
+(1 3 2 5 1)
+[21]> ( roll-die six-sided-die )
+NIL
+[22]> ( die-top-face six-sided-die )
+2
+[23]> ( die-face-history six-sided-die )
+(1 3 2 5 1 1)
+[24]> ( roll-die four-sided-die )
+NIL
+[25]> ( die-top-face four-sided-die )
+1
+[26]> ( die-face-history four-sided-die )
+(1)
+[27]> ( roll-die four-sided-die )
+NIL
+[28]> ( die-top-face four-sided-die )
+1
+[29]> ( die-face-history four-sided-die )
+(1 1)
+[30]> ( roll-die four-sided-die )
+NIL
+[31]> ( die-top-face four-sided-die )
+2
+[32]> ( die-face-history four-sided-die )
+(1 1 1)
+[33]> ( roll-die four-sided-die )
+NIL
+[34]> ( die-top-face four-sided-die )
+1
+[35]> ( die-face-history four-sided-die )
+(1 1 1 2)
+[36]> ( roll-die four-sided-die )
+NIL
+[37]> ( die-top-face four-sided-die )
+4
+[38]> ( die-face-history four-sided-die )
+(1 1 1 2 1)
+[39]> ( roll-die four-sided-die )
+NIL
+[40]> ( die-top-face four-sided-die )
+4
+[41]> ( die-face-history four-sided-die )
+(1 1 1 2 1 4)
+[42]> ( roll-die four-sided-die )
+NIL
+[43]> ( die-top-face four-sided-die )
+1
+[44]> ( die-face-history four-sided-die )
+(1 1 1 2 1 4 4)
+[45]> ( roll-die four-sided-die )
+NIL
+[46]> ( die-top-face four-sided-die )
+2
+[47]> ( die-face-history four-sided-die )
+(1 1 1 2 1 4 4 1)
+[48]> ( roll-die four-sided-die )
+NIL
+[49]> ( roll-die four-sided-die )
+NIL
+[50]> ( roll-die four-sided-die )
+NIL
+[51]> ( roll-die four-sided-die )
+NIL
+[52]> ( roll-die four-sided-die )
+NIL
+[53]> ( roll-die four-sided-die )
+NIL
+[54]> ( die-face-history four-sided-die )
+(1 1 1 2 1 4 4 1 2 3 3 1 2 4)
+[55]> ( roll-die twelve-sided-die )
+NIL
+[56]> ( roll-die twelve-sided-die )
+NIL
+[57]> ( roll-die twelve-sided-die )
+NIL
+[58]> ( roll-die twelve-sided-die )
+NIL
+[59]> ( roll-die twelve-sided-die )
+NIL
+[60]> ( roll-die twelve-sided-die )
+NIL
+[61]> ( roll-die twelve-sided-die )
+NIL
+[62]> ( roll-die twelve-sided-die )
+NIL
+[63]> ( roll-die twelve-sided-die )
+NIL
+[64]> ( roll-die twelve-sided-die )
+NIL
+[65]> ( roll-die twelve-sided-die )
+NIL
+[66]> ( die-face-history twelve-sided-die )
+(1 5 10 6 6 4 6 3 9 7 1)
+[67]> ( die-top-face twelve-sided-die )
+5
+[68]> ( roll-die twelve-sided-die )
+NIL
+[69]> ( die-top-face twelve-sided-die )
+6
+[70]> ( roll-die twelve-sided-die )
+NIL
+[71]> ( die-top-face twelve-sided-die )
+2
+[72]> ( roll-die twelve-sided-die )
+NIL
+[73]> ( roll-die twelve-sided-die )
+NIL
+[74]> ( roll-die twelve-sided-die )
+NIL
+[75]> ( roll-die twelve-sided-die )
+NIL
+[76]> ( die-top-face twelve-sided-die )
+6
+[77]> ( die-face-history twelve-sided-die )
+(1 5 10 6 6 4 6 3 9 7 1 5 6 2 7 12 4)
+[78]> (bye)
+Bye.

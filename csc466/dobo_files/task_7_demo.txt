@@ -1,0 +1,8356 @@
+;; Dribble of #<IO TERMINAL-STREAM> started on 2017-04-10 12:16:36.
+#<OUTPUT BUFFERED FILE-STREAM CHARACTER #P"task_files/task_6_demo.txt">
+[2]> ( load "dobo.l" )
+;; Loading file dobo.l ...
+;;  Loading file lp.l ...
+;;  Loaded file lp.l
+;; Loaded file dobo.l
+T
+[3]> ( dobo-demo-6 )
+GST is empty
+ converging with 100 games, displaying every 10 games ...
+game 0: The winner is . . . TABLE-LOOKUP-PLAYER 
+Player Switch
+Writing gst to gst_3x3.txt
+game 1: The winner is . . . RANDOM-MACHINE 
+game 2: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 3: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 4: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 5: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 6: The winner is . . . RANDOM-MACHINE 
+game 7: The winner is . . . RANDOM-MACHINE 
+game 8: The winner is . . . RANDOM-MACHINE 
+game 9: The winner is . . . TABLE-LOOKUP-PLAYER 
+Writing gst to gst_3x3.txt
+Final GST: 
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  0  0  1
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  1
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  1  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  0  1
+  0  0  0
+  0  0  0
+
+wins: 2
+hits: 2
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  0  0  0
+
+wins: 2
+hits: 2
+probability: 1.0
+_____________________________
+state: 
+  0  0  0
+  0  0  0
+  0  0  0
+
+wins: 0
+hits: 4
+probability: 0.0
+_____________________________
+GST after 10 training games ...
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  0  0  1
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  1
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  1  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  0  1
+  0  0  0
+  0  0  0
+
+wins: 2
+hits: 2
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  0  0  0
+
+wins: 2
+hits: 2
+probability: 1.0
+_____________________________
+state: 
+  0  0  0
+  0  0  0
+  0  0  0
+
+wins: 0
+hits: 4
+probability: 0.0
+_____________________________
+game 0: The winner is . . . TABLE-LOOKUP-PLAYER 
+Player Switch
+Writing gst to gst_3x3.txt
+game 1: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 2: The winner is . . . RANDOM-MACHINE 
+game 3: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 4: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 5: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 6: The winner is . . . RANDOM-MACHINE 
+game 7: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 8: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 9: The winner is . . . TABLE-LOOKUP-PLAYER 
+Writing gst to gst_3x3.txt
+Final GST: 
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  1  1  0
+  0  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  1  1  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  0
+  0  1  1
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  0  0  1
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  1
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  1  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  0  1
+  0  0  0
+  0  0  0
+
+wins: 2
+hits: 2
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 2
+probability: 0.5
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  0  0  0
+
+wins: 4
+hits: 4
+probability: 1.0
+_____________________________
+state: 
+  0  0  0
+  0  0  0
+  0  0  0
+
+wins: 0
+hits: 6
+probability: 0.0
+_____________________________
+GST after 20 training games ...
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  1  1  0
+  0  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  1  1  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  0
+  0  1  1
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  0  0  1
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  1
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  1  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  0  1
+  0  0  0
+  0  0  0
+
+wins: 2
+hits: 2
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 2
+probability: 0.5
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  0  0  0
+
+wins: 4
+hits: 4
+probability: 1.0
+_____________________________
+state: 
+  0  0  0
+  0  0  0
+  0  0  0
+
+wins: 0
+hits: 6
+probability: 0.0
+_____________________________
+game 0: The winner is . . . TABLE-LOOKUP-PLAYER 
+Player Switch
+Writing gst to gst_3x3.txt
+game 1: The winner is . . . RANDOM-MACHINE 
+game 2: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 3: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 4: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 5: The winner is . . . RANDOM-MACHINE 
+game 6: The winner is . . . RANDOM-MACHINE 
+game 7: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 8: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 9: The winner is . . . TABLE-LOOKUP-PLAYER 
+Writing gst to gst_3x3.txt
+Final GST: 
+_____________________________
+state: 
+  1  1  0
+  0  1  0
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  0  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  1  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  0  0
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  0
+  0  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  1  1  0
+  0  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  0  0
+
+wins: 1
+hits: 2
+probability: 0.5
+_____________________________
+state: 
+  1  0  0
+  1  1  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  0
+  0  1  1
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  0  1
+
+wins: 1
+hits: 2
+probability: 0.5
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  0  0  1
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  1
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  1  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  0  1
+  0  0  0
+  0  0  0
+
+wins: 4
+hits: 4
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 3
+probability: 0.33333334
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  0  0  0
+
+wins: 5
+hits: 5
+probability: 1.0
+_____________________________
+state: 
+  0  0  0
+  0  0  0
+  0  0  0
+
+wins: 0
+hits: 9
+probability: 0.0
+_____________________________
+GST after 30 training games ...
+_____________________________
+state: 
+  1  1  0
+  0  1  0
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  0  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  1  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  0  0
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  0
+  0  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  1  1  0
+  0  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  0  0
+
+wins: 1
+hits: 2
+probability: 0.5
+_____________________________
+state: 
+  1  0  0
+  1  1  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  0
+  0  1  1
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  0  1
+
+wins: 1
+hits: 2
+probability: 0.5
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  0  0  1
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  1
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  1  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  0  1
+  0  0  0
+  0  0  0
+
+wins: 4
+hits: 4
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 3
+probability: 0.33333334
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  0  0  0
+
+wins: 5
+hits: 5
+probability: 1.0
+_____________________________
+state: 
+  0  0  0
+  0  0  0
+  0  0  0
+
+wins: 0
+hits: 9
+probability: 0.0
+_____________________________
+game 0: The winner is . . . RANDOM-MACHINE 
+Player Switch
+Writing gst to gst_3x3.txt
+game 1: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 2: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 3: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 4: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 5: The winner is . . . RANDOM-MACHINE 
+game 6: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 7: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 8: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 9: The winner is . . . TABLE-LOOKUP-PLAYER 
+Writing gst to gst_3x3.txt
+Final GST: 
+_____________________________
+state: 
+  1  1  0
+  0  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  0  0
+  0  1  0
+  0  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  0  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  1  0
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  0  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  1  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  0  0
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  0
+  0  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  0  0  0
+
+wins: 2
+hits: 3
+probability: 0.6666667
+_____________________________
+state: 
+  0  1  0
+  1  1  0
+  0  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  0  0
+
+wins: 2
+hits: 4
+probability: 0.5
+_____________________________
+state: 
+  1  0  0
+  1  1  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  0
+  0  1  1
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  0  1
+
+wins: 1
+hits: 2
+probability: 0.5
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  0  0  1
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  1
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  1  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  0  1
+  0  0  0
+  0  0  0
+
+wins: 4
+hits: 4
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 3
+probability: 0.33333334
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  0  0  0
+
+wins: 6
+hits: 6
+probability: 1.0
+_____________________________
+state: 
+  0  0  0
+  0  0  0
+  0  0  0
+
+wins: 0
+hits: 11
+probability: 0.0
+_____________________________
+GST after 40 training games ...
+_____________________________
+state: 
+  1  1  0
+  0  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  0  0
+  0  1  0
+  0  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  0  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  1  0
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  0  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  1  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  0  0
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  0
+  0  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  0  0  0
+
+wins: 2
+hits: 3
+probability: 0.6666667
+_____________________________
+state: 
+  0  1  0
+  1  1  0
+  0  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  0  0
+
+wins: 2
+hits: 4
+probability: 0.5
+_____________________________
+state: 
+  1  0  0
+  1  1  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  0
+  0  1  1
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  0  1
+
+wins: 1
+hits: 2
+probability: 0.5
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  0  0  1
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  1
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  1  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  0  1
+  0  0  0
+  0  0  0
+
+wins: 4
+hits: 4
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 3
+probability: 0.33333334
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  0  0  0
+
+wins: 6
+hits: 6
+probability: 1.0
+_____________________________
+state: 
+  0  0  0
+  0  0  0
+  0  0  0
+
+wins: 0
+hits: 11
+probability: 0.0
+_____________________________
+game 0: The winner is . . . RANDOM-MACHINE 
+Player Switch
+Writing gst to gst_3x3.txt
+game 1: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 2: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 3: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 4: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 5: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 6: The winner is . . . RANDOM-MACHINE 
+game 7: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 8: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 9: The winner is . . . RANDOM-MACHINE 
+Writing gst to gst_3x3.txt
+Final GST: 
+_____________________________
+state: 
+  1  1  1
+  0  0  1
+  0  0  1
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  1
+  0  0  0
+  0  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  1  0  1
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  0  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 2
+probability: 0.5
+_____________________________
+state: 
+  0  0  1
+  0  1  0
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  0  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  0  0
+  0  1  0
+  0  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  0  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  1  0
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  0  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  1  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  0  0
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  0  1
+
+wins: 1
+hits: 2
+probability: 0.5
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  0
+  0  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  0  0  0
+
+wins: 2
+hits: 3
+probability: 0.6666667
+_____________________________
+state: 
+  0  1  0
+  1  1  0
+  0  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  0  0
+
+wins: 2
+hits: 5
+probability: 0.4
+_____________________________
+state: 
+  1  0  0
+  1  1  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  0
+  0  1  1
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  0  1
+
+wins: 1
+hits: 3
+probability: 0.33333334
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  0  0  1
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  1
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  1  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  0  1
+  0  0  0
+  0  0  0
+
+wins: 7
+hits: 7
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 3
+probability: 0.33333334
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  0  0  0
+
+wins: 6
+hits: 6
+probability: 1.0
+_____________________________
+state: 
+  0  0  0
+  0  0  0
+  0  0  0
+
+wins: 0
+hits: 14
+probability: 0.0
+_____________________________
+GST after 50 training games ...
+_____________________________
+state: 
+  1  1  1
+  0  0  1
+  0  0  1
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  1
+  0  0  0
+  0  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  1  0  1
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  0  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 2
+probability: 0.5
+_____________________________
+state: 
+  0  0  1
+  0  1  0
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  0  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  0  0
+  0  1  0
+  0  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  0  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  1  0
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  0  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  1  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  0  0
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  0  1
+
+wins: 1
+hits: 2
+probability: 0.5
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  0
+  0  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  0  0  0
+
+wins: 2
+hits: 3
+probability: 0.6666667
+_____________________________
+state: 
+  0  1  0
+  1  1  0
+  0  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  0  0
+
+wins: 2
+hits: 5
+probability: 0.4
+_____________________________
+state: 
+  1  0  0
+  1  1  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  0
+  0  1  1
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  0  1
+
+wins: 1
+hits: 3
+probability: 0.33333334
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  0  0  1
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  1
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  1  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  0  1
+  0  0  0
+  0  0  0
+
+wins: 7
+hits: 7
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 3
+probability: 0.33333334
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  0  0  0
+
+wins: 6
+hits: 6
+probability: 1.0
+_____________________________
+state: 
+  0  0  0
+  0  0  0
+  0  0  0
+
+wins: 0
+hits: 14
+probability: 0.0
+_____________________________
+game 0: The winner is . . . RANDOM-MACHINE 
+Player Switch
+Writing gst to gst_3x3.txt
+game 1: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 2: The winner is . . . RANDOM-MACHINE 
+game 3: The winner is . . . RANDOM-MACHINE 
+game 4: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 5: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 6: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 7: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 8: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 9: The winner is . . . TABLE-LOOKUP-PLAYER 
+Writing gst to gst_3x3.txt
+Final GST: 
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  1  0  1
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  1
+  1  0  0
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  0  1  1
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  1
+  0  0  1
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  0  0  1
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  1  1  0
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  0  0  1
+  0  0  1
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  1
+  0  0  0
+  0  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  1  0  1
+
+wins: 2
+hits: 2
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  0  0  1
+
+wins: 0
+hits: 2
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 2
+probability: 0.5
+_____________________________
+state: 
+  0  0  1
+  0  1  0
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  0  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  0  0
+  0  1  0
+  0  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  0  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  1  0
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  0  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  1  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  0  0
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 2
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  0  1
+
+wins: 1
+hits: 3
+probability: 0.33333334
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  0
+  0  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  0
+
+wins: 1
+hits: 3
+probability: 0.33333334
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  0  0  0
+
+wins: 3
+hits: 4
+probability: 0.75
+_____________________________
+state: 
+  0  1  0
+  1  1  0
+  0  0  0
+
+wins: 1
+hits: 2
+probability: 0.5
+_____________________________
+state: 
+  0  1  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  0  0
+
+wins: 2
+hits: 5
+probability: 0.4
+_____________________________
+state: 
+  1  0  0
+  1  1  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  0
+  0  1  1
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  0  1
+
+wins: 1
+hits: 3
+probability: 0.33333334
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  0  0  1
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  1
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  1  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  0  1
+  0  0  0
+  0  0  0
+
+wins: 9
+hits: 9
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 3
+probability: 0.33333334
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  0  0  0
+
+wins: 7
+hits: 7
+probability: 1.0
+_____________________________
+state: 
+  0  0  0
+  0  0  0
+  0  0  0
+
+wins: 0
+hits: 17
+probability: 0.0
+_____________________________
+GST after 60 training games ...
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  1  0  1
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  1
+  1  0  0
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  0  1  1
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  1
+  0  0  1
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  0  0  1
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  1  1  0
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  0  0  1
+  0  0  1
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  1
+  0  0  0
+  0  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  1  0  1
+
+wins: 2
+hits: 2
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  0  0  1
+
+wins: 0
+hits: 2
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 2
+probability: 0.5
+_____________________________
+state: 
+  0  0  1
+  0  1  0
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  0  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  0  0
+  0  1  0
+  0  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  0  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  1  0
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  0  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  1  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  0  0
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 2
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  0  1
+
+wins: 1
+hits: 3
+probability: 0.33333334
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  0
+  0  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  0
+
+wins: 1
+hits: 3
+probability: 0.33333334
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  0  0  0
+
+wins: 3
+hits: 4
+probability: 0.75
+_____________________________
+state: 
+  0  1  0
+  1  1  0
+  0  0  0
+
+wins: 1
+hits: 2
+probability: 0.5
+_____________________________
+state: 
+  0  1  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  0  0
+
+wins: 2
+hits: 5
+probability: 0.4
+_____________________________
+state: 
+  1  0  0
+  1  1  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  0
+  0  1  1
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  0  1
+
+wins: 1
+hits: 3
+probability: 0.33333334
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  0  0  1
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  1
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  1  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  0  1
+  0  0  0
+  0  0  0
+
+wins: 9
+hits: 9
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 3
+probability: 0.33333334
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  0  0  0
+
+wins: 7
+hits: 7
+probability: 1.0
+_____________________________
+state: 
+  0  0  0
+  0  0  0
+  0  0  0
+
+wins: 0
+hits: 17
+probability: 0.0
+_____________________________
+game 0: The winner is . . . TABLE-LOOKUP-PLAYER 
+Player Switch
+Writing gst to gst_3x3.txt
+game 1: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 2: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 3: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 4: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 5: The winner is . . . RANDOM-MACHINE 
+game 6: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 7: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 8: The winner is . . . RANDOM-MACHINE 
+game 9: The winner is . . . TABLE-LOOKUP-PLAYER 
+Writing gst to gst_3x3.txt
+Final GST: 
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  1  0  1
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  1
+  1  0  0
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  0  1  1
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  1
+  0  0  1
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  0  0  1
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 2
+probability: 0.5
+_____________________________
+state: 
+  1  1  1
+  0  0  1
+  0  0  1
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  1
+  0  0  0
+  0  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  1  0  1
+
+wins: 2
+hits: 2
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  0  0  1
+
+wins: 0
+hits: 2
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 2
+probability: 0.5
+_____________________________
+state: 
+  0  0  1
+  0  1  0
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  0  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  0  0
+  0  1  0
+  0  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  0  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  1  0
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  0  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  1  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  0  0
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 2
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  0  1
+
+wins: 1
+hits: 3
+probability: 0.33333334
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  0
+  0  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  0
+
+wins: 1
+hits: 3
+probability: 0.33333334
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  0  0  0
+
+wins: 3
+hits: 4
+probability: 0.75
+_____________________________
+state: 
+  0  1  0
+  1  1  0
+  0  0  0
+
+wins: 1
+hits: 2
+probability: 0.5
+_____________________________
+state: 
+  0  1  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  0  0
+
+wins: 2
+hits: 6
+probability: 0.33333334
+_____________________________
+state: 
+  1  0  0
+  1  1  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  0
+  0  1  1
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  0  1
+
+wins: 1
+hits: 3
+probability: 0.33333334
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  0  0  1
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  1
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  1  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  0  1
+  0  0  0
+  0  0  0
+
+wins: 10
+hits: 10
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 4
+probability: 0.25
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  0  0  0
+
+wins: 8
+hits: 8
+probability: 1.0
+_____________________________
+state: 
+  0  0  0
+  0  0  0
+  0  0  0
+
+wins: 0
+hits: 19
+probability: 0.0
+_____________________________
+GST after 70 training games ...
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  1  0  1
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  1
+  1  0  0
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  0  1  1
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  1
+  0  0  1
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  0  0  1
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 2
+probability: 0.5
+_____________________________
+state: 
+  1  1  1
+  0  0  1
+  0  0  1
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  1
+  0  0  0
+  0  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  1  0  1
+
+wins: 2
+hits: 2
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  0  0  1
+
+wins: 0
+hits: 2
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 2
+probability: 0.5
+_____________________________
+state: 
+  0  0  1
+  0  1  0
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  0  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  0  0
+  0  1  0
+  0  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  0  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  1  0
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  0  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  1  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  0  0
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 2
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  0  1
+
+wins: 1
+hits: 3
+probability: 0.33333334
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  0
+  0  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  0
+
+wins: 1
+hits: 3
+probability: 0.33333334
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  0  0  0
+
+wins: 3
+hits: 4
+probability: 0.75
+_____________________________
+state: 
+  0  1  0
+  1  1  0
+  0  0  0
+
+wins: 1
+hits: 2
+probability: 0.5
+_____________________________
+state: 
+  0  1  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  0  0
+
+wins: 2
+hits: 6
+probability: 0.33333334
+_____________________________
+state: 
+  1  0  0
+  1  1  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  0
+  0  1  1
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  0  1
+
+wins: 1
+hits: 3
+probability: 0.33333334
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  0  0  1
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  1
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  1  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  0  1
+  0  0  0
+  0  0  0
+
+wins: 10
+hits: 10
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 4
+probability: 0.25
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  0  0  0
+
+wins: 8
+hits: 8
+probability: 1.0
+_____________________________
+state: 
+  0  0  0
+  0  0  0
+  0  0  0
+
+wins: 0
+hits: 19
+probability: 0.0
+_____________________________
+game 0: The winner is . . . RANDOM-MACHINE 
+Player Switch
+Writing gst to gst_3x3.txt
+game 1: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 2: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 3: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 4: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 5: The winner is . . . RANDOM-MACHINE 
+game 6: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 7: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 8: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 9: The winner is . . . TABLE-LOOKUP-PLAYER 
+Writing gst to gst_3x3.txt
+Final GST: 
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  1
+  0  0  1
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  1
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  0  0  1
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  1  0  1
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  1
+  1  0  0
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  0  1  1
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  1
+  0  0  1
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  0  0  1
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 2
+probability: 0.5
+_____________________________
+state: 
+  1  1  1
+  0  0  1
+  0  0  1
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  1
+  0  0  0
+  0  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  1  0  1
+
+wins: 3
+hits: 3
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  0  0  1
+
+wins: 0
+hits: 2
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 2
+probability: 0.5
+_____________________________
+state: 
+  0  0  1
+  0  1  0
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  0  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  0  0
+  0  1  0
+  0  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  0  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  1  0
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  0  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  1  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  0  0
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 2
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  0  1
+
+wins: 1
+hits: 3
+probability: 0.33333334
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  0
+  0  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  0
+
+wins: 2
+hits: 5
+probability: 0.4
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  0  0  0
+
+wins: 3
+hits: 4
+probability: 0.75
+_____________________________
+state: 
+  0  1  0
+  1  1  0
+  0  0  0
+
+wins: 1
+hits: 2
+probability: 0.5
+_____________________________
+state: 
+  0  1  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 2
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  0  0
+
+wins: 2
+hits: 6
+probability: 0.33333334
+_____________________________
+state: 
+  1  0  0
+  1  1  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  0
+  0  1  1
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  0  1
+
+wins: 1
+hits: 3
+probability: 0.33333334
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 2
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  0  0  1
+
+wins: 2
+hits: 2
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  1
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  1  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  0  1
+  0  0  0
+  0  0  0
+
+wins: 11
+hits: 11
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 4
+probability: 0.25
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  0  0  0
+
+wins: 9
+hits: 9
+probability: 1.0
+_____________________________
+state: 
+  0  0  0
+  0  0  0
+  0  0  0
+
+wins: 0
+hits: 21
+probability: 0.0
+_____________________________
+GST after 80 training games ...
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  1
+  0  0  1
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  1
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  0  0  1
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  1  0  1
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  1
+  1  0  0
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  0  1  1
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  1
+  0  0  1
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  0  0  1
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 2
+probability: 0.5
+_____________________________
+state: 
+  1  1  1
+  0  0  1
+  0  0  1
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  1
+  0  0  0
+  0  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  1  0  1
+
+wins: 3
+hits: 3
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  0  0  1
+
+wins: 0
+hits: 2
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 2
+probability: 0.5
+_____________________________
+state: 
+  0  0  1
+  0  1  0
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  0  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  0  0
+  0  1  0
+  0  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  0  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  1  0
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  0  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  1  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  0  0
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 2
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  0  1
+
+wins: 1
+hits: 3
+probability: 0.33333334
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  0
+  0  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  0
+
+wins: 2
+hits: 5
+probability: 0.4
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  0  0  0
+
+wins: 3
+hits: 4
+probability: 0.75
+_____________________________
+state: 
+  0  1  0
+  1  1  0
+  0  0  0
+
+wins: 1
+hits: 2
+probability: 0.5
+_____________________________
+state: 
+  0  1  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 2
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  0  0
+
+wins: 2
+hits: 6
+probability: 0.33333334
+_____________________________
+state: 
+  1  0  0
+  1  1  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  0
+  0  1  1
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  0  1
+
+wins: 1
+hits: 3
+probability: 0.33333334
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 2
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  0  0  1
+
+wins: 2
+hits: 2
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  1
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  1  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  0  1
+  0  0  0
+  0  0  0
+
+wins: 11
+hits: 11
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 4
+probability: 0.25
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  0  0  0
+
+wins: 9
+hits: 9
+probability: 1.0
+_____________________________
+state: 
+  0  0  0
+  0  0  0
+  0  0  0
+
+wins: 0
+hits: 21
+probability: 0.0
+_____________________________
+game 0: The winner is . . . TABLE-LOOKUP-PLAYER 
+Player Switch
+Writing gst to gst_3x3.txt
+game 1: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 2: The winner is . . . RANDOM-MACHINE 
+game 3: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 4: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 5: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 6: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 7: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 8: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 9: The winner is . . . TABLE-LOOKUP-PLAYER 
+Writing gst to gst_3x3.txt
+Final GST: 
+_____________________________
+state: 
+  1  1  0
+  1  1  1
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  1  0  1
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  0  0  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  1
+  0  0  1
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  1
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  0  0  1
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  1  0  1
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  1
+  1  0  0
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  0  1  1
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  1
+  0  0  1
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  0  0  1
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 2
+probability: 0.5
+_____________________________
+state: 
+  1  1  1
+  0  0  1
+  0  0  1
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  1
+  0  0  0
+  0  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  1  0  1
+
+wins: 3
+hits: 3
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  0  0  1
+
+wins: 0
+hits: 2
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 2
+probability: 0.5
+_____________________________
+state: 
+  0  0  1
+  0  1  0
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  0  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  0  0
+  0  1  0
+  0  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  0  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  1  0
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  0  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  1  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  0  0
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 3
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  0  1
+
+wins: 1
+hits: 3
+probability: 0.33333334
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  0
+  0  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  0
+
+wins: 2
+hits: 6
+probability: 0.33333334
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  0  0  0
+
+wins: 3
+hits: 4
+probability: 0.75
+_____________________________
+state: 
+  0  1  0
+  1  1  0
+  0  0  0
+
+wins: 1
+hits: 2
+probability: 0.5
+_____________________________
+state: 
+  0  1  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 2
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  0  0
+
+wins: 2
+hits: 6
+probability: 0.33333334
+_____________________________
+state: 
+  1  0  0
+  1  1  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  0
+  0  1  1
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  0  1
+
+wins: 1
+hits: 3
+probability: 0.33333334
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 2
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  0  0  1
+
+wins: 2
+hits: 2
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  1
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  1  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  0  1
+  0  0  0
+  0  0  0
+
+wins: 11
+hits: 11
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 4
+probability: 0.25
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  0  0  0
+
+wins: 10
+hits: 10
+probability: 1.0
+_____________________________
+state: 
+  0  0  0
+  0  0  0
+  0  0  0
+
+wins: 0
+hits: 22
+probability: 0.0
+_____________________________
+GST after 90 training games ...
+_____________________________
+state: 
+  1  1  0
+  1  1  1
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  1  0  1
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  0  0  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  1
+  0  0  1
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  1
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  0  0  1
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  1  0  1
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  1
+  1  0  0
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  0  1  1
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  1
+  0  0  1
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  0  0  1
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 2
+probability: 0.5
+_____________________________
+state: 
+  1  1  1
+  0  0  1
+  0  0  1
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  1
+  0  0  0
+  0  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  1  0  1
+
+wins: 3
+hits: 3
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  0  0  1
+
+wins: 0
+hits: 2
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 2
+probability: 0.5
+_____________________________
+state: 
+  0  0  1
+  0  1  0
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  0  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  0  0
+  0  1  0
+  0  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  0  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  1  0
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  0  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  1  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  0  0
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 3
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  0  1
+
+wins: 1
+hits: 3
+probability: 0.33333334
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  0
+  0  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  0
+
+wins: 2
+hits: 6
+probability: 0.33333334
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  0  0  0
+
+wins: 3
+hits: 4
+probability: 0.75
+_____________________________
+state: 
+  0  1  0
+  1  1  0
+  0  0  0
+
+wins: 1
+hits: 2
+probability: 0.5
+_____________________________
+state: 
+  0  1  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 2
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  0  0
+
+wins: 2
+hits: 6
+probability: 0.33333334
+_____________________________
+state: 
+  1  0  0
+  1  1  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  0
+  0  1  1
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  0  1
+
+wins: 1
+hits: 3
+probability: 0.33333334
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 2
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  0  0  1
+
+wins: 2
+hits: 2
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  1
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  1  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  0  1
+  0  0  0
+  0  0  0
+
+wins: 11
+hits: 11
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 4
+probability: 0.25
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  0  0  0
+
+wins: 10
+hits: 10
+probability: 1.0
+_____________________________
+state: 
+  0  0  0
+  0  0  0
+  0  0  0
+
+wins: 0
+hits: 22
+probability: 0.0
+_____________________________
+game 0: The winner is . . . TABLE-LOOKUP-PLAYER 
+Player Switch
+Writing gst to gst_3x3.txt
+game 1: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 2: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 3: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 4: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 5: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 6: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 7: The winner is . . . RANDOM-MACHINE 
+game 8: The winner is . . . TABLE-LOOKUP-PLAYER 
+game 9: The winner is . . . TABLE-LOOKUP-PLAYER 
+Writing gst to gst_3x3.txt
+Final GST: 
+_____________________________
+state: 
+  1  1  0
+  0  1  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  0  1  0
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  1  1
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  1  0  1
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  0  0  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  1
+  0  0  1
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  1
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  0  0  1
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  1  0  0
+
+wins: 2
+hits: 2
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  1  0  1
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  1
+  1  0  0
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  0  1  1
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  1
+  0  0  1
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  0  0  1
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 2
+probability: 0.5
+_____________________________
+state: 
+  1  1  1
+  0  0  1
+  0  0  1
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  1
+  0  0  0
+  0  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  1  0  1
+
+wins: 3
+hits: 3
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  0  0  1
+
+wins: 0
+hits: 2
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 2
+probability: 0.5
+_____________________________
+state: 
+  0  0  1
+  0  1  0
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  0  1  0
+  0  0  0
+
+wins: 0
+hits: 2
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  0  0
+  0  1  0
+  0  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  0  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  1  0
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  0  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  1  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  0  0
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 3
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  0  1
+
+wins: 1
+hits: 3
+probability: 0.33333334
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  0
+  0  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  0
+
+wins: 2
+hits: 6
+probability: 0.33333334
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  0  0  0
+
+wins: 3
+hits: 4
+probability: 0.75
+_____________________________
+state: 
+  0  1  0
+  1  1  0
+  0  0  0
+
+wins: 1
+hits: 2
+probability: 0.5
+_____________________________
+state: 
+  0  1  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 2
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  0  0
+
+wins: 2
+hits: 7
+probability: 0.2857143
+_____________________________
+state: 
+  1  0  0
+  1  1  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  0
+  0  1  1
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  0  1
+
+wins: 1
+hits: 3
+probability: 0.33333334
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 2
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  0  0  1
+
+wins: 2
+hits: 2
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  1
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  1  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  0  1
+  0  0  0
+  0  0  0
+
+wins: 12
+hits: 12
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 4
+probability: 0.25
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  0  0  0
+
+wins: 10
+hits: 10
+probability: 1.0
+_____________________________
+state: 
+  0  0  0
+  0  0  0
+  0  0  0
+
+wins: 0
+hits: 23
+probability: 0.0
+_____________________________
+GST after 100 training games ...
+_____________________________
+state: 
+  1  1  0
+  0  1  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  0  1  0
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  1  1
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  1  0  1
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  0  0  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  1
+  0  0  1
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  1
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  0  0  1
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  1  0  0
+
+wins: 2
+hits: 2
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  1  0  1
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  1
+  1  0  0
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  0  1  1
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  1
+  0  0  1
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  0  0  1
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 2
+probability: 0.5
+_____________________________
+state: 
+  1  1  1
+  0  0  1
+  0  0  1
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  1
+  0  0  0
+  0  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  1  0  1
+
+wins: 3
+hits: 3
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  0  0  1
+
+wins: 0
+hits: 2
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 2
+probability: 0.5
+_____________________________
+state: 
+  0  0  1
+  0  1  0
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  0  1  0
+  0  0  0
+
+wins: 0
+hits: 2
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  0  0
+  0  1  0
+  0  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  0  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  1  0
+  0  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  0  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  1  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  0
+  0  0  0
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 3
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  0  1
+
+wins: 1
+hits: 3
+probability: 0.33333334
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  0
+  0  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  1  0
+
+wins: 2
+hits: 6
+probability: 0.33333334
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  0  0  0
+
+wins: 3
+hits: 4
+probability: 0.75
+_____________________________
+state: 
+  0  1  0
+  1  1  0
+  0  0  0
+
+wins: 1
+hits: 2
+probability: 0.5
+_____________________________
+state: 
+  0  1  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 2
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  1
+  1  0  0
+
+wins: 2
+hits: 7
+probability: 0.2857143
+_____________________________
+state: 
+  1  0  0
+  1  1  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  0
+  0  1  1
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  0  1
+
+wins: 1
+hits: 3
+probability: 0.33333334
+_____________________________
+state: 
+  1  1  1
+  1  0  1
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  1  0  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  0  0  0
+  1  0  0
+
+wins: 0
+hits: 2
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  1  0  1
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  0  1
+  1  0  1
+  0  0  1
+
+wins: 2
+hits: 2
+probability: 1.0
+_____________________________
+state: 
+  1  0  0
+  1  0  0
+  0  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  1  1  1
+  1  1  0
+  1  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  1
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  0  1
+  1  0  0
+  1  0  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  0  1
+  0  0  0
+  0  0  0
+
+wins: 12
+hits: 12
+probability: 1.0
+_____________________________
+state: 
+  1  1  0
+  1  1  0
+  1  1  0
+
+wins: 1
+hits: 4
+probability: 0.25
+_____________________________
+state: 
+  1  1  0
+  1  0  0
+  1  1  0
+
+wins: 1
+hits: 1
+probability: 1.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  0  1  0
+
+wins: 0
+hits: 1
+probability: 0.0
+_____________________________
+state: 
+  0  1  0
+  0  0  0
+  0  0  0
+
+wins: 10
+hits: 10
+probability: 1.0
+_____________________________
+state: 
+  0  0  0
+  0  0  0
+  0  0  0
+
+wins: 0
+hits: 23
+probability: 0.0
+_____________________________
+#<GAME-STATE-TABLE #x000334534558>
+[4]> ( bye ) 
+Bye.

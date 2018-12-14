@@ -1,0 +1,45 @@
+;; Dribble of #<IO TERMINAL-STREAM> started on 2016-09-28 11:00:40.
+#<OUTPUT BUFFERED FILE-STREAM CHARACTER #P"pick.txt">
+[2]> (load "lp.l")
+;; Loading file lp.l ...
+;; Loaded file lp.l
+T
+[3]> ( trace select )
+;; Tracing function SELECT.
+(SELECT)
+[4]> ( select 3 '( 1 2 3 4 5 ) )
+1. Trace: (SELECT '3 '(1 2 3 4 5))
+2. Trace: (SELECT '2 '(2 3 4 5))
+3. Trace: (SELECT '1 '(3 4 5))
+4. Trace: (SELECT '0 '(4 5))
+4. Trace: SELECT ==> 4
+3. Trace: SELECT ==> 4
+2. Trace: SELECT ==> 4
+1. Trace: SELECT ==> 4
+4
+[5]> ( select 0 '( 5 4 3 2 1 ) )
+1. Trace: (SELECT '0 '(5 4 3 2 1))
+1. Trace: SELECT ==> 5
+5
+[6]> ( select 4 '( RED BLUE GREEN INDIGO VIOLET ) )
+1. Trace: (SELECT '4 '(RED BLUE GREEN INDIGO VIOLET))
+2. Trace: (SELECT '3 '(BLUE GREEN INDIGO VIOLET))
+3. Trace: (SELECT '2 '(GREEN INDIGO VIOLET))
+4. Trace: (SELECT '1 '(INDIGO VIOLET))
+5. Trace: (SELECT '0 '(VIOLET))
+5. Trace: SELECT ==> VIOLET
+4. Trace: SELECT ==> VIOLET
+3. Trace: SELECT ==> VIOLET
+2. Trace: SELECT ==> VIOLET
+1. Trace: SELECT ==> VIOLET
+VIOLET
+[7]> ( untrace select )
+(SELECT)
+[8]> ( pick '( 1 2 3 4 5))
+3
+[9]> ( pick '( 5 4 3 2 1) )
+3
+[10]> ( pick '( RED BLUE GREEN INDIGO VIOLET ) )
+VIOLET
+[11]> (bye)
+Bye.

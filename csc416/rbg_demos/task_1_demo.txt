@@ -1,0 +1,28 @@
+;; Dribble of #<IO TERMINAL-STREAM> started on 2016-11-25 12:08:00.
+#<OUTPUT BUFFERED FILE-STREAM CHARACTER #P"rbg_demos_task_1_demo.txt">
+[2]> ( load "rbg.l" )
+;; Loading file rbg.l ...
+;;  Loading file lp.l ...
+;;  Loaded file lp.l
+;; Loaded file rbg.l
+T
+[3]> *limit*
+25
+[4]> ( rbg )
+B
+[5]> ( rbg )
+B
+[6]> ( list ( rbg ) ( rbg ) ( rbg ) ( rbg ) ( rbg ) )
+(R B B B R)
+[7]> ( list ( rbg ) ( rbg ) ( rbg ) ( rbg ) ( rbg ) )
+(R R B G R)
+[8]> ( rbg-string )
+(R G R R R G G B B G R B G G B G R B G B R G B B B)
+[9]> ( rbg-string )
+(G B R R G G G R G R G B B B R R B B G G B B G B R)
+[10]> ( rbg-string )
+(G B G R G R G B B B B R R R R G B G G R R B G R R)
+[11]> ( rbg-string )
+(B B B R R R G R B B G R R R R G B B G B G R B B R)
+[12]> ( bye )
+Bye.
