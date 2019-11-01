@@ -1,5 +1,0 @@
-* use an array for frequencies to find the access frequency
-* make a struct for caches
-* the program should determine which cache to use
-* when you are splitting the address that you are giben into the three different parts, m could be any value
-* don't need to simulate the data, we are only looking to find the data

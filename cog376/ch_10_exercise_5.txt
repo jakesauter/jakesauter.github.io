@@ -1,1 +1,0 @@
-This python code creates a lambda expression that is to be read as be an x such that x walks and x chews gum. Then the next line of code prints the free variables in the expression, being then empty set. The following line breaks down the lambda expression into its constituent parts in order to isolate the predicates that it is composed of.

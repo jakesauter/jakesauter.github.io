@@ -1,1 +1,0 @@
-Considered Python expression: len(set(text4)). The purpose of this expression is to find the size of the set of unique tokens present in the text, particularly text4, being the Inaugural Address Corpus in this expression.

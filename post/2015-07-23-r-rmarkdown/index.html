@@ -10,24 +10,30 @@
     <meta name="keywords" content="Jake Sauter, Data Scientist">
 
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Jake Sauter"/>
-<meta name="twitter:description" content="Jake Sauter Portfolio Site"/>
+<meta name="twitter:title" content="Hello R Markdown"/>
+<meta name="twitter:description" content="R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
+You can embed an R code chunk like this:
+summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu."/>
 
-    <meta property="og:title" content="Jake Sauter" />
-<meta property="og:description" content="Jake Sauter Portfolio Site" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="/" />
-
-<meta property="og:updated_time" content="2019-03-20T00:00:00+00:00" />
+    <meta property="og:title" content="Hello R Markdown" />
+<meta property="og:description" content="R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
+You can embed an R code chunk like this:
+summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/2015-07-23-r-rmarkdown/" />
+<meta property="article:published_time" content="2015-07-23T21:13:14-05:00" />
+<meta property="article:modified_time" content="2015-07-23T21:13:14-05:00" />
 
 
     
-      <base href="/">
+      <base href="/post/2015-07-23-r-rmarkdown/">
     
-    <title>Jake Sauter</title>
+    <title>
+  Hello R Markdown · Jake Sauter
+</title>
 
     
-      <link rel="canonical" href="/">
+      <link rel="canonical" href="/post/2015-07-23-r-rmarkdown/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
@@ -51,7 +57,6 @@
     <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
 
-    <link rel="alternate" type="application/rss+xml" href="/index.xml" title="Jake Sauter" />
     <meta name="generator" content="Hugo 0.59.1" />
   </head>
 
@@ -110,43 +115,56 @@
 
       <div class="content">
         
-  <section class="container centered">
-  <div class="about">
+  <section class="container page">
+  <article>
+    <header>
+      <h1>Hello R Markdown</h1>
+    </header>
+
     
-      <div class="avatar"><img src="/images/avatar.jpg" alt="avatar"></div>
-    
-    <h1>Jake Sauter</h1>
-    <h2>Data Scientist</h2>
-    
-    <ul>
-      
-        
-          <li>
-            <a href="https://github.com/jakesauter/" aria-label="Github" >
-              <i class="fab fa-github" aria-hidden="true"></i>
-            </a>
-          </li>
-        
-      
-        
-          <li>
-            <a href="https://twitter.com/jake_sauter/" aria-label="Twitter" >
-              <i class="fab fa-twitter" aria-hidden="true"></i>
-            </a>
-          </li>
-        
-      
-        
-          <li>
-            <a href="https://www.linkedin.com/in/jakesauter/" aria-label="LinkedIn" >
-              <i class="fab fa-linkedin" aria-hidden="true"></i>
-            </a>
-          </li>
-        
-      
-    </ul>
-    
-  </div>
+
+
+<div id="r-markdown" class="section level1">
+<h1>R Markdown</h1>
+<p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
+<p>You can embed an R code chunk like this:</p>
+<pre class="r"><code>summary(cars)
+##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00
+fit &lt;- lm(dist ~ speed, data = cars)
+fit
+## 
+## Call:
+## lm(formula = dist ~ speed, data = cars)
+## 
+## Coefficients:
+## (Intercept)        speed  
+##     -17.579        3.932</code></pre>
+</div>
+<div id="including-plots" class="section level1">
+<h1>Including Plots</h1>
+<p>You can also embed plots. See Figure <a href="#fig:pie">1</a> for example:</p>
+<pre class="r"><code>par(mar = c(0, 1, 0, 1))
+pie(
+  c(280, 60, 20),
+  c(&#39;Sky&#39;, &#39;Sunny side of pyramid&#39;, &#39;Shady side of pyramid&#39;),
+  col = c(&#39;#0292D8&#39;, &#39;#F7EA39&#39;, &#39;#C4B632&#39;),
+  init.angle = -50, border = NA
+)</code></pre>
+<div class="figure"><span id="fig:pie"></span>
+<img src="/post/2015-07-23-r-rmarkdown_files/figure-html/pie-1.png" alt="A fancy pie chart." width="672" />
+<p class="caption">
+Figure 1: A fancy pie chart.
+</p>
+</div>
+</div>
+
+  </article>
 </section>
 
 

@@ -1,2 +1,0 @@
-* you make an svg canvas and can play in that sandbox
-* width = <num>% works for page width and height

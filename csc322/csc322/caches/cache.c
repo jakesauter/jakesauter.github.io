@@ -1,8 +1,0 @@
-struct address
-{
-};
-
-struct cache
-{
-  
-};
