@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hugo on Jake Sauter</title>
-    <link>http://jakeasauter.github.io/series/hugo/</link>
+    <link>/series/hugo/</link>
     <description>Recent content in Hugo on Jake Sauter</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 20 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="http://jakeasauter.github.io/series/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 20 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="/series/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Render LaTeX using KaTeX</title>
-      <link>http://jakeasauter.github.io/posts/render-latex-using-katex/</link>
+      <link>/posts/render-latex-using-katex/</link>
       <pubDate>Wed, 20 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://jakeasauter.github.io/posts/render-latex-using-katex/</guid>
+      <guid>/posts/render-latex-using-katex/</guid>
       <description>Enable katex by adding katex = &amp;quot;true&amp;quot; to the front matter
 +++ katex = &amp;#34;true&amp;#34; +++ It&amp;rsquo;s almost a dropin alternative to the mathjax solution,you should just choose one of them.
 Inline math looks like this
