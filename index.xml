@@ -52,7 +52,7 @@ Cell Phone - 845-891-9910</description>
     </item>
     
     <item>
-      <title>cv</title>
+      <title>CV</title>
       <link>http://jakeasauter.github.io/cv/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -69,6 +69,15 @@ Cell Phone - 845-891-9910</description>
       <description>Coursework Site &amp;ndash; Coursework from various programming and AI courses at SUNY Oswego
 Give Me Credit &amp;ndash; Predicting credit worthiness through past financial factors
 Molecular Classification Capstone &amp;ndash; Classification of ALL vs AML cancer type through genetic differences</description>
+    </item>
+    
+    <item>
+      <title>Tutoring</title>
+      <link>http://jakeasauter.github.io/tutoring/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://jakeasauter.github.io/tutoring/</guid>
+      <description></description>
     </item>
     
   </channel>
