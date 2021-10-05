@@ -2,21 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Jake Sauter</title>
-    <link>/</link>
+    <link>http://jakeasauter.github.io/</link>
     <description>Recent content on Jake Sauter</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 20 Mar 2019 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 20 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="http://jakeasauter.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Render LaTeX using KaTeX</title>
-      <link>/posts/render-latex-using-katex/</link>
+      <link>http://jakeasauter.github.io/posts/render-latex-using-katex/</link>
       <pubDate>Wed, 20 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>/posts/render-latex-using-katex/</guid>
+      <guid>http://jakeasauter.github.io/posts/render-latex-using-katex/</guid>
       <description>Enable katex by adding katex = &amp;quot;true&amp;quot; to the front matter
 +++ katex = &amp;#34;true&amp;#34; +++ It&amp;rsquo;s almost a dropin alternative to the mathjax solution,you should just choose one of them.
 Inline math looks like this
@@ -27,10 +23,10 @@ $$\sum_{n=1}^{\infty} 2^{-n} =1$$ $$ \sum_{n=1}^{\infty} 2^{-n} = 1 $$</descript
     
     <item>
       <title>Hello R Markdown</title>
-      <link>/post/2015-07-23-r-rmarkdown/</link>
+      <link>http://jakeasauter.github.io/post/2015-07-23-r-rmarkdown/</link>
       <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
       
-      <guid>/post/2015-07-23-r-rmarkdown/</guid>
+      <guid>http://jakeasauter.github.io/post/2015-07-23-r-rmarkdown/</guid>
       <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
 You can embed an R code chunk like this:
 summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
@@ -38,29 +34,29 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
     
     <item>
       <title>About Me</title>
-      <link>/about/</link>
+      <link>http://jakeasauter.github.io/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/about/</guid>
+      <guid>http://jakeasauter.github.io/about/</guid>
       <description>Budding Data Scientist with a sound foundation in Data Analytics and keen interest in Statistical Methods. Highly motivated to transform data into quantifiable, actionable insights through clear, representative visualizations and predictive models. Efficient independent learner and valuable team member.</description>
     </item>
     
     <item>
       <title>Contact Me</title>
-      <link>/contact/</link>
+      <link>http://jakeasauter.github.io/contact/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/contact/</guid>
+      <guid>http://jakeasauter.github.io/contact/</guid>
       <description>Email - jake.sauter3@gmail.com
 Cell Phone - 845-891-9910</description>
     </item>
     
     <item>
       <title>Projects</title>
-      <link>/projects/</link>
+      <link>http://jakeasauter.github.io/projects/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/projects/</guid>
+      <guid>http://jakeasauter.github.io/projects/</guid>
       <description>Coursework Site &amp;ndash; Coursework from various programming and AI courses at SUNY Oswego
 Give Me Credit &amp;ndash; Predicting credit worthiness through past financial factors
 Molecular Classification Capstone &amp;ndash; Classification of ALL vs AML cancer type through genetic differences</description>
@@ -68,10 +64,10 @@ Molecular Classification Capstone &amp;ndash; Classification of ALL vs AML cance
     
     <item>
       <title>Resume</title>
-      <link>/resume/</link>
+      <link>http://jakeasauter.github.io/resume/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/resume/</guid>
+      <guid>http://jakeasauter.github.io/resume/</guid>
       <description></description>
     </item>
     
