@@ -2,158 +2,250 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b1026">
 <title>Astro Dash</title>
 <meta name="description" content="A one-button endless runner — hop your astro-bot over rocks and crystals across an alien world.">
 <style>
   :root{
     --bg0:#0b1026; --bg1:#1b1f4a; --ink:#e8ecff; --accent:#5ad1ff; --accent2:#ff6ad5;
+    color-scheme:dark;
   }
   *{box-sizing:border-box}
-  html,body{margin:0;height:100%}
+  html{height:100%; background:var(--bg0)}
   body{
-    background:radial-gradient(120% 120% at 50% 0%, var(--bg1), var(--bg0));
+    margin:0; height:100vh; height:100dvh; overflow:hidden;
+    background:var(--bg0) radial-gradient(120% 120% at 50% 0%, var(--bg1), var(--bg0)) no-repeat;
     color:var(--ink); font-family:"Segoe UI",system-ui,-apple-system,Roboto,sans-serif;
-    display:flex; flex-direction:column; align-items:center; justify-content:center;
-    min-height:100dvh; padding:16px; gap:14px; overflow:hidden;
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px;
+    padding:max(16px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right))
+            max(16px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));
+    touch-action:manipulation; -webkit-user-select:none; user-select:none;
+    -webkit-tap-highlight-color:transparent; -webkit-touch-callout:none;
   }
   h1{
-    margin:0; font-size:clamp(22px,6vw,40px); letter-spacing:.14em; text-transform:uppercase;
+    margin:0; font-size:clamp(22px,6vw,40px); line-height:1.15; letter-spacing:.14em; text-transform:uppercase;
     background:linear-gradient(90deg,var(--accent),var(--accent2)); -webkit-background-clip:text;
     background-clip:text; color:transparent; font-weight:800;
   }
-  .wrap{width:min(900px,100%); display:flex; flex-direction:column; gap:10px}
-  .frame{
-    position:relative; width:100%; border-radius:16px; overflow:hidden;
-    box-shadow:0 18px 50px -18px rgba(0,0,0,.8), inset 0 0 0 1px rgba(255,255,255,.08);
-    background:#0a0f24; touch-action:manipulation;
+  canvas{
+    display:block; flex:none; border-radius:16px; background:#0a0f24;
+    box-shadow:0 18px 50px -18px rgba(0,0,0,.8), 0 0 0 1px rgba(255,255,255,.08);
   }
-  canvas{display:block; width:100%; height:auto; image-rendering:pixelated}
-  .hint{opacity:.72; font-size:14px; text-align:center}
-  .row{display:flex; justify-content:space-between; align-items:center; font-size:14px; opacity:.85}
+  .row{display:flex; justify-content:space-between; align-items:center; gap:12px; max-width:100%;
+    font-size:14px; opacity:.85; white-space:nowrap}
   kbd{background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2);
     border-bottom-width:2px; border-radius:6px; padding:1px 7px; font-family:inherit}
-  a{color:var(--accent)}
+  .hint,.rotate{margin:0; max-width:640px; text-align:center; font-size:14px; opacity:.72}
+  .rotate{display:none; color:var(--accent); opacity:.9}
+  @media (orientation:portrait) and (pointer:coarse){ .rotate{display:block} }
+  /* Landscape phones and short windows: the game takes the whole screen. */
+  @media (max-height:520px){
+    body{gap:0; padding:max(8px,env(safe-area-inset-top)) max(8px,env(safe-area-inset-right))
+                        max(8px,env(safe-area-inset-bottom)) max(8px,env(safe-area-inset-left))}
+    h1,.row,.hint,.rotate{display:none}
+  }
 </style>
 </head>
 <body>
   <h1>Astro&nbsp;Dash</h1>
-  <div class="wrap">
-    <div class="frame">
-      <canvas id="game" width="900" height="300"></canvas>
-    </div>
-    <div class="row">
-      <span>Jump: <kbd>Space</kbd> / <kbd>↑</kbd> / tap</span>
-      <span id="best">Best: 0</span>
-    </div>
-    <p class="hint">An original endless runner. Hop the astro-bot over rocks &amp; crystals — it gets faster. How far can you dash?</p>
+  <canvas id="game" aria-label="Astro Dash game"></canvas>
+  <div class="row" id="row">
+    <span>Jump: <kbd>Space</kbd> / <kbd>↑</kbd> / tap</span>
+    <span id="best">Best: 0</span>
   </div>
+  <p class="hint" id="hint">Hop the astro-bot over rocks &amp; crystals. It gets faster. How far can you dash?</p>
+  <p class="rotate" id="rotate">Turn your phone sideways for a bigger screen.</p>
 
 <script>
 (() => {
   const cv = document.getElementById('game');
   const ctx = cv.getContext('2d');
-  const W = cv.width, H = cv.height;
-  const GROUND = H - 48;
+  const titleEl = document.querySelector('h1');
+  const rowEl = document.getElementById('row');
+  const hintEl = document.getElementById('hint');
+  const rotEl = document.getElementById('rotate');
   const bestEl = document.getElementById('best');
+  const touch = window.matchMedia('(pointer:coarse)').matches;
+
+  // The world is always 300 units tall; its width follows the screen shape,
+  // so a landscape phone sees more of the track instead of a squashed copy.
+  const H = 300, GROUND = H - 48;
+  let W = 600, scale = 1;
 
   // ---- persistent high score ----
   let best = 0;
   try { best = parseInt(localStorage.getItem('astrodash_best') || '0', 10) || 0; } catch(e){}
-  bestEl.textContent = 'Best: ' + best;
+  const showBest = () => { bestEl.textContent = 'Best: ' + best; };
+  showBest();
 
   // ---- world state ----
+  const baseSpeed = 6;
   let state = 'ready'; // ready | play | dead
-  let t = 0, score = 0, speed = 6, baseSpeed = 6;
-  let obstacles = [], clouds = [], stars = [], particles = [];
+  let t = 0, score = 0, speed = baseSpeed, groundX = 0, spawnTimer = 60;
+  let deadAt = 0, newBest = false;
+  let obstacles = [], stars = [], particles = [];
 
   const player = {
-    x: 90, y: GROUND, vy: 0, r: 18, onGround: true,
+    x: 90, y: GROUND, vy: 0, onGround: true,
     jump() {
-      if (this.onGround) {
-        this.vy = -13.2; this.onGround = false;
-        for (let i=0;i<8;i++) particles.push({x:this.x-6, y:GROUND, vx:(Math.random()-.5)*3, vy:-Math.random()*2, life:16});
-      }
+      if (!this.onGround) return;
+      this.vy = -13.2; this.onGround = false;
+      for (let i=0;i<8;i++) particles.push({x:this.x-6, y:GROUND, vx:(Math.random()-.5)*3, vy:-Math.random()*2, life:16});
     }
   };
 
-  // starfield + parallax hills seed
-  function seedBG(){
-    stars = []; for (let i=0;i<60;i++) stars.push({x:Math.random()*W, y:Math.random()*(GROUND-30), z:Math.random()*.6+.2, s:Math.random()*1.6+.4});
-    clouds = []; for (let i=0;i<4;i++) clouds.push({x:Math.random()*W, y:30+Math.random()*70, z:Math.random()*.4+.3});
+  function seedStars(){
+    stars = [];
+    const n = Math.round(W / 15);
+    for (let i=0;i<n;i++) stars.push({x:Math.random()*W, y:Math.random()*(GROUND-30), z:Math.random()*.6+.2, s:Math.random()*1.6+.4, p:Math.random()*7});
   }
-  seedBG();
+
+  // ---- sizing: fit the canvas to whatever space the screen has ----
+  function fit(){
+    const b = document.body, cs = getComputedStyle(b);
+    const padX = parseFloat(cs.paddingLeft) + parseFloat(cs.paddingRight);
+    const padY = parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom);
+    const gap = parseFloat(cs.rowGap) || 0;
+    let used = 0;
+    for (const el of [titleEl, rowEl, hintEl, rotEl]) if (el.offsetParent) used += el.offsetHeight + gap;
+    const availW = Math.min(1100, b.clientWidth - padX);
+    const availH = Math.max(120, b.clientHeight - padY - used);
+    // Never narrower than 2:1 or wider than 3.6:1, and not taller than 480px.
+    const ch = Math.floor(Math.min(availW / 2, availH, 480));
+    const cw = Math.floor(Math.min(availW, ch * 3.6));
+    const dpr = Math.min(window.devicePixelRatio || 1, 3);
+    cv.style.width = cw + 'px'; cv.style.height = ch + 'px';
+    cv.width = Math.round(cw * dpr); cv.height = Math.round(ch * dpr);
+    scale = cv.height / H;
+    const newW = cv.width / scale;
+    const reseed = !stars.length || Math.abs(newW - W) > 1;
+    W = newW;
+    if (reseed) seedStars();
+    rowEl.style.width = cw + 'px';
+  }
+  let fitQueued = false;
+  function queueFit(){ if (!fitQueued){ fitQueued = true; requestAnimationFrame(() => { fitQueued = false; fit(); }); } }
+  window.addEventListener('resize', queueFit);
+  window.addEventListener('orientationchange', queueFit);
+  if (window.visualViewport) window.visualViewport.addEventListener('resize', queueFit);
+  fit();
 
   function reset(){
-    state='play'; t=0; score=0; speed=baseSpeed;
-    obstacles=[]; particles=[]; player.y=GROUND; player.vy=0; player.onGround=true;
-    spawnTimer = 60;
+    state = 'play'; t = 0; score = 0; speed = baseSpeed; newBest = false;
+    obstacles = []; particles = []; spawnTimer = 60;
+    player.y = GROUND; player.vy = 0; player.onGround = true;
   }
 
   // ---- obstacles ----
-  let spawnTimer = 60;
   function spawnObstacle(){
-    const kind = Math.random() < 0.55 ? 'rock' : 'crystal';
-    if (kind==='rock'){
-      const w = 22 + Math.random()*22, h = 22 + Math.random()*16;
-      obstacles.push({x:W+20, y:GROUND, w, h, kind});
+    if (Math.random() < 0.55){
+      obstacles.push({x:W+20, y:GROUND, w:22+Math.random()*22, h:22+Math.random()*16, kind:'rock'});
     } else {
-      const h = 30 + Math.random()*26;
-      obstacles.push({x:W+20, y:GROUND, w:20, h, kind});
+      obstacles.push({x:W+20, y:GROUND, w:20, h:30+Math.random()*26, kind:'crystal'});
     }
   }
 
-  // ---- input ----
-  function press(e){
-    if (e) e.preventDefault();
-    if (state==='ready') { reset(); return; }
-    if (state==='dead')  { reset(); return; }
-    player.jump();
+  // Swept test: checks the whole distance the obstacle moved this step,
+  // so nothing can slip through the bot at high speed.
+  function hits(o){
+    const px0 = player.x-14, px1 = player.x+14, py0 = player.y-32, py1 = player.y;
+    const ox0 = o.x+3, ox1 = o.x+o.w-3+speed, oy0 = o.y-o.h+4, oy1 = o.y;
+    return px1 > ox0 && px0 < ox1 && py1 > oy0 && py0 < oy1;
+  }
+
+  // ---- input: tap anywhere, or Space / Up / W ----
+  function press(){
+    if (state === 'play'){ player.jump(); return; }
+    if (state === 'dead' && performance.now() - deadAt < 450) return; // don't skip the score screen by accident
+    reset();
   }
   window.addEventListener('keydown', e => {
-    if (e.code==='Space' || e.code==='ArrowUp' || e.code==='KeyW'){ press(e); }
+    if (e.code === 'Space' || e.code === 'ArrowUp' || e.code === 'KeyW'){
+      e.preventDefault();
+      if (e.repeat && state !== 'play') return;
+      press();
+    }
   });
-  cv.addEventListener('mousedown', press);
-  cv.addEventListener('touchstart', press, {passive:false});
+  document.addEventListener('pointerdown', e => {
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+    e.preventDefault();
+    press();
+  });
 
-  // ---- drawing helpers ----
-  function drawBot(x,y){
-    // body
-    ctx.save();
-    const squish = player.onGround ? 1 : 0.92;
-    ctx.translate(x, y);
-    ctx.scale(1, squish);
-    // glow
-    ctx.shadowColor = '#5ad1ff'; ctx.shadowBlur = 14;
-    ctx.fillStyle = '#cfe9ff';
-    roundRect(-16,-34,32,34,9); ctx.fill();
-    ctx.shadowBlur = 0;
-    // visor
-    ctx.fillStyle = '#0b1026';
-    roundRect(-11,-28,22,13,6); ctx.fill();
-    // eye
-    ctx.fillStyle = '#5ad1ff';
-    ctx.beginPath(); ctx.arc(2,-21,3.2,0,7); ctx.fill();
-    // antenna
-    ctx.strokeStyle='#ff6ad5'; ctx.lineWidth=2;
-    ctx.beginPath(); ctx.moveTo(0,-34); ctx.lineTo(0,-42); ctx.stroke();
-    ctx.fillStyle='#ff6ad5'; ctx.beginPath(); ctx.arc(0,-44,2.6,0,7); ctx.fill();
-    // legs
-    ctx.fillStyle='#9fc6ff';
-    const sw = state==='play' ? Math.sin(t*0.4)*3 : 0;
-    roundRect(-11, -2, 7, 8+sw, 3); ctx.fill();
-    roundRect(4, -2, 7, 8-sw, 3); ctx.fill();
-    ctx.restore();
+  // ---- game logic (fixed 60 steps per second on any screen refresh rate) ----
+  function update(){
+    t++;
+    if (state === 'play'){
+      for (const s of stars){
+        s.x -= speed*0.12*s.z;
+        if (s.x < 0){ s.x += W; s.y = Math.random()*(GROUND-30); }
+      }
+      groundX = (groundX + speed) % 40;
+
+      player.vy += 0.62;
+      player.y += player.vy;
+      if (player.y >= GROUND){ player.y = GROUND; player.vy = 0; player.onGround = true; }
+
+      if (--spawnTimer <= 0){
+        spawnObstacle();
+        spawnTimer = Math.max(42, 95 - speed*3) + Math.random()*40;
+      }
+      for (const o of obstacles) o.x -= speed;
+      if (obstacles.some(hits)){
+        die();
+      } else {
+        obstacles = obstacles.filter(o => o.x + o.w > -10);
+        score += speed*0.03;
+        speed = baseSpeed + score*0.02;
+      }
+    }
+    for (const p of particles){ p.x += p.vx; p.y += p.vy; p.vy += 0.3; p.life--; }
+    particles = particles.filter(p => p.life > 0);
   }
+
+  function die(){
+    state = 'dead'; deadAt = performance.now();
+    const s = Math.floor(score);
+    if (s > best){
+      best = s; newBest = true; showBest();
+      try { localStorage.setItem('astrodash_best', String(best)); } catch(e){}
+    }
+    for (let i=0;i<22;i++) particles.push({x:player.x, y:player.y-16, vx:(Math.random()-.5)*7, vy:-Math.random()*6, life:16});
+  }
+
+  // ---- drawing ----
   function roundRect(x,y,w,h,r){
     ctx.beginPath();
     ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r);
     ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath();
   }
+
+  function drawBot(x,y){
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.scale(1, player.onGround ? 1 : 0.92);
+    ctx.shadowColor = '#5ad1ff'; ctx.shadowBlur = 14*scale; // shadow blur ignores the canvas transform
+    ctx.fillStyle = '#cfe9ff';
+    roundRect(-16,-34,32,34,9); ctx.fill();
+    ctx.shadowBlur = 0;
+    ctx.fillStyle = '#0b1026';
+    roundRect(-11,-28,22,13,6); ctx.fill();
+    ctx.fillStyle = '#5ad1ff';
+    ctx.beginPath(); ctx.arc(2,-21,3.2,0,7); ctx.fill();
+    ctx.strokeStyle = '#ff6ad5'; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(0,-34); ctx.lineTo(0,-42); ctx.stroke();
+    ctx.fillStyle = '#ff6ad5'; ctx.beginPath(); ctx.arc(0,-44,2.6,0,7); ctx.fill();
+    ctx.fillStyle = '#9fc6ff';
+    const sw = state === 'play' ? Math.sin(t*0.4)*3 : 0;
+    roundRect(-11,-2,7,8+sw,3); ctx.fill();
+    roundRect(4,-2,7,8-sw,3); ctx.fill();
+    ctx.restore();
+  }
+
   function drawObstacle(o){
-    if (o.kind==='rock'){
-      ctx.fillStyle = '#7b6b9e';
-      ctx.strokeStyle='#4a3d6b'; ctx.lineWidth=2;
+    if (o.kind === 'rock'){
+      ctx.fillStyle = '#7b6b9e'; ctx.strokeStyle = '#4a3d6b'; ctx.lineWidth = 2;
       ctx.beginPath();
       ctx.moveTo(o.x, o.y);
       ctx.lineTo(o.x+o.w*0.15, o.y-o.h*0.8);
@@ -162,122 +254,81 @@
       ctx.lineTo(o.x+o.w, o.y);
       ctx.closePath(); ctx.fill(); ctx.stroke();
     } else {
-      ctx.fillStyle = '#ff6ad5';
-      ctx.shadowColor='#ff6ad5'; ctx.shadowBlur=10;
+      ctx.fillStyle = '#ff6ad5'; ctx.shadowColor = '#ff6ad5'; ctx.shadowBlur = 10*scale;
       ctx.beginPath();
-      ctx.moveTo(o.x, o.y);
-      ctx.lineTo(o.x+10, o.y-o.h);
-      ctx.lineTo(o.x+20, o.y);
+      ctx.moveTo(o.x, o.y); ctx.lineTo(o.x+10, o.y-o.h); ctx.lineTo(o.x+20, o.y);
       ctx.closePath(); ctx.fill();
-      ctx.shadowBlur=0;
+      ctx.shadowBlur = 0;
     }
   }
 
-  // ---- collision ----
-  function hits(o){
-    const px0=player.x-14, px1=player.x+14, py0=player.y-32, py1=player.y;
-    const ox0=o.x, ox1=o.x+o.w, oy0=o.y-o.h, oy1=o.y;
-    return px1>ox0+3 && px0<ox1-3 && py1>oy0+4 && py0<oy1;
+  function text(txt, x, y, size, color, align){
+    ctx.textAlign = align || 'center'; ctx.fillStyle = color;
+    ctx.font = 'bold ' + size + 'px "Segoe UI",system-ui,-apple-system,sans-serif';
+    ctx.fillText(txt, x, y);
   }
+  const pad = n => String(Math.floor(n)).padStart(5, '0');
 
-  // ---- main loop ----
-  function loop(){
-    t++;
-    // background
+  function render(){
+    ctx.setTransform(scale,0,0,scale,0,0);
     ctx.clearRect(0,0,W,H);
-    // sky gradient band + horizon
+
     const g = ctx.createLinearGradient(0,0,0,GROUND);
     g.addColorStop(0,'#1b1f4a'); g.addColorStop(1,'#2a1f52');
-    ctx.fillStyle=g; ctx.fillRect(0,0,W,GROUND);
+    ctx.fillStyle = g; ctx.fillRect(0,0,W,GROUND);
 
-    // stars
+    ctx.fillStyle = '#dfe8ff';
     for (const s of stars){
-      if (state==='play') s.x -= speed*0.12*s.z;
-      if (s.x<0){ s.x=W; s.y=Math.random()*(GROUND-30); }
-      ctx.globalAlpha = 0.5+0.5*Math.sin((t*0.05)+s.x);
-      ctx.fillStyle='#dfe8ff'; ctx.fillRect(s.x, s.y, s.s, s.s);
+      ctx.globalAlpha = 0.5 + 0.5*Math.sin(t*0.05 + s.p);
+      ctx.fillRect(s.x, s.y, s.s, s.s);
     }
-    ctx.globalAlpha=1;
+    ctx.globalAlpha = 1;
 
-    // distant planet
-    ctx.fillStyle='rgba(90,209,255,.18)';
+    ctx.fillStyle = 'rgba(90,209,255,.18)';
     ctx.beginPath(); ctx.arc(W-120,70,46,0,7); ctx.fill();
-    ctx.fillStyle='rgba(255,106,213,.14)';
+    ctx.fillStyle = 'rgba(255,106,213,.14)';
     ctx.beginPath(); ctx.arc(140,56,26,0,7); ctx.fill();
 
-    // ground
-    ctx.fillStyle='#120a28'; ctx.fillRect(0,GROUND,W,H-GROUND);
-    ctx.strokeStyle='#5ad1ff'; ctx.lineWidth=2; ctx.globalAlpha=.5;
+    ctx.fillStyle = '#120a28'; ctx.fillRect(0,GROUND,W,H-GROUND);
+    ctx.strokeStyle = 'rgba(90,209,255,.5)'; ctx.lineWidth = 2;
     ctx.beginPath(); ctx.moveTo(0,GROUND); ctx.lineTo(W,GROUND); ctx.stroke();
-    ctx.globalAlpha=1;
-    // moving ground dashes
-    ctx.strokeStyle='rgba(159,198,255,.4)'; ctx.lineWidth=3;
-    const off = (t*speed)% 40;
-    for (let x=-off; x<W; x+=40){ ctx.beginPath(); ctx.moveTo(x,GROUND+16); ctx.lineTo(x+16,GROUND+16); ctx.stroke(); }
+    ctx.strokeStyle = 'rgba(159,198,255,.4)'; ctx.lineWidth = 3;
+    ctx.beginPath();
+    for (let x = -groundX; x < W; x += 40){ ctx.moveTo(x,GROUND+16); ctx.lineTo(x+16,GROUND+16); }
+    ctx.stroke();
 
-    // physics
-    if (state==='play'){
-      player.vy += 0.62;
-      player.y += player.vy;
-      if (player.y >= GROUND){ player.y=GROUND; player.vy=0; player.onGround=true; }
+    ctx.fillStyle = '#9fc6ff';
+    for (const p of particles){ ctx.globalAlpha = p.life/16; ctx.fillRect(p.x,p.y,3,3); }
+    ctx.globalAlpha = 1;
 
-      // spawn
-      if (--spawnTimer<=0){
-        spawnObstacle();
-        spawnTimer = Math.max(42, 95 - speed*3) + Math.random()*40;
-      }
-      // move + collide
-      for (const o of obstacles){ o.x -= speed; if (hits(o)) die(); }
-      obstacles = obstacles.filter(o => o.x+o.w > -10);
-
-      score += speed*0.03;
-      speed = baseSpeed + score*0.02;
-    }
-
-    // particles
-    for (const p of particles){ p.x+=p.vx; p.y+=p.vy; p.vy+=0.3; p.life--; }
-    particles = particles.filter(p=>p.life>0);
-    ctx.fillStyle='#9fc6ff';
-    for (const p of particles){ ctx.globalAlpha=p.life/16; ctx.fillRect(p.x,p.y,3,3); }
-    ctx.globalAlpha=1;
-
-    // obstacles + bot
     for (const o of obstacles) drawObstacle(o);
     drawBot(player.x, player.y);
 
-    // HUD
-    ctx.fillStyle='#e8ecff'; ctx.font='bold 20px "Segoe UI",system-ui,sans-serif';
-    ctx.textAlign='right'; ctx.fillText(String(Math.floor(score)).padStart(5,'0'), W-16, 32);
-    ctx.textAlign='left';
+    text(pad(score), W-16, 32, 20, '#e8ecff', 'right');
+    text('HI ' + pad(best), 16, 32, 14, 'rgba(232,236,255,.6)', 'left');
 
-    if (state==='ready'){
-      centerText('ASTRO DASH', -16, 30, '#5ad1ff');
-      centerText('Press Space / Tap to start', 16, 16, '#e8ecff');
+    if (state === 'ready'){
+      text('ASTRO DASH', W/2, H/2-16, 30, '#5ad1ff');
+      text(touch ? 'Tap to start' : 'Press Space or click to start', W/2, H/2+16, 16, '#e8ecff');
     }
-    if (state==='dead'){
-      ctx.fillStyle='rgba(11,16,38,.55)'; ctx.fillRect(0,0,W,H);
-      centerText('GAME OVER', -18, 30, '#ff6ad5');
-      centerText('Score ' + Math.floor(score) + '   ·   Best ' + best, 14, 16, '#e8ecff');
-      centerText('Space / Tap to retry', 44, 14, 'rgba(232,236,255,.75)');
+    if (state === 'dead'){
+      ctx.fillStyle = 'rgba(11,16,38,.55)'; ctx.fillRect(0,0,W,H);
+      text('GAME OVER', W/2, H/2-18, 30, '#ff6ad5');
+      text('Score ' + Math.floor(score) + '   ·   Best ' + best, W/2, H/2+14, 16, '#e8ecff');
+      text((newBest ? 'New best!   ' : '') + (touch ? 'Tap to retry' : 'Space / click to retry'),
+           W/2, H/2+44, 14, newBest ? '#5ad1ff' : 'rgba(232,236,255,.75)');
     }
-
-    requestAnimationFrame(loop);
   }
 
-  function centerText(txt, dy, size, color){
-    ctx.save(); ctx.textAlign='center'; ctx.fillStyle=color;
-    ctx.font='bold '+size+'px "Segoe UI",system-ui,sans-serif';
-    ctx.fillText(txt, W/2, H/2+dy); ctx.restore();
+  const STEP = 1000/60;
+  let last = performance.now(), acc = 0;
+  function frame(now){
+    acc += Math.min(100, now - last); last = now;
+    while (acc >= STEP){ update(); acc -= STEP; }
+    render();
+    requestAnimationFrame(frame);
   }
-
-  function die(){
-    state='dead';
-    const s=Math.floor(score);
-    if (s>best){ best=s; try{localStorage.setItem('astrodash_best',String(best));}catch(e){} bestEl.textContent='Best: '+best; }
-    for (let i=0;i<22;i++) particles.push({x:player.x,y:player.y-16,vx:(Math.random()-.5)*7,vy:-Math.random()*6,life:16});
-  }
-
-  loop();
+  requestAnimationFrame(frame);
 })();
 </script>
 </body>
