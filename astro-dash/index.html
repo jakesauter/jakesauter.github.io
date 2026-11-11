@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Astro Dash</title>
+<meta name="description" content="A one-button endless runner — hop your astro-bot over rocks and crystals across an alien world.">
+<style>
+  :root{
+    --bg0:#0b1026; --bg1:#1b1f4a; --ink:#e8ecff; --accent:#5ad1ff; --accent2:#ff6ad5;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{
+    background:radial-gradient(120% 120% at 50% 0%, var(--bg1), var(--bg0));
+    color:var(--ink); font-family:"Segoe UI",system-ui,-apple-system,Roboto,sans-serif;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    min-height:100dvh; padding:16px; gap:14px; overflow:hidden;
+  }
+  h1{
+    margin:0; font-size:clamp(22px,6vw,40px); letter-spacing:.14em; text-transform:uppercase;
+    background:linear-gradient(90deg,var(--accent),var(--accent2)); -webkit-background-clip:text;
+    background-clip:text; color:transparent; font-weight:800;
+  }
+  .wrap{width:min(900px,100%); display:flex; flex-direction:column; gap:10px}
+  .frame{
+    position:relative; width:100%; border-radius:16px; overflow:hidden;
+    box-shadow:0 18px 50px -18px rgba(0,0,0,.8), inset 0 0 0 1px rgba(255,255,255,.08);
+    background:#0a0f24; touch-action:manipulation;
+  }
+  canvas{display:block; width:100%; height:auto; image-rendering:pixelated}
+  .hint{opacity:.72; font-size:14px; text-align:center}
+  .row{display:flex; justify-content:space-between; align-items:center; font-size:14px; opacity:.85}
+  kbd{background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2);
+    border-bottom-width:2px; border-radius:6px; padding:1px 7px; font-family:inherit}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+  <h1>Astro&nbsp;Dash</h1>
+  <div class="wrap">
+    <div class="frame">
+      <canvas id="game" width="900" height="300"></canvas>
+    </div>
+    <div class="row">
+      <span>Jump: <kbd>Space</kbd> / <kbd>↑</kbd> / tap</span>
+      <span id="best">Best: 0</span>
+    </div>
+    <p class="hint">An original endless runner. Hop the astro-bot over rocks &amp; crystals — it gets faster. How far can you dash?</p>
+  </div>
+
+<script>
+(() => {
+  const cv = document.getElementById('game');
+  const ctx = cv.getContext('2d');
+  const W = cv.width, H = cv.height;
+  const GROUND = H - 48;
+  const bestEl = document.getElementById('best');
+
+  // ---- persistent high score ----
+  let best = 0;
+  try { best = parseInt(localStorage.getItem('astrodash_best') || '0', 10) || 0; } catch(e){}
+  bestEl.textContent = 'Best: ' + best;
+
+  // ---- world state ----
+  let state = 'ready'; // ready | play | dead
+  let t = 0, score = 0, speed = 6, baseSpeed = 6;
+  let obstacles = [], clouds = [], stars = [], particles = [];
+
+  const player = {
+    x: 90, y: GROUND, vy: 0, r: 18, onGround: true,
+    jump() {
+      if (this.onGround) {
+        this.vy = -13.2; this.onGround = false;
+        for (let i=0;i<8;i++) particles.push({x:this.x-6, y:GROUND, vx:(Math.random()-.5)*3, vy:-Math.random()*2, life:16});
+      }
+    }
+  };
+
+  // starfield + parallax hills seed
+  function seedBG(){
+    stars = []; for (let i=0;i<60;i++) stars.push({x:Math.random()*W, y:Math.random()*(GROUND-30), z:Math.random()*.6+.2, s:Math.random()*1.6+.4});
+    clouds = []; for (let i=0;i<4;i++) clouds.push({x:Math.random()*W, y:30+Math.random()*70, z:Math.random()*.4+.3});
+  }
+  seedBG();
+
+  function reset(){
+    state='play'; t=0; score=0; speed=baseSpeed;
+    obstacles=[]; particles=[]; player.y=GROUND; player.vy=0; player.onGround=true;
+    spawnTimer = 60;
+  }
+
+  // ---- obstacles ----
+  let spawnTimer = 60;
+  function spawnObstacle(){
+    const kind = Math.random() < 0.55 ? 'rock' : 'crystal';
+    if (kind==='rock'){
+      const w = 22 + Math.random()*22, h = 22 + Math.random()*16;
+      obstacles.push({x:W+20, y:GROUND, w, h, kind});
+    } else {
+      const h = 30 + Math.random()*26;
+      obstacles.push({x:W+20, y:GROUND, w:20, h, kind});
+    }
+  }
+
+  // ---- input ----
+  function press(e){
+    if (e) e.preventDefault();
+    if (state==='ready') { reset(); return; }
+    if (state==='dead')  { reset(); return; }
+    player.jump();
+  }
+  window.addEventListener('keydown', e => {
+    if (e.code==='Space' || e.code==='ArrowUp' || e.code==='KeyW'){ press(e); }
+  });
+  cv.addEventListener('mousedown', press);
+  cv.addEventListener('touchstart', press, {passive:false});
+
+  // ---- drawing helpers ----
+  function drawBot(x,y){
+    // body
+    ctx.save();
+    const squish = player.onGround ? 1 : 0.92;
+    ctx.translate(x, y);
+    ctx.scale(1, squish);
+    // glow
+    ctx.shadowColor = '#5ad1ff'; ctx.shadowBlur = 14;
+    ctx.fillStyle = '#cfe9ff';
+    roundRect(-16,-34,32,34,9); ctx.fill();
+    ctx.shadowBlur = 0;
+    // visor
+    ctx.fillStyle = '#0b1026';
+    roundRect(-11,-28,22,13,6); ctx.fill();
+    // eye
+    ctx.fillStyle = '#5ad1ff';
+    ctx.beginPath(); ctx.arc(2,-21,3.2,0,7); ctx.fill();
+    // antenna
+    ctx.strokeStyle='#ff6ad5'; ctx.lineWidth=2;
+    ctx.beginPath(); ctx.moveTo(0,-34); ctx.lineTo(0,-42); ctx.stroke();
+    ctx.fillStyle='#ff6ad5'; ctx.beginPath(); ctx.arc(0,-44,2.6,0,7); ctx.fill();
+    // legs
+    ctx.fillStyle='#9fc6ff';
+    const sw = state==='play' ? Math.sin(t*0.4)*3 : 0;
+    roundRect(-11, -2, 7, 8+sw, 3); ctx.fill();
+    roundRect(4, -2, 7, 8-sw, 3); ctx.fill();
+    ctx.restore();
+  }
+  function roundRect(x,y,w,h,r){
+    ctx.beginPath();
+    ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r);
+    ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath();
+  }
+  function drawObstacle(o){
+    if (o.kind==='rock'){
+      ctx.fillStyle = '#7b6b9e';
+      ctx.strokeStyle='#4a3d6b'; ctx.lineWidth=2;
+      ctx.beginPath();
+      ctx.moveTo(o.x, o.y);
+      ctx.lineTo(o.x+o.w*0.15, o.y-o.h*0.8);
+      ctx.lineTo(o.x+o.w*0.5, o.y-o.h);
+      ctx.lineTo(o.x+o.w*0.85, o.y-o.h*0.7);
+      ctx.lineTo(o.x+o.w, o.y);
+      ctx.closePath(); ctx.fill(); ctx.stroke();
+    } else {
+      ctx.fillStyle = '#ff6ad5';
+      ctx.shadowColor='#ff6ad5'; ctx.shadowBlur=10;
+      ctx.beginPath();
+      ctx.moveTo(o.x, o.y);
+      ctx.lineTo(o.x+10, o.y-o.h);
+      ctx.lineTo(o.x+20, o.y);
+      ctx.closePath(); ctx.fill();
+      ctx.shadowBlur=0;
+    }
+  }
+
+  // ---- collision ----
+  function hits(o){
+    const px0=player.x-14, px1=player.x+14, py0=player.y-32, py1=player.y;
+    const ox0=o.x, ox1=o.x+o.w, oy0=o.y-o.h, oy1=o.y;
+    return px1>ox0+3 && px0<ox1-3 && py1>oy0+4 && py0<oy1;
+  }
+
+  // ---- main loop ----
+  function loop(){
+    t++;
+    // background
+    ctx.clearRect(0,0,W,H);
+    // sky gradient band + horizon
+    const g = ctx.createLinearGradient(0,0,0,GROUND);
+    g.addColorStop(0,'#1b1f4a'); g.addColorStop(1,'#2a1f52');
+    ctx.fillStyle=g; ctx.fillRect(0,0,W,GROUND);
+
+    // stars
+    for (const s of stars){
+      if (state==='play') s.x -= speed*0.12*s.z;
+      if (s.x<0){ s.x=W; s.y=Math.random()*(GROUND-30); }
+      ctx.globalAlpha = 0.5+0.5*Math.sin((t*0.05)+s.x);
+      ctx.fillStyle='#dfe8ff'; ctx.fillRect(s.x, s.y, s.s, s.s);
+    }
+    ctx.globalAlpha=1;
+
+    // distant planet
+    ctx.fillStyle='rgba(90,209,255,.18)';
+    ctx.beginPath(); ctx.arc(W-120,70,46,0,7); ctx.fill();
+    ctx.fillStyle='rgba(255,106,213,.14)';
+    ctx.beginPath(); ctx.arc(140,56,26,0,7); ctx.fill();
+
+    // ground
+    ctx.fillStyle='#120a28'; ctx.fillRect(0,GROUND,W,H-GROUND);
+    ctx.strokeStyle='#5ad1ff'; ctx.lineWidth=2; ctx.globalAlpha=.5;
+    ctx.beginPath(); ctx.moveTo(0,GROUND); ctx.lineTo(W,GROUND); ctx.stroke();
+    ctx.globalAlpha=1;
+    // moving ground dashes
+    ctx.strokeStyle='rgba(159,198,255,.4)'; ctx.lineWidth=3;
+    const off = (t*speed)% 40;
+    for (let x=-off; x<W; x+=40){ ctx.beginPath(); ctx.moveTo(x,GROUND+16); ctx.lineTo(x+16,GROUND+16); ctx.stroke(); }
+
+    // physics
+    if (state==='play'){
+      player.vy += 0.62;
+      player.y += player.vy;
+      if (player.y >= GROUND){ player.y=GROUND; player.vy=0; player.onGround=true; }
+
+      // spawn
+      if (--spawnTimer<=0){
+        spawnObstacle();
+        spawnTimer = Math.max(42, 95 - speed*3) + Math.random()*40;
+      }
+      // move + collide
+      for (const o of obstacles){ o.x -= speed; if (hits(o)) die(); }
+      obstacles = obstacles.filter(o => o.x+o.w > -10);
+
+      score += speed*0.03;
+      speed = baseSpeed + score*0.02;
+    }
+
+    // particles
+    for (const p of particles){ p.x+=p.vx; p.y+=p.vy; p.vy+=0.3; p.life--; }
+    particles = particles.filter(p=>p.life>0);
+    ctx.fillStyle='#9fc6ff';
+    for (const p of particles){ ctx.globalAlpha=p.life/16; ctx.fillRect(p.x,p.y,3,3); }
+    ctx.globalAlpha=1;
+
+    // obstacles + bot
+    for (const o of obstacles) drawObstacle(o);
+    drawBot(player.x, player.y);
+
+    // HUD
+    ctx.fillStyle='#e8ecff'; ctx.font='bold 20px "Segoe UI",system-ui,sans-serif';
+    ctx.textAlign='right'; ctx.fillText(String(Math.floor(score)).padStart(5,'0'), W-16, 32);
+    ctx.textAlign='left';
+
+    if (state==='ready'){
+      centerText('ASTRO DASH', -16, 30, '#5ad1ff');
+      centerText('Press Space / Tap to start', 16, 16, '#e8ecff');
+    }
+    if (state==='dead'){
+      ctx.fillStyle='rgba(11,16,38,.55)'; ctx.fillRect(0,0,W,H);
+      centerText('GAME OVER', -18, 30, '#ff6ad5');
+      centerText('Score ' + Math.floor(score) + '   ·   Best ' + best, 14, 16, '#e8ecff');
+      centerText('Space / Tap to retry', 44, 14, 'rgba(232,236,255,.75)');
+    }
+
+    requestAnimationFrame(loop);
+  }
+
+  function centerText(txt, dy, size, color){
+    ctx.save(); ctx.textAlign='center'; ctx.fillStyle=color;
+    ctx.font='bold '+size+'px "Segoe UI",system-ui,sans-serif';
+    ctx.fillText(txt, W/2, H/2+dy); ctx.restore();
+  }
+
+  function die(){
+    state='dead';
+    const s=Math.floor(score);
+    if (s>best){ best=s; try{localStorage.setItem('astrodash_best',String(best));}catch(e){} bestEl.textContent='Best: '+best; }
+    for (let i=0;i<22;i++) particles.push({x:player.x,y:player.y-16,vx:(Math.random()-.5)*7,vy:-Math.random()*6,life:16});
+  }
+
+  loop();
+})();
+</script>
+</body>
+</html>
