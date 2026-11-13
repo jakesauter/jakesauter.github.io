@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sauter Bioinformatics · Jake Sauter</title>
+<meta name="author" content="Jake Sauter">
+<meta name="description" content="Independent analysis for sequencing, cytometry, cytokine and high-content imaging data: fixed-price reports with publication-ready figures and methods.">
+<meta property="og:title" content="Sauter Bioinformatics">
+<meta property="og:description" content="Fixed-price analysis for RNA-seq, cytometry, cytokine and high-content imaging experiments, with example reports.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jakesauter.github.io/bioinformatics/">
+<link rel="canonical" href="https://jakesauter.github.io/bioinformatics/">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a single reading column; a full-width band for the assay grid; example reports as three equal cards; a plain price table. */
+:root{
+  --bg:#f7f8f6; --surface:#ffffff; --ink:#14201d; --ink2:#4b5a56; --muted:#7c8a86; --line:#dbe2df;
+  --accent:#16695a; --accentbg:#e4f1ed; --well:#c9d8d3;
+  --serif:"IBM Plex Serif",Georgia,serif; --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0f1514; --surface:#17201e; --ink:#e9efed; --ink2:#b6c4c0; --muted:#83928e; --line:#2a3633; --accent:#5fc7ae; --accentbg:#143029; --well:#2c3c38; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#0f1514; --surface:#17201e; --ink:#e9efed; --ink2:#b6c4c0; --muted:#83928e; --line:#2a3633; --accent:#5fc7ae; --accentbg:#143029; --well:#2c3c38; color-scheme:dark }
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+main{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:56px}
+.col{max-width:700px}
+h1,h2,h3{font-family:var(--serif);font-weight:600;margin:0;text-wrap:balance}
+h1{font-size:clamp(32px,6vw,52px);line-height:1.08;letter-spacing:-.01em}
+h2{font-size:26px;margin-bottom:14px}
+h3{font-size:18px;margin-bottom:4px}
+p{margin:0 0 12px;max-width:66ch} p:last-child{margin-bottom:0}
+a{color:var(--accent)}
+.kicker{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+nav.top{max-width:980px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:18px 0 0;font-size:15px}
+nav.top a{color:var(--ink2);text-decoration:none;padding:6px 0} nav.top a:first-child{font-weight:600;color:var(--ink)} nav.top span{display:flex;gap:18px} nav.top a:hover{color:var(--accent)}
+header.hero{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center;padding-top:40px}
+header.hero>div{min-width:0}
+.lede{font-size:20px;color:var(--ink2);margin-top:16px}
+.cta{display:inline-flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-block;padding:12px 18px;border-radius:8px;font-weight:600;text-decoration:none;border:1.5px solid var(--accent)}
+.btn.pri{background:var(--accent);color:var(--surface)} .btn.sec{color:var(--accent)}
+.plate{display:grid;grid-template-columns:repeat(12,1fr);gap:5px;padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+.plate i{aspect-ratio:1;border-radius:50%;background:var(--well);display:block}
+.plate i.h{background:var(--accent)} .plate i.m{background:color-mix(in srgb,var(--accent) 45%,var(--well))}
+.platecap{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:8px;text-align:right}
+.assays{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.assays>div{background:var(--surface);padding:20px;min-width:0}
+.assays ul{margin:8px 0 0;padding-left:18px;color:var(--ink2);font-size:15px} .assays li{margin-bottom:3px}
+.reports{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.card .stat{font-family:var(--mono);font-size:13px;color:var(--accent)}
+.card p{font-size:15px;color:var(--ink2)}
+.card a{margin-top:auto;font-weight:600}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;counter-reset:s;padding:0;margin:0;list-style:none}
+.steps li{counter-increment:s;border-top:2px solid var(--ink);padding-top:12px;min-width:0}
+.steps li::before{content:counter(s,decimal-leading-zero);font-family:var(--mono);font-size:13px;color:var(--muted);display:block;margin-bottom:4px}
+.steps p{font-size:15px;color:var(--ink2)}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+td:last-child,th:last-child{text-align:right;white-space:nowrap}
+thead th{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500}
+tbody tr:last-child td{border-bottom:0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:32px} .two>div{min-width:0}
+ul.plain{margin:0;padding-left:18px} ul.plain li{margin-bottom:6px}
+.contact{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:28px}
+footer{font-size:13px;color:var(--muted);max-width:980px;margin:48px auto 0}
+@media (max-width:720px){ header.hero{grid-template-columns:1fr;gap:24px;padding-top:28px} .two{grid-template-columns:1fr} main{gap:44px} }
+</style>
+</head>
+<body>
+<nav class="top"><a href="/">Jake Sauter</a><span><a href="/cv/">CV</a><a href="/projects/">Projects</a><a href="/contact/">Contact</a></span></nav>
+<main>
+  <header class="hero">
+    <div>
+      <p class="kicker">Independent bioinformatics analysis</p>
+      <h1>Your data, analyzed and written up in a week.</h1>
+      <p class="lede">Fixed-price analysis for sequencing, cytometry, cytokine and high-content imaging experiments. You get publication-ready figures, a methods section you can paste into a paper, and code that reproduces every number.</p>
+      <div class="cta"><a class="btn pri" href="#contact">Request a quote</a><a class="btn sec" href="#examples">See example reports</a></div>
+    </div>
+    <div aria-hidden="true">
+      <div class="plate" id="plate"></div>
+      <p class="platecap">96-well plate · 14 hits</p>
+    </div>
+  </header>
+
+  <section>
+    <h2>What I analyze</h2>
+    <div class="assays">
+      <div><h3>Sequencing</h3><ul><li>Bulk RNA-seq differential expression</li><li>Single-cell RNA-seq: clustering, annotation, trajectories</li><li>Pathway and gene-set analysis</li></ul></div>
+      <div><h3>Flow and mass cytometry</h3><ul><li>Gating, or unsupervised clustering</li><li>Population frequencies across conditions</li><li>Signaling and marker-level statistics</li></ul></div>
+      <div><h3>Cytokines and immunoassays</h3><ul><li>Multiplex panels (Luminex, MSD, Olink)</li><li>Standard curves and quality flags</li><li>Group comparisons and time courses</li></ul></div>
+      <div><h3>High-content imaging</h3><ul><li>Cell Painting profiling and hit calling</li><li>Brightfield and fluorescence segmentation</li><li>CellProfiler pipelines or deep-learning features</li></ul></div>
+    </div>
+  </section>
+
+  <section id="examples">
+    <h2>Example reports</h2>
+    <p class="col">Built on public datasets so you can see exactly what a deliverable looks like. Each one opens as a full report.</p>
+    <div class="reports">
+      <div class="card"><p class="kicker">Bulk RNA-seq</p><h3>Dexamethasone in airway smooth muscle cells</h3><span class="stat">4,099 genes changed · paired design</span><p>Quality control, differential expression, known-gene checks, pathway enrichment and a ready-to-paste methods paragraph.</p><a href="reports/rnaseq-example.html">Open report →</a></div>
+      <div class="card"><p class="kicker">Mass cytometry</p><h3>B-cell receptor stimulation in blood cells</h3><span class="stat">8 populations · 19 signaling changes</span><p>Clustering and annotation, population sizes, phospho-signaling by cell type, with donor-paired statistics.</p><a href="reports/cytometry-example.html">Open report →</a></div>
+      <div class="card"><p class="kicker">Cell Painting</p><h3>300 annotated compounds in U2OS cells</h3><span class="stat">251 of 306 reproducible · target retrieval p = 0.002</span><p>Plate normalization, feature selection, replicate reproducibility, hit ranking and target similarity.</p><a href="reports/cellpainting-example.html">Open report →</a></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li><h3>Tell me about the experiment</h3><p>Design, sample counts, file types and the question you need answered.</p></li>
+      <li><h3>Fixed quote within a day</h3><p>Scope, price and delivery date in writing before any work starts.</p></li>
+      <li><h3>Report in about a week</h3><p>Figures, tables, methods text and code, with quality problems flagged early.</p></li>
+      <li><h3>Review call</h3><p>Thirty minutes to walk through results, plus one round of changes.</p></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Pricing</h2>
+    <div class="tw"><table>
+      <thead><tr><th>Project</th><th>Typical scope</th><th>From</th></tr></thead>
+      <tbody>
+        <tr><td>Bulk RNA-seq</td><td>Up to 2 contrasts, QC, DE, pathways, report</td><td>$1,500</td></tr>
+        <tr><td>Single-cell RNA-seq</td><td>Up to 8 samples, clustering, annotation, comparisons</td><td>$3,000</td></tr>
+        <tr><td>Flow or mass cytometry</td><td>One experiment, gating or clustering, statistics</td><td>$1,500</td></tr>
+        <tr><td>Cytokine panel</td><td>One panel, QC, curves, group statistics</td><td>$900</td></tr>
+        <tr><td>Cell Painting or high-content</td><td>Quoted per plate set and starting point</td><td>Quote</td></tr>
+        <tr><td>Consulting and custom pipelines</td><td>Hourly</td><td>$135 / hr</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section class="two">
+    <div>
+      <h2>About</h2>
+      <p>I'm Jake Sauter, a bioinformatician with a master's degree from Weill Cornell Medicine and five years of industry experience, including work at Memorial Sloan Kettering Cancer Center. I have built analysis pipelines for RNA-seq, flow cytometry, cytokine assays and high-content imaging, including Cell Painting and brightfield. <a href="/cv/">Full CV</a>.</p>
+    </div>
+    <div>
+      <h2>Your data</h2>
+      <ul class="plain">
+        <li>Confidentiality agreement signed before any data is shared</li>
+        <li>Data kept on encrypted storage and deleted after delivery</li>
+        <li>You own the results and the analysis code</li>
+        <li>No use of your data for any other purpose</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact" class="contact col">
+    <h2>Request a quote</h2>
+    <p>Send a short description of the experiment and the data you have. You'll get a fixed quote within one business day.</p>
+    <div class="cta"><a class="btn pri" href="/contact/">Email or call me</a><a class="btn sec" href="https://www.linkedin.com/in/jakesauter/">Message on LinkedIn</a></div>
+  </section>
+</main>
+<footer>Example reports use public data: Himes et al. 2014 (GEO GSE52778), Bodenmiller et al. 2012 (via Bioconductor CATALYST) and the JUMP Cell Painting Consortium (Cell Painting Gallery cpg0016).</footer>
+<script>
+  const p = document.getElementById("plate");
+  const hits = new Set([5, 14, 23, 30, 41, 47, 52, 58, 66, 71, 77, 83, 88, 94]), mid = new Set([6, 13, 31, 40, 59, 70, 82, 95]);
+  for (let i = 0; i < 96; i++) { const w = document.createElement("i"); if (hits.has(i)) w.className = "h"; else if (mid.has(i)) w.className = "m"; p.appendChild(w); }
+</script>
+</body>
+</html>
