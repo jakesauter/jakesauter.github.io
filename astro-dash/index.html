@@ -82,7 +82,8 @@
 
   // ---- world state ----
   const baseSpeed = 6;
-  let state = 'ready'; // ready | play | dead
+  let state = 'ready'; // ready | play | paused | dead
+  let jumpBuffer = 0;   // steps left in which a tap made just before landing still jumps
   let t = 0, score = 0, speed = baseSpeed, groundX = 0, spawnTimer = 60;
   let deadAt = 0, newBest = false;
   let obstacles = [], stars = [], particles = [];
@@ -90,7 +91,8 @@
   const player = {
     x: 90, y: GROUND, vy: 0, onGround: true,
     jump() {
-      if (!this.onGround) return;
+      if (!this.onGround){ jumpBuffer = 7; return; }  // about 0.12 s: jumps the moment it lands
+      jumpBuffer = 0;
       this.vy = -13.2; this.onGround = false;
       for (let i=0;i<8;i++) particles.push({x:this.x-6, y:GROUND, vx:(Math.random()-.5)*3, vy:-Math.random()*2, life:16});
     }
@@ -135,8 +137,15 @@
   function reset(){
     state = 'play'; t = 0; score = 0; speed = baseSpeed; newBest = false;
     obstacles = []; particles = []; spawnTimer = 60;
-    player.y = GROUND; player.vy = 0; player.onGround = true;
+    player.y = GROUND; player.vy = 0; player.onGround = true; jumpBuffer = 0;
   }
+
+  // Leaving the app mid-run (a call, a notification, switching apps) pauses instead of
+  // dropping you back into a run already moving.
+  function pause(){ if (state === 'play') state = 'paused'; }
+  document.addEventListener('visibilitychange', () => { if (document.hidden) pause(); });
+  window.addEventListener('blur', pause);
+  window.addEventListener('pagehide', pause);
 
   // ---- obstacles ----
   function spawnObstacle(){
@@ -158,6 +167,7 @@
   // ---- input: tap anywhere, or Space / Up / W ----
   function press(){
     if (state === 'play'){ player.jump(); return; }
+    if (state === 'paused'){ state = 'play'; return; }
     if (state === 'dead' && performance.now() - deadAt < 450) return; // don't skip the score screen by accident
     reset();
   }
@@ -186,7 +196,11 @@
 
       player.vy += 0.62;
       player.y += player.vy;
-      if (player.y >= GROUND){ player.y = GROUND; player.vy = 0; player.onGround = true; }
+      if (player.y >= GROUND){
+        player.y = GROUND; player.vy = 0; player.onGround = true;
+        if (jumpBuffer > 0) player.jump();
+      }
+      if (jumpBuffer > 0) jumpBuffer--;
 
       if (--spawnTimer <= 0){
         spawnObstacle();
@@ -311,6 +325,11 @@
     if (state === 'ready'){
       text('ASTRO DASH', W/2, H/2-16, 30, '#5ad1ff');
       text(touch ? 'Tap to start' : 'Press Space or click to start', W/2, H/2+16, 16, '#e8ecff');
+    }
+    if (state === 'paused'){
+      ctx.fillStyle = 'rgba(11,16,38,.55)'; ctx.fillRect(0,0,W,H);
+      text('PAUSED', W/2, H/2-10, 30, '#5ad1ff');
+      text(touch ? 'Tap to keep going' : 'Space / click to keep going', W/2, H/2+22, 16, '#e8ecff');
     }
     if (state === 'dead'){
       ctx.fillStyle = 'rgba(11,16,38,.55)'; ctx.fillRect(0,0,W,H);
