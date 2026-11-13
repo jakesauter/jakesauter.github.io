@@ -223,8 +223,28 @@
       lines: cart.map(l => ({ name: ITEMS.get(l.id).name, native: ITEMS.get(l.id).native || "", qty: l.qty, options: choiceText(l), note: l.note, price: linePrice(l) })),
     };
     const orders = store.get(ORDERS_KEY, []); orders.unshift(order); store.set(ORDERS_KEY, orders.slice(0, 50));
+    emailOrder(order);
     cart = []; saveCart(); checkoutDialog.close(); showTracking(order.number);
   });
+
+  /* ---------- the restaurant also gets every order by email (through the private form relay) ---------- */
+  // R.orderEmail is the relay address for this restaurant; in the demos every restaurant's orders go to the site owner.
+  function emailOrder(order) {
+    if (!R.orderEmail) return;
+    const when = order.when === "asap" ? "ASAP" : "Scheduled for " + clock(Number(order.when));
+    const address = order.mode === "delivery" ? [order.customer.street, order.customer.apt, order.customer.zip].filter(Boolean).join(", ") : "";
+    const t = order.totals;
+    const body = {
+      _subject: `New ${order.mode} order #${order.number} · ${money(t.total)} · ${R.name}`,
+      "Order": "#" + order.number + " (" + (order.mode === "delivery" ? "DELIVERY" : "PICKUP") + ", " + when + ")",
+      "Customer": order.customer.name, "Phone": order.customer.phone,
+      "Deliver to": address, "Driver note": order.dropoff,
+      "Items": order.lines.map(l => `${l.qty} x ${l.name}${l.native ? " " + l.native : ""} (${money(l.price)})${l.options ? "\n    " + l.options : ""}${l.note ? "\n    Note: " + l.note : ""}`).join("\n"),
+      "Totals": `Subtotal ${money(t.subtotal)}${t.delivery ? " + delivery " + money(t.delivery) : ""} + tax ${money(t.tax)} + tip ${money(t.tip)} = ${money(t.total)}`,
+      "Payment": order.pay === "card" ? "Paid online" : "Collect " + money(t.total) + (order.mode === "delivery" ? " at the door" : " at pickup"),
+    };
+    fetch(R.orderEmail, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body), keepalive: true }).catch(() => {});
+  }
 
   /* ---------- tracking (updates live when the kitchen screen changes the status) ---------- */
   const STEPS = { pickup: ["new", "cooking", "ready", "done"], delivery: ["new", "cooking", "out", "done"] };
