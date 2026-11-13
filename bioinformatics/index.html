@@ -137,6 +137,7 @@ ul.plain{margin:0;padding-left:18px} ul.plain li{margin-bottom:6px}
 footer{font-size:13px;color:var(--muted);max-width:980px;margin:48px auto 0}
 @media (max-width:720px){ header.hero{grid-template-columns:1fr;gap:24px;padding-top:28px} .two{grid-template-columns:1fr} main{gap:44px} }
 </style>
+<link rel="stylesheet" href="/contact-form.css">
 </head>
 <body>
 <nav class="top"><a href="/">Jake Sauter</a><span><a href="/cv/">CV</a><a href="/projects/">Projects</a><a href="/contact/">Contact</a></span></nav>
@@ -217,8 +218,18 @@ footer{font-size:13px;color:var(--muted);max-width:980px;margin:48px auto 0}
 
   <section id="contact" class="contact col">
     <h2>Get in touch</h2>
-    <p>Send a short description of the experiment and the data you have. You'll get a plan within one business day.</p>
-    <div class="cta"><a class="btn pri" href="/contact/">Email or call me</a><a class="btn sec" href="https://www.linkedin.com/in/jakesauter/">Message on LinkedIn</a></div>
+    <p>Send a short description of the experiment and the data you have. You'll get a plan within one business day. You can also <a href="https://www.linkedin.com/in/jakesauter/">message me on LinkedIn</a>.</p>
+    <form class="cform" data-contact-form data-site="bioinformatics" data-subject="Bioinformatics inquiry" novalidate>
+      <div class="row"><label>Name<input name="name" autocomplete="name" required></label>
+        <label>Organization <small>(optional)</small><input name="org" autocomplete="organization"></label></div>
+      <div class="row"><label>Email<input name="email" type="email" autocomplete="email" inputmode="email"></label>
+        <label>Phone<input name="phone" type="tel" autocomplete="tel" inputmode="tel"></label></div>
+      <p class="hint">An email, a phone number, or both: however you'd like me to reply.</p>
+      <label>Interested in<select name="topic"><option>Bulk RNA-seq</option><option>Single-cell RNA-seq</option><option>Flow or mass cytometry</option><option>Cytokine panel</option><option>Cell Painting or high-content imaging</option><option>Something else</option></select></label>
+      <label>Message<textarea name="message" rows="5" required placeholder="The experiment, the data you have, and the question you need answered."></textarea></label>
+      <label class="trap" aria-hidden="true">Leave empty<input name="_honey" tabindex="-1" autocomplete="off"></label>
+      <div class="actions"><button type="submit">Send message</button><p data-status role="status"></p></div>
+    </form>
   </section>
 </main>
 <footer>Example reports use public data: Himes et al. 2014 (GEO GSE52778), Bodenmiller et al. 2012 (via Bioconductor CATALYST) and the JUMP Cell Painting Consortium (Cell Painting Gallery cpg0016).</footer>
@@ -227,5 +238,6 @@ footer{font-size:13px;color:var(--muted);max-width:980px;margin:48px auto 0}
   const hits = new Set([5, 14, 23, 30, 41, 47, 52, 58, 66, 71, 77, 83, 88, 94]), mid = new Set([6, 13, 31, 40, 59, 70, 82, 95]);
   for (let i = 0; i < 96; i++) { const w = document.createElement("i"); if (hits.has(i)) w.className = "h"; else if (mid.has(i)) w.className = "m"; p.appendChild(w); }
 </script>
+<script src="/contact-form.js" defer></script>
 </body>
 </html>

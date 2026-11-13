@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kitchen screen (demo)</title>
+<meta name="robots" content="noindex">
+<style>
+  :root { --brand: #24221f; --accent: #c4361b; --bg: #f3f1ee; --card: #fff; --ink: #1a1a1a; --muted: #5d5d5d; --line: #e2ddd6; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  header { background: var(--brand); color: #fff; padding: 12px 18px; display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; justify-content: space-between; }
+  header h1 { margin: 0; font-size: 19px; }
+  header small { opacity: .75; font-weight: 400; margin-left: 6px; }
+  .bar { display: flex; gap: 8px; flex-wrap: wrap; }
+  button { font: inherit; cursor: pointer; border-radius: 10px; border: 1px solid var(--line); background: #fff; padding: 8px 12px; font-weight: 600; }
+  header button { background: rgba(255,255,255,.12); color: #fff; border-color: rgba(255,255,255,.3); }
+  .note { background: #fff8e1; border-bottom: 1px solid #f0e2b6; padding: 8px 18px; font-size: 14px; }
+  .cols { display: grid; gap: 14px; padding: 14px; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); align-items: start; }
+  .col h2 { font-size: 14px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; display: flex; justify-content: space-between; }
+  .ticket { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; margin-bottom: 10px; box-shadow: 0 1px 2px rgba(0,0,0,.05); }
+  .ticket.fresh { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent); }
+  .t-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+  .t-num { font-size: 22px; font-weight: 800; }
+  .kind { font-size: 12px; font-weight: 800; letter-spacing: .05em; padding: 2px 8px; border-radius: 6px; background: #e8f0fb; color: #173f74; }
+  .kind.delivery { background: #fde9e4; color: #8f1d06; }
+  .meta { color: var(--muted); font-size: 13.5px; margin: 4px 0; }
+  .meta a { color: inherit; }
+  ul { list-style: none; padding: 0; margin: 8px 0; }
+  li { padding: 4px 0; border-top: 1px dashed var(--line); }
+  li small { display: block; color: var(--muted); }
+  li .native { color: var(--muted); margin-left: 4px; }
+  .pay { font-weight: 700; }
+  .pay.collect { color: #8f1d06; }
+  .actions { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+  .go { background: var(--accent); color: #fff; border-color: var(--accent); flex: 1; }
+  .empty { color: var(--muted); font-size: 14px; padding: 8px 2px; }
+  @media print {
+    header, .note, .cols > :not(.printing), .actions { display: none !important; }
+    .cols { display: block; padding: 0; }
+    .ticket { border: 0; box-shadow: none; font-size: 13px; }
+    .printing .ticket:not(.print-me) { display: none; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 id="title">Kitchen screen <small>demo</small></h1>
+  <div class="bar">
+    <button type="button" id="test">Add a test order</button>
+    <button type="button" id="sound" aria-pressed="false">Turn on order sound</button>
+    <button type="button" id="clear">Clear demo orders</button>
+  </div>
+</header>
+<p class="note">This is what the restaurant keeps open on a tablet by the register. New orders beep and show up here
+  instantly; tapping a button updates the customer's tracking page. In the demo, orders live in this browser only.</p>
+<div class="cols">
+  <section class="col"><h2>New <span id="n-new"></span></h2><div id="col-new"></div></section>
+  <section class="col"><h2>In the kitchen <span id="n-cooking"></span></h2><div id="col-cooking"></div></section>
+  <section class="col"><h2>Ready / out for delivery <span id="n-ready"></span></h2><div id="col-ready"></div></section>
+  <section class="col"><h2>Done today <span id="n-done"></span></h2><div id="col-done"></div></section>
+</div>
+<script>
+(function () {
+  "use strict";
+  const id = new URLSearchParams(location.search).get("r") || "fogline";
+  const KEY = "demo-orders-" + id;
+  const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const money = n => "$" + n.toFixed(2);
+  const load = () => { try { return JSON.parse(localStorage.getItem(KEY) || "[]"); } catch (e) { return []; } };
+  const save = orders => { try { localStorage.setItem(KEY, JSON.stringify(orders)); } catch (e) {} };
+  const clock = mins => { const h = Math.floor(mins / 60) % 24, m = mins % 60; return ((h + 11) % 12 + 1) + ":" + String(m).padStart(2, "0") + (h < 12 ? " AM" : " PM"); };
+  const ago = t => { const m = Math.round((Date.now() - t) / 60000); return m < 1 ? "just now" : m + " min ago"; };
+  let restaurant = null, seen = new Set(load().map(o => o.number)), announced = new Set(), soundOn = false, audio = null;
+
+  // The restaurant's name, colors and menu come from its ordering page.
+  fetch("../" + encodeURIComponent(id) + "/").then(r => r.text()).then(html => {
+    const m = html.match(/<script type="application\/json" id="restaurant">([\s\S]*?)<\/script>/);
+    if (!m) return;
+    restaurant = JSON.parse(m[1]);
+    document.title = restaurant.name + ": kitchen screen (demo)";
+    document.getElementById("title").innerHTML = esc(restaurant.name) + " · kitchen <small>demo</small>";
+    document.documentElement.style.setProperty("--brand", restaurant.theme["--brand"]);
+    document.documentElement.style.setProperty("--accent", restaurant.theme["--accent"]);
+  }).catch(() => {});
+
+  const NEXT = { new: ["cooking", "Accept and start"], cooking: [null, null], ready: ["done", "Picked up"], out: ["done", "Delivered"] };
+  function nextFor(o) { return o.status === "cooking" ? [o.mode === "delivery" ? "out" : "ready", o.mode === "delivery" ? "Out for delivery" : "Ready for pickup"] : NEXT[o.status] || [null, null]; }
+
+  function ticket(o) {
+    const [next, label] = nextFor(o);
+    const when = o.when === "asap" ? "ASAP" : "Scheduled " + clock(Number(o.when));
+    const address = o.mode === "delivery" ? [o.customer.street, o.customer.apt, o.customer.zip].filter(Boolean).join(", ") : "";
+    return `<article class="ticket ${seen.has(o.number) ? "" : "fresh"}" data-num="${esc(o.number)}">
+      <div class="t-top"><span class="t-num">#${esc(o.number)}</span><span class="kind ${o.mode}">${o.mode === "delivery" ? "DELIVERY" : "PICKUP"}</span></div>
+      <p class="meta">${esc(when)} · placed ${ago(o.placed)}<br>${esc(o.customer.name)} · <a href="tel:${esc(o.customer.phone.replace(/\D/g, ""))}">${esc(o.customer.phone)}</a>
+        ${address ? `<br><a href="https://maps.google.com/?q=${encodeURIComponent(address + ", Quincy, MA")}" target="_blank" rel="noopener">${esc(address)}</a>` : ""}
+        ${o.dropoff ? `<br>Note: ${esc(o.dropoff)}` : ""}</p>
+      <ul>${o.lines.map(l => `<li><b>${l.qty}×</b> ${esc(l.name)}${l.native ? `<span class="native">${esc(l.native)}</span>` : ""}${l.options ? `<small>${esc(l.options)}</small>` : ""}${l.note ? `<small>“${esc(l.note)}”</small>` : ""}</li>`).join("")}</ul>
+      <p class="pay ${o.pay === "card" ? "" : "collect"}">${o.pay === "card" ? "Paid online " + money(o.totals.total) : "Collect " + money(o.totals.total)} <small style="font-weight:400">(tip ${money(o.totals.tip)})</small></p>
+      <div class="actions">${next ? `<button type="button" class="go" data-to="${next}">${label}</button>` : ""}<button type="button" data-print>Print</button></div>
+    </article>`;
+  }
+
+  function render() {
+    const orders = load();
+    const groups = { new: [], cooking: [], ready: [], done: [] };
+    orders.forEach(o => groups[o.status === "out" ? "ready" : o.status].push(o));
+    for (const [k, list] of Object.entries(groups)) {
+      document.getElementById("col-" + k).innerHTML = list.length ? list.map(ticket).join("") : `<p class="empty">Nothing here.</p>`;
+      document.getElementById("n-" + k).textContent = list.length || "";
+    }
+    // New orders stay highlighted for a few seconds and beep once each.
+    const fresh = orders.filter(o => !seen.has(o.number) && !announced.has(o.number));
+    if (fresh.length) {
+      fresh.forEach(o => announced.add(o.number)); beep();
+      setTimeout(() => { fresh.forEach(o => seen.add(o.number)); render(); }, 4000);
+    }
+  }
+
+  function setStatus(num, status) {
+    const orders = load(); const o = orders.find(x => x.number === num);
+    if (o) { o.status = status; save(orders); render(); }
+  }
+  document.addEventListener("click", e => {
+    const t = e.target.closest(".ticket"); if (!t) return;
+    if (e.target.closest("[data-to]")) setStatus(t.dataset.num, e.target.closest("[data-to]").dataset.to);
+    if (e.target.closest("[data-print]")) {
+      t.classList.add("print-me"); t.closest(".col").classList.add("printing");
+      window.print();
+      t.classList.remove("print-me"); t.closest(".col").classList.remove("printing");
+    }
+  });
+
+  // A sample order, for showing the screen without placing one from the menu page.
+  document.getElementById("test").addEventListener("click", () => {
+    const menu = restaurant ? restaurant.categories.flatMap(c => c.items).filter(i => i.price > 0) : [{ name: "Cheese pizza", price: 12.5 }];
+    const pick = Array.from({ length: 2 + Math.floor(Math.random() * 3) }, () => menu[Math.floor(Math.random() * menu.length)]);
+    const lines = pick.map(i => ({ name: i.name, native: i.native || "", qty: 1 + Math.floor(Math.random() * 2), options: "", note: "", price: 0 }));
+    lines.forEach((l, k) => { l.price = pick[k].price * l.qty; });
+    const subtotal = lines.reduce((s, l) => s + l.price, 0), delivery = Math.random() < .6;
+    const fee = delivery && restaurant ? restaurant.delivery.fee : 0, tax = subtotal * 0.07, tip = subtotal * 0.18;
+    const orders = load();
+    orders.unshift({ number: String(200 + orders.length), placed: Date.now(), mode: delivery ? "delivery" : "pickup", when: "asap",
+      pay: Math.random() < .7 ? "card" : "door", dropoff: delivery ? "Side door" : "", status: "new",
+      customer: { name: "Test Customer", phone: "(617) 555-0199", street: delivery ? "12 Sample Street" : "", zip: delivery ? "02169" : "", apt: "" },
+      totals: { subtotal, delivery: fee, tax, tip, total: subtotal + fee + tax + tip }, lines });
+    save(orders); render();
+  });
+  document.getElementById("clear").addEventListener("click", () => { save([]); seen = new Set(); render(); });
+
+  document.getElementById("sound").addEventListener("click", e => {
+    soundOn = !soundOn; e.target.setAttribute("aria-pressed", String(soundOn));
+    e.target.textContent = soundOn ? "Order sound on" : "Turn on order sound";
+    if (soundOn) { audio = audio || new (window.AudioContext || window.webkitAudioContext)(); beep(); }
+  });
+  function beep() {
+    if (!soundOn || !audio) return;
+    [0, 0.18, 0.36].forEach(at => {
+      const o = audio.createOscillator(), g = audio.createGain();
+      o.frequency.value = 880; o.connect(g); g.connect(audio.destination);
+      g.gain.setValueAtTime(0.2, audio.currentTime + at); g.gain.exponentialRampToValueAtTime(0.001, audio.currentTime + at + 0.15);
+      o.start(audio.currentTime + at); o.stop(audio.currentTime + at + 0.16);
+    });
+  }
+
+  window.addEventListener("storage", e => { if (e.key === KEY) render(); });
+  setInterval(render, 30000);
+  render();
+})();
+</script>
+</body>
+</html>

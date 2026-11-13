@@ -1,0 +1,22 @@
+/* Contact form for the Sauter sites; uses each page's color variables. */
+.cform { display: grid; gap: 14px; margin-top: 18px; }
+.cform .row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.cform label { display: grid; gap: 5px; font-weight: 600; font-size: 15px; }
+.cform label small { font-weight: 400; color: var(--muted); }
+.cform input, .cform select, .cform textarea { font: inherit; font-size: 16px; font-weight: 400; color: var(--ink); background: var(--bg);
+  border: 1px solid var(--line); border-radius: 8px; padding: 11px 12px; width: 100%; }
+.cform input:focus, .cform select:focus, .cform textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+.cform [aria-invalid="true"] { border-color: #b3261e; }
+.cform .hint { font-size: 14px; color: var(--muted); margin: -6px 0 0; }
+.cform .actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+.cform button { font: inherit; font-weight: 600; cursor: pointer; padding: 12px 22px; border-radius: 8px; border: 1.5px solid var(--accent); background: var(--accent); color: var(--surface); }
+.cform button:disabled { opacity: .6; cursor: wait; }
+.cform [data-status] { font-size: 15px; color: var(--accent); margin: 0; }
+.cform [data-status].bad { color: #b3261e; }
+.cform .trap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+@media (max-width: 720px) { .cform .row { grid-template-columns: 1fr; } }
+
+/* top menu on the Sauter pages: only the name is bold; links don't break mid-word on phones */
+nav.top span a:first-child { font-weight: 400; color: var(--ink2); }
+nav.top span { gap: 14px 18px; flex-wrap: wrap; }
+nav.top span a { white-space: nowrap; }

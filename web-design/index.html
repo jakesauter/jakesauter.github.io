@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sauter Web Design · Jake Sauter</title>
+<meta name="author" content="Jake Sauter">
+<meta name="description" content="Websites for local businesses, including commission-free online ordering for restaurants that run their own delivery.">
+<meta property="og:title" content="Sauter Web Design">
+<meta property="og:description" content="Websites for local businesses, including commission-free online ordering for restaurants that run their own delivery.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jakesauter.github.io/web-design/">
+<meta property="og:image" content="https://jakesauter.github.io/images/og-profile.jpg">
+<link rel="canonical" href="https://jakesauter.github.io/web-design/">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="preload" href="/bioinformatics/fonts/ibm-plex-sans-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/bioinformatics/fonts/ibm-plex-serif-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+/* IBM Plex, latin subset, served from this site (SIL Open Font License; see fonts/LICENSE.txt) */
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/bioinformatics/fonts/ibm-plex-mono-400-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/bioinformatics/fonts/ibm-plex-mono-500-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(/bioinformatics/fonts/ibm-plex-sans-400-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(/bioinformatics/fonts/ibm-plex-sans-400-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(/bioinformatics/fonts/ibm-plex-sans-400-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'IBM Plex Serif';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/bioinformatics/fonts/ibm-plex-serif-500-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'IBM Plex Serif';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/bioinformatics/fonts/ibm-plex-serif-600-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* Layout: a single reading column; a full-width band for the assay grid; example reports as three equal cards; a plain table of typical projects. */
+:root{
+  --bg:#f7f8f6; --surface:#ffffff; --ink:#14201d; --ink2:#4b5a56; --muted:#5f6d69; --line:#dbe2df;
+  --accent:#16695a; --accentbg:#e4f1ed; --well:#c9d8d3;
+  --serif:"IBM Plex Serif",Georgia,serif; --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0f1514; --surface:#17201e; --ink:#e9efed; --ink2:#b6c4c0; --muted:#83928e; --line:#2a3633; --accent:#5fc7ae; --accentbg:#143029; --well:#2c3c38; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#0f1514; --surface:#17201e; --ink:#e9efed; --ink2:#b6c4c0; --muted:#83928e; --line:#2a3633; --accent:#5fc7ae; --accentbg:#143029; --well:#2c3c38; color-scheme:dark }
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+main{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:56px}
+.col{max-width:700px}
+h1,h2,h3{font-family:var(--serif);font-weight:600;margin:0;text-wrap:balance}
+h1{font-size:clamp(32px,6vw,52px);line-height:1.08;letter-spacing:-.01em}
+h2{font-size:26px;margin-bottom:14px}
+h3{font-size:18px;margin-bottom:4px}
+p{margin:0 0 12px;max-width:66ch} p:last-child{margin-bottom:0}
+a{color:var(--accent)}
+.kicker{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+nav.top{max-width:980px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:18px 0 0;font-size:15px}
+nav.top a{color:var(--ink2);text-decoration:none;padding:6px 0} nav.top a:first-child{font-weight:600;color:var(--ink)} nav.top span{display:flex;gap:18px} nav.top a:hover{color:var(--accent)}
+header.hero{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center;padding-top:40px}
+header.hero>div{min-width:0}
+.lede{font-size:20px;color:var(--ink2);margin-top:16px}
+.cta{display:inline-flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-block;padding:12px 18px;border-radius:8px;font-weight:600;text-decoration:none;border:1.5px solid var(--accent)}
+.btn.pri{background:var(--accent);color:var(--surface)} .btn.sec{color:var(--accent)}
+.plate{display:grid;grid-template-columns:repeat(12,1fr);gap:5px;padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+.plate i{aspect-ratio:1;border-radius:50%;background:var(--well);display:block}
+.plate i.h{background:var(--accent)} .plate i.m{background:color-mix(in srgb,var(--accent) 45%,var(--well))}
+.platecap{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:8px;text-align:right}
+.assays{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.assays>div{background:var(--surface);padding:20px;min-width:0}
+.assays ul{margin:8px 0 0;padding-left:18px;color:var(--ink2);font-size:15px} .assays li{margin-bottom:3px}
+.reports{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.card .stat{font-family:var(--mono);font-size:13px;color:var(--accent)}
+.card p{font-size:15px;color:var(--ink2)}
+.card a{margin-top:auto;font-weight:600}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;counter-reset:s;padding:0;margin:0;list-style:none}
+.steps li{counter-increment:s;border-top:2px solid var(--ink);padding-top:12px;min-width:0}
+.steps li::before{content:counter(s,decimal-leading-zero);font-family:var(--mono);font-size:13px;color:var(--muted);display:block;margin-bottom:4px}
+.steps p{font-size:15px;color:var(--ink2)}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+
+thead th{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500}
+tbody tr:last-child td{border-bottom:0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:32px} .two>div{min-width:0}
+ul.plain{margin:0;padding-left:18px} ul.plain li{margin-bottom:6px}
+.contact{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:28px}
+footer{font-size:13px;color:var(--muted);max-width:980px;margin:48px auto 0}
+@media (max-width:720px){ header.hero{grid-template-columns:1fr;gap:24px;padding-top:28px} .two{grid-template-columns:1fr} main{gap:44px} }
+</style>
+<style>
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.feature{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px;display:grid;gap:14px}
+.feature .demos{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.demo{border:1px solid var(--line);border-radius:12px;padding:16px;display:grid;gap:6px;text-decoration:none;color:var(--ink);background:var(--bg)}
+.demo b{font-family:var(--serif);font-size:19px} .demo span{font-size:14px;color:var(--ink2)} .demo em{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--accent)}
+.demo:hover{border-color:var(--accent)}
+.numbers{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.numbers div{border-left:3px solid var(--accent);padding:4px 0 4px 12px} .numbers b{display:block;font-family:var(--serif);font-size:28px} .numbers span{font-size:14px;color:var(--ink2)}
+.art svg{width:100%;height:auto;display:block}
+</style>
+<link rel="stylesheet" href="/contact-form.css">
+</head>
+<body>
+<nav class="top"><a href="/">Jake Sauter</a><span><a href="/analytics/">Analytics</a><a href="/web-design/">Web design</a><a href="/bioinformatics/">Bioinformatics</a><a href="/contact/">Contact</a></span></nav>
+<main>
+  <header class="hero">
+    <div>
+      <p class="kicker">Sauter Web Design</p>
+      <h1>Websites that bring in customers, not commission.</h1>
+      <p class="lede">Fast, phone-first websites for local businesses, with the parts that actually make money: online ordering, quote requests and booking forms that land straight in your inbox.</p>
+      <div class="cta"><a class="btn pri" href="#contact">Get in touch</a><a class="btn sec" href="#restaurants">Restaurant ordering demos</a></div>
+    </div>
+    <div class="art" aria-hidden="true"><svg viewBox="0 0 320 220" role="img" aria-label="A website on a laptop and a phone">
+<rect x="1" y="12" width="250" height="170" rx="12" fill="var(--surface)" stroke="var(--line)"/>
+<circle cx="18" cy="28" r="4" fill="var(--well)"/><circle cx="31" cy="28" r="4" fill="var(--well)"/><circle cx="44" cy="28" r="4" fill="var(--well)"/>
+<rect x="16" y="44" width="220" height="44" rx="6" fill="var(--accentbg)"/><rect x="26" y="56" width="120" height="10" rx="3" fill="var(--accent)"/><rect x="26" y="72" width="80" height="7" rx="3" fill="var(--well)"/>
+<g fill="var(--well)"><rect x="16" y="100" width="68" height="66" rx="6"/><rect x="92" y="100" width="68" height="66" rx="6"/><rect x="168" y="100" width="68" height="66" rx="6"/></g>
+<rect x="226" y="70" width="88" height="146" rx="14" fill="var(--surface)" stroke="var(--ink)" stroke-width="2"/>
+<rect x="236" y="88" width="68" height="16" rx="4" fill="var(--accent)"/><g fill="var(--well)"><rect x="236" y="112" width="68" height="20" rx="4"/><rect x="236" y="138" width="68" height="20" rx="4"/></g>
+<rect x="236" y="182" width="68" height="20" rx="10" fill="var(--accent)"/></svg></div>
+  </header>
+
+  <section id="restaurants" class="feature">
+    <p class="kicker">For restaurants with their own drivers</p>
+    <h2>Your own online ordering. No commission.</h2>
+    <p>Delivery apps keep roughly 15 to 30 percent of every order. If you already deliver with your own drivers, your own ordering site costs you the card fee (about 3%) and keeps the customer relationship yours. Try the three demo restaurants below, then open the kitchen screen to see an order arrive.</p>
+    <div class="numbers">
+      <div><b>15–30%</b><span>typical delivery-app commission per order</span></div>
+      <div><b>~3%</b><span>card processing on your own site</span></div>
+      <div><b>0</b><span>service fees or menu markups for your customers</span></div>
+    </div>
+    <div class="demos">
+      <a class="demo" href="restaurants/twin-lantern/"><em>Demo · Cantonese</em><b>Twin Lantern Kitchen</b><span>Bilingual menu, dim sum, delivery zones, scheduled orders.</span></a>
+      <a class="demo" href="restaurants/salt-pier/"><em>Demo · Seafood</em><b>Salt Pier Clam Shack</b><span>Market-price items, sizes, rolls two ways.</span></a>
+      <a class="demo" href="restaurants/fogline/"><em>Demo · Bar pizza</em><b>Fogline Bar Pizza</b><span>Build-your-own toppings, bake and cut options.</span></a>
+    </div>
+    <p class="hint" style="font-size:14px;color:var(--muted)">The three restaurants are fictional, made for these demos. Each has a <a href="restaurants/shared/kitchen.html?r=fogline">kitchen screen</a> showing what staff see on a tablet.</p>
+  </section>
+
+  <section>
+    <h2>What you get</h2>
+    <div class="assays">
+      <div><h3>Built for phones</h3><ul><li>Most customers find you on a phone</li><li>Fast loading, easy to tap</li></ul></div>
+      <div><h3>Your own domain</h3><ul><li>yourbusiness.com, set up for you</li><li>Secure (https) and hosted</li></ul></div>
+      <div><h3>Orders and requests</h3><ul><li>Online ordering, quotes, bookings</li><li>Sent straight to your email or tablet</li></ul></div>
+      <div><h3>Found on Google</h3><ul><li>Hours, menu and location set up for search</li><li>Link previews for social media</li></ul></div>
+      <div><h3>Updates included</h3><ul><li>Menu and hours changes on request</li><li>One person to call</li></ul></div>
+    </div>
+  </section>
+
+  <section id="work">
+    <h2>Recent work</h2>
+    <div class="reports">
+      <div class="card"><p class="kicker">Manufacturing</p><h3>Technical Precision</h3><p>Machine shop site with interactive 3D example parts and a quote form that emails the shop.</p><a href="https://tepco.us.com">Visit tepco.us.com →</a></div>
+      <div class="card"><p class="kicker">Restaurants</p><h3>Three ordering demos</h3><p>Commission-free menus, carts, delivery zones and a kitchen screen.</p><a href="#restaurants">Try them →</a></div>
+      <div class="card"><p class="kicker">Web app</p><h3>Polylang</h3><p>A language-learning app that works offline and installs on a phone's home screen.</p><a href="/Jake-Sauter-Language-Learning-App/">Open app →</a></div>
+      <div class="card"><p class="kicker">Game</p><h3>Astro Dash</h3><p>A one-button runner that plays smoothly on phones.</p><a href="/astro-dash/">Play →</a></div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact col">
+    <h2>Get in touch</h2>
+    <p>Tell me about your business and what you'd like your website to do. I'll reply within one business day.</p>
+    <form class="cform" data-contact-form data-site="webdesign" data-subject="Web design inquiry" novalidate>
+      <div class="row"><label>Name<input name="name" autocomplete="name" required></label>
+        <label>Organization <small>(optional)</small><input name="org" autocomplete="organization"></label></div>
+      <div class="row"><label>Email<input name="email" type="email" autocomplete="email" inputmode="email"></label>
+        <label>Phone<input name="phone" type="tel" autocomplete="tel" inputmode="tel"></label></div>
+      <p class="hint">An email, a phone number, or both: however you'd like me to reply.</p>
+      <label>Interested in<select name="topic"><option>Restaurant ordering site</option><option>Business website</option><option>Quote or booking form</option><option>Something else</option></select></label>
+      <label>Message<textarea name="message" rows="5" required placeholder="Your business, your current website (if any), and what you&#x27;d like it to do."></textarea></label>
+      <label class="trap" aria-hidden="true">Leave empty<input name="_honey" tabindex="-1" autocomplete="off"></label>
+      <div class="actions"><button type="submit">Send message</button><p data-status role="status"></p></div>
+    </form>
+  </section>
+</main>
+<footer>Sauter Web Design · The demo restaurants are fictional.</footer>
+<script src="/contact-form.js" defer></script>
+</body>
+</html>

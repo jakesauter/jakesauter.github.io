@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sauter Data Analytics · Jake Sauter</title>
+<meta name="author" content="Jake Sauter">
+<meta name="description" content="Data analysis, dashboards and small web tools for businesses and labs: clear answers from your spreadsheets, databases and systems.">
+<meta property="og:title" content="Sauter Data Analytics">
+<meta property="og:description" content="Data analysis, dashboards and small web tools for businesses and labs: clear answers from your spreadsheets, databases and systems.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jakesauter.github.io/analytics/">
+<meta property="og:image" content="https://jakesauter.github.io/images/og-profile.jpg">
+<link rel="canonical" href="https://jakesauter.github.io/analytics/">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="preload" href="/bioinformatics/fonts/ibm-plex-sans-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/bioinformatics/fonts/ibm-plex-serif-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+/* IBM Plex, latin subset, served from this site (SIL Open Font License; see fonts/LICENSE.txt) */
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/bioinformatics/fonts/ibm-plex-mono-400-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/bioinformatics/fonts/ibm-plex-mono-500-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(/bioinformatics/fonts/ibm-plex-sans-400-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(/bioinformatics/fonts/ibm-plex-sans-400-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(/bioinformatics/fonts/ibm-plex-sans-400-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'IBM Plex Serif';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/bioinformatics/fonts/ibm-plex-serif-500-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'IBM Plex Serif';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/bioinformatics/fonts/ibm-plex-serif-600-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* Layout: a single reading column; a full-width band for the assay grid; example reports as three equal cards; a plain table of typical projects. */
+:root{
+  --bg:#f7f8f6; --surface:#ffffff; --ink:#14201d; --ink2:#4b5a56; --muted:#5f6d69; --line:#dbe2df;
+  --accent:#16695a; --accentbg:#e4f1ed; --well:#c9d8d3;
+  --serif:"IBM Plex Serif",Georgia,serif; --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0f1514; --surface:#17201e; --ink:#e9efed; --ink2:#b6c4c0; --muted:#83928e; --line:#2a3633; --accent:#5fc7ae; --accentbg:#143029; --well:#2c3c38; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#0f1514; --surface:#17201e; --ink:#e9efed; --ink2:#b6c4c0; --muted:#83928e; --line:#2a3633; --accent:#5fc7ae; --accentbg:#143029; --well:#2c3c38; color-scheme:dark }
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+main{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:56px}
+.col{max-width:700px}
+h1,h2,h3{font-family:var(--serif);font-weight:600;margin:0;text-wrap:balance}
+h1{font-size:clamp(32px,6vw,52px);line-height:1.08;letter-spacing:-.01em}
+h2{font-size:26px;margin-bottom:14px}
+h3{font-size:18px;margin-bottom:4px}
+p{margin:0 0 12px;max-width:66ch} p:last-child{margin-bottom:0}
+a{color:var(--accent)}
+.kicker{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+nav.top{max-width:980px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:18px 0 0;font-size:15px}
+nav.top a{color:var(--ink2);text-decoration:none;padding:6px 0} nav.top a:first-child{font-weight:600;color:var(--ink)} nav.top span{display:flex;gap:18px} nav.top a:hover{color:var(--accent)}
+header.hero{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center;padding-top:40px}
+header.hero>div{min-width:0}
+.lede{font-size:20px;color:var(--ink2);margin-top:16px}
+.cta{display:inline-flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-block;padding:12px 18px;border-radius:8px;font-weight:600;text-decoration:none;border:1.5px solid var(--accent)}
+.btn.pri{background:var(--accent);color:var(--surface)} .btn.sec{color:var(--accent)}
+.plate{display:grid;grid-template-columns:repeat(12,1fr);gap:5px;padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+.plate i{aspect-ratio:1;border-radius:50%;background:var(--well);display:block}
+.plate i.h{background:var(--accent)} .plate i.m{background:color-mix(in srgb,var(--accent) 45%,var(--well))}
+.platecap{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:8px;text-align:right}
+.assays{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.assays>div{background:var(--surface);padding:20px;min-width:0}
+.assays ul{margin:8px 0 0;padding-left:18px;color:var(--ink2);font-size:15px} .assays li{margin-bottom:3px}
+.reports{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.card .stat{font-family:var(--mono);font-size:13px;color:var(--accent)}
+.card p{font-size:15px;color:var(--ink2)}
+.card a{margin-top:auto;font-weight:600}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;counter-reset:s;padding:0;margin:0;list-style:none}
+.steps li{counter-increment:s;border-top:2px solid var(--ink);padding-top:12px;min-width:0}
+.steps li::before{content:counter(s,decimal-leading-zero);font-family:var(--mono);font-size:13px;color:var(--muted);display:block;margin-bottom:4px}
+.steps p{font-size:15px;color:var(--ink2)}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+
+thead th{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500}
+tbody tr:last-child td{border-bottom:0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:32px} .two>div{min-width:0}
+ul.plain{margin:0;padding-left:18px} ul.plain li{margin-bottom:6px}
+.contact{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:28px}
+footer{font-size:13px;color:var(--muted);max-width:980px;margin:48px auto 0}
+@media (max-width:720px){ header.hero{grid-template-columns:1fr;gap:24px;padding-top:28px} .two{grid-template-columns:1fr} main{gap:44px} }
+</style>
+<style>
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.feature{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px;display:grid;gap:14px}
+.feature .demos{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.demo{border:1px solid var(--line);border-radius:12px;padding:16px;display:grid;gap:6px;text-decoration:none;color:var(--ink);background:var(--bg)}
+.demo b{font-family:var(--serif);font-size:19px} .demo span{font-size:14px;color:var(--ink2)} .demo em{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--accent)}
+.demo:hover{border-color:var(--accent)}
+.numbers{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.numbers div{border-left:3px solid var(--accent);padding:4px 0 4px 12px} .numbers b{display:block;font-family:var(--serif);font-size:28px} .numbers span{font-size:14px;color:var(--ink2)}
+.art svg{width:100%;height:auto;display:block}
+</style>
+<link rel="stylesheet" href="/contact-form.css">
+</head>
+<body>
+<nav class="top"><a href="/">Jake Sauter</a><span><a href="/analytics/">Analytics</a><a href="/web-design/">Web design</a><a href="/bioinformatics/">Bioinformatics</a><a href="/contact/">Contact</a></span></nav>
+<main>
+  <header class="hero">
+    <div>
+      <p class="kicker">Sauter Data Analytics</p>
+      <h1>Your data, turned into answers you can use.</h1>
+      <p class="lede">Analysis of any kind of data, from spreadsheets and sales exports to surveys, operations logs and lab results. You get clear reports, live dashboards, and small tools that save your team hours every week.</p>
+      <div class="cta"><a class="btn pri" href="#contact">Get in touch</a><a class="btn sec" href="#work">See examples</a></div>
+    </div>
+    <div class="art" aria-hidden="true"><svg viewBox="0 0 320 220" role="img" aria-label="A bar chart and trend line">
+<rect x="1" y="1" width="318" height="218" rx="12" fill="var(--surface)" stroke="var(--line)"/>
+<g fill="var(--well)"><rect x="34" y="120" width="26" height="70" rx="3"/><rect x="74" y="98" width="26" height="92" rx="3"/><rect x="114" y="132" width="26" height="58" rx="3"/>
+<rect x="154" y="84" width="26" height="106" rx="3"/><rect x="194" y="70" width="26" height="120" rx="3"/></g>
+<rect x="234" y="44" width="26" height="146" rx="3" fill="var(--accent)"/>
+<path d="M30 150 L87 120 L127 128 L167 96 L207 82 L247 52 L290 40" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="24" y1="190" x2="298" y2="190" stroke="var(--line)" stroke-width="2"/></svg></div>
+  </header>
+
+  <section>
+    <h2>What I can do</h2>
+    <div class="assays">
+      <div><h3>Analysis and reports</h3><ul><li>What's driving sales, costs or churn</li><li>Survey and customer data</li><li>Clear charts and a one-page summary</li></ul></div>
+      <div><h3>Dashboards</h3><ul><li>Live numbers for your team</li><li>Shiny, web or Google Sheets</li><li>Updated automatically</li></ul></div>
+      <div><h3>Automation</h3><ul><li>Clean messy spreadsheets</li><li>Combine data from several systems</li><li>Scheduled reports by email</li></ul></div>
+      <div><h3>Websites and web apps</h3><ul><li>Fast, mobile-first sites</li><li>Forms, ordering, calculators</li><li>See <a href="/web-design/">Sauter Web Design</a></li></ul></div>
+      <div><h3>Forecasting and models</h3><ul><li>Demand and inventory forecasts</li><li>Scoring and classification</li><li>Honest about what the data can and can't say</li></ul></div>
+      <div><h3>Scientific data</h3><ul><li>RNA-seq, cytometry, imaging</li><li>Publication-ready figures</li><li>See <a href="/bioinformatics/">Sauter Bioinformatics</a></li></ul></div>
+    </div>
+  </section>
+
+  <section id="work">
+    <h2>Examples</h2>
+    <div class="reports">
+      <div class="card"><p class="kicker">Analysis report</p><h3>RNA-seq differential expression</h3><p>Quality control, statistics, pathway results and a methods section, as a single self-contained report.</p><a href="/bioinformatics/reports/rnaseq-example.html">Open report →</a></div>
+      <div class="card"><p class="kicker">Web app</p><h3>Polylang language app</h3><p>A phone-first app with offline mode, practice scheduling and a word-by-word translator built from public dictionaries.</p><a href="/Jake-Sauter-Language-Learning-App/">Open app →</a></div>
+      <div class="card"><p class="kicker">Business website</p><h3>Technical Precision</h3><p>A machine shop's site with interactive 3D example parts and a quote form that emails the shop.</p><a href="https://tepco.us.com">Visit site →</a></div>
+      <div class="card"><p class="kicker">Ordering system demo</p><h3>Commission-free restaurant ordering</h3><p>Menu, cart, delivery zones and a live kitchen screen, for restaurants that run their own drivers.</p><a href="/web-design/#restaurants">See demos →</a></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li><h3>Tell me the question</h3><p>What you want to know or automate, and what data you have.</p></li>
+      <li><h3>A plan within a day</h3><p>Scope, deliverables and a delivery date in writing before any work starts.</p></li>
+      <li><h3>Results, explained</h3><p>Reports, dashboards or tools, plus a walkthrough call in plain language.</p></li>
+      <li><h3>Your data stays yours</h3><p>NDA on request; data deleted after delivery; you own the results and code.</p></li>
+    </ol>
+  </section>
+
+  <section class="two">
+    <div><h2>About</h2><p>I'm Jake Sauter, a data scientist with a master's degree from Weill Cornell Medicine and five years of industry experience, including Memorial Sloan Kettering Cancer Center. I build analyses, dashboards and web tools end to end, and I explain the results in plain language. <a href="/cv/">Full CV</a>.</p></div>
+    <div><h2>Good fits</h2><ul class="plain"><li>Small businesses with data in spreadsheets and no analyst</li><li>Teams that rebuild the same report by hand every week</li><li>Labs and startups needing a one-off analysis or dashboard</li><li>Anyone who wants a straight answer from their numbers</li></ul></div>
+  </section>
+
+  <section id="contact" class="contact col">
+    <h2>Get in touch</h2>
+    <p>Tell me a little about your data and what you'd like to know. I'll reply within one business day.</p>
+    <form class="cform" data-contact-form data-site="analytics" data-subject="Data analytics inquiry" novalidate>
+      <div class="row"><label>Name<input name="name" autocomplete="name" required></label>
+        <label>Organization <small>(optional)</small><input name="org" autocomplete="organization"></label></div>
+      <div class="row"><label>Email<input name="email" type="email" autocomplete="email" inputmode="email"></label>
+        <label>Phone<input name="phone" type="tel" autocomplete="tel" inputmode="tel"></label></div>
+      <p class="hint">An email, a phone number, or both: however you'd like me to reply.</p>
+      <label>Interested in<select name="topic"><option>Analysis or report</option><option>Dashboard</option><option>Automation</option><option>Website or web app</option><option>Something else</option></select></label>
+      <label>Message<textarea name="message" rows="5" required placeholder="What do you need? A sentence or two is plenty."></textarea></label>
+      <label class="trap" aria-hidden="true">Leave empty<input name="_honey" tabindex="-1" autocomplete="off"></label>
+      <div class="actions"><button type="submit">Send message</button><p data-status role="status"></p></div>
+    </form>
+  </section>
+</main>
+<footer>Sauter Data Analytics · Examples link to live projects and public-data reports.</footer>
+<script src="/contact-form.js" defer></script>
+</body>
+</html>

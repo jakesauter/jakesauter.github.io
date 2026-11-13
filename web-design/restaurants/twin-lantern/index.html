@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Twin Lantern Kitchen: order pickup or delivery (demo)</title>
+<meta name="description" content="Cantonese cooking and Chinese-American favorites, made to order. Delivered by our own drivers. A demo of a commission-free ordering site for a fictional restaurant.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#8e1b1b">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' aria-hidden='true'><rect width='64' height='64' rx='14' fill='%238e1b1b'/><g fill='none' stroke='%23ffffff' stroke-width='2.4' stroke-linecap='round'>       <path d='M20 8v6M44 8v6'/><rect x='11' y='14' width='18' height='6' rx='2'/><rect x='35' y='14' width='18' height='6' rx='2'/>       <path d='M13 20c-4 6-4 18 0 24h14c4-6 4-18 0-24M37 20c-4 6-4 18 0 24h14c4-6 4-18 0-24'/><path d='M20 22v20M44 22v20'/>       <rect x='15' y='44' width='10' height='5' rx='1.5'/><rect x='39' y='44' width='10' height='5' rx='1.5'/><path d='M20 49v7M44 49v7'/></g></svg>">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700&display=swap">
+<link rel="stylesheet" href="../shared/order.css">
+<style>:root { --brand: #8e1b1b; --brand-ink: #fff6e3; --accent: #b3261e; --bg: #fbf6ee; --surface: #ffffff; --line: #eadfce; --font-head: 'Noto Serif TC', Georgia, serif; }</style>
+</head>
+<body>
+<div class="demo-bar">Demo site for a <b>fictional</b> restaurant. Orders stay in your browser. <a href="../../#restaurants">How this works</a></div>
+<header class="hero">
+  <div class="hero-inner">
+    <div class="logo"><svg viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+      <path d="M20 8v6M44 8v6"/><rect x="11" y="14" width="18" height="6" rx="2"/><rect x="35" y="14" width="18" height="6" rx="2"/>
+      <path d="M13 20c-4 6-4 18 0 24h14c4-6 4-18 0-24M37 20c-4 6-4 18 0 24h14c4-6 4-18 0-24"/><path d="M20 22v20M44 22v20"/>
+      <rect x="15" y="44" width="10" height="5" rx="1.5"/><rect x="39" y="44" width="10" height="5" rx="1.5"/><path d="M20 49v7M44 49v7"/></g></svg><div><h1>Twin Lantern Kitchen</h1><p class="native" lang="zh-Hant" style="color:inherit;opacity:.85;margin:4px 0 0;font-size:18px">雙燈小館</p></div></div>
+    <p class="tagline">Cantonese cooking and Chinese-American favorites, made to order. Delivered by our own drivers.</p>
+    <div class="status"><span class="pill" id="open-state"></span><span class="pill">Quincy, MA</span><span class="pill">(617) 555-0142</span></div>
+  </div>
+  <div class="art"><svg viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+      <path d="M20 8v6M44 8v6"/><rect x="11" y="14" width="18" height="6" rx="2"/><rect x="35" y="14" width="18" height="6" rx="2"/>
+      <path d="M13 20c-4 6-4 18 0 24h14c4-6 4-18 0-24M37 20c-4 6-4 18 0 24h14c4-6 4-18 0-24"/><path d="M20 22v20M44 22v20"/>
+      <rect x="15" y="44" width="10" height="5" rx="1.5"/><rect x="39" y="44" width="10" height="5" rx="1.5"/><path d="M20 49v7M44 49v7"/></g></svg></div>
+</header>
+<div class="modebar"><div class="modebar-inner">
+  <div class="toggle" role="group" aria-label="Pickup or delivery"><button type="button" data-mode="delivery">Delivery</button><button type="button" data-mode="pickup">Pickup</button></div>
+  <span id="eta"></span>
+  <nav class="cats" id="cats" aria-label="Menu sections"></nav>
+</div></div>
+<main id="menu"></main>
+<section class="info">
+  <div class="card"><h2>Hours</h2><ul id="hours-list"></ul></div>
+  <div class="card"><h2>About us</h2><p>A family kitchen in the Cantonese style: wok-tossed noodles, salt-and-pepper seafood, roast meats, and the American-Chinese classics the neighborhood grew up on. Dim sum on weekends.</p><p class="hint">Ordering here costs us no commission, so menu prices match the restaurant and every dollar of your tip goes to our driver.</p></div>
+</section>
+<footer>Twin Lantern Kitchen is a fictional restaurant made for a demo. · <a href="../shared/kitchen.html?r=twin-lantern">Kitchen screen (demo)</a></footer>
+
+<div id="cart-bar" hidden><button type="button" id="cart-open"><span id="cart-count"></span><span>View order</span><span id="cart-total"></span></button></div>
+
+<dialog id="item-dialog" aria-labelledby="item-title"><div class="sheet">
+  <div class="sheet-head"><span></span><button type="button" class="x" data-close aria-label="Close">×</button></div>
+  <div class="sheet-body" id="item-body"></div>
+  <div class="sheet-foot"><div class="qty"><button type="button" id="qty-minus" aria-label="One fewer">−</button><span id="qty" aria-live="polite">1</span><button type="button" id="qty-plus" aria-label="One more">+</button></div>
+    <button type="button" class="primary" id="add-item">Add to order</button></div>
+</div></dialog>
+<dialog id="cart-dialog" aria-labelledby="cart-h"><div class="sheet">
+  <div class="sheet-head"><h2 id="cart-h">Your order</h2><button type="button" class="x" data-close aria-label="Close">×</button></div>
+  <div class="sheet-body" id="cart-body"></div>
+  <div class="sheet-foot"><button type="button" class="primary" id="to-checkout">Checkout</button></div>
+</div></dialog>
+<dialog id="checkout-dialog" aria-labelledby="co-h"><form class="sheet" id="checkout-form">
+  <div class="sheet-head"><h2 id="co-h">Checkout</h2><button type="button" class="x" data-close aria-label="Close">×</button></div>
+  <div class="sheet-body" id="checkout-body"></div>
+  <div class="sheet-foot"><button type="submit" class="primary">Place order</button></div>
+</form></dialog>
+<dialog id="track-dialog" aria-label="Order status"><div class="sheet">
+  <div class="sheet-head"><span></span><button type="button" class="x" data-close aria-label="Close">×</button></div>
+  <div class="sheet-body" id="track-body"></div>
+</div></dialog>
+<div id="toast" role="status" hidden></div>
+<script type="application/json" id="restaurant">{"id": "twin-lantern", "name": "Twin Lantern Kitchen", "nativeName": "雙燈小館", "nativeLang": "zh-Hant", "tagline": "Cantonese cooking and Chinese-American favorites, made to order. Delivered by our own drivers.", "phone": "(617) 555-0142", "cuisine": "Cantonese & Chinese-American", "theme": {"--brand": "#8e1b1b", "--brand-ink": "#fff6e3", "--accent": "#b3261e", "--bg": "#fbf6ee", "--surface": "#ffffff", "--line": "#eadfce", "--font-head": "'Noto Serif TC', Georgia, serif"}, "font": "https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700&display=swap", "about": "A family kitchen in the Cantonese style: wok-tossed noodles, salt-and-pepper seafood, roast meats, and the American-Chinese classics the neighborhood grew up on. Dim sum on weekends.", "hours": [{"label": "Mon–Thu", "days": ["Mon", "Tue", "Wed", "Thu"], "open": "11:00", "close": "21:30"}, {"label": "Fri–Sat", "days": ["Fri", "Sat"], "open": "11:00", "close": "22:30"}, {"label": "Sun", "days": ["Sun"], "open": "12:00", "close": "21:00"}], "delivery": {"fee": 2.99, "minimum": 20, "zips": ["02169", "02170", "02171"], "eta": "35–50 min", "leadMinutes": 35}, "pickup": {"eta": "15–20 min", "leadMinutes": 15}, "taxRate": 0.07, "tips": [0.1, 0.15, 0.2, 0.25], "categories": [{"name": "Appetizers", "items": [{"id": "crab-rangoon", "name": "Crab Rangoon", "price": 9.5, "desc": "Six crisp wontons, cream cheese and crab, sweet-and-sour sauce.", "tags": ["popular"], "options": []}, {"id": "egg-rolls", "name": "Pork Egg Rolls (2)", "price": 6.5, "desc": "Roast pork, cabbage and celery.", "tags": [], "options": []}, {"id": "bbq-ribs", "name": "Boneless Spare Ribs", "price": 14.95, "desc": "Char siu–glazed and roasted.", "tags": ["popular"], "options": [{"name": "Size", "required": true, "multi": false, "choices": [{"name": "Small", "price": 0}, {"name": "Large", "price": 6.0}]}], "native": "叉燒骨"}, {"id": "scallion-pancake", "name": "Scallion Pancake", "price": 8.95, "desc": "Flaky, pan-fried, soy-ginger dip.", "tags": ["veg"], "options": []}, {"id": "pupu", "name": "Pu Pu Platter for Two", "price": 26.95, "desc": "Ribs, egg rolls, rangoon, teriyaki beef, chicken wings and fried shrimp, with the flaming bowl.", "tags": [], "options": []}]}, {"name": "Soups", "items": [{"id": "wonton-soup", "name": "Wonton Soup", "price": 6.5, "desc": "Shrimp-and-pork wontons in clear chicken broth.", "tags": [], "options": [{"name": "Size", "required": true, "multi": false, "choices": [{"name": "Pint", "price": 0}, {"name": "Quart", "price": 4.5}]}], "native": "雲吞湯"}, {"id": "hot-sour", "name": "Hot and Sour Soup", "price": 6.5, "desc": "Tofu, bamboo shoots, wood-ear mushroom.", "tags": ["spicy"], "options": [{"name": "Size", "required": true, "multi": false, "choices": [{"name": "Pint", "price": 0}, {"name": "Quart", "price": 4.5}]}]}]}, {"name": "Cantonese Specialties", "note": "Our family's cooking. Ask for it extra wok-hei.", "items": [{"id": "chow-foon", "name": "Beef Chow Foon", "price": 17.95, "desc": "Wide rice noodles seared with beef, onion and bean sprouts.", "tags": ["house"], "options": [], "native": "乾炒牛河"}, {"id": "salt-pepper-shrimp", "name": "Salt and Pepper Shrimp", "price": 19.95, "desc": "Shell-on or peeled, fried with garlic, chili and scallion.", "tags": ["spicy", "popular"], "options": [{"name": "Style", "required": true, "multi": false, "choices": [{"name": "Peeled", "price": 0}, {"name": "Shell-on", "price": 0}]}, {"name": "Rice", "required": true, "multi": false, "choices": [{"name": "White rice", "price": 0}, {"name": "Pork fried rice", "price": 2.0}, {"name": "Brown rice", "price": 1.0}, {"name": "No rice", "price": 0}]}], "native": "椒鹽蝦"}, {"id": "ginger-fish", "name": "Steamed Fish, Ginger and Scallion", "price": 0, "desc": "Whole fish of the day, steamed and finished with hot oil and soy.", "tags": [], "options": [{"name": "Size", "required": true, "multi": false, "choices": [{"name": "About 1.5 lb", "price": 32.0}, {"name": "About 2 lb", "price": 39.0}]}], "native": "薑蔥蒸魚", "priceLabel": "Market"}, {"id": "char-siu", "name": "Roast Pork (Char Siu) over Rice", "price": 14.95, "desc": "Honey-glazed, sliced over rice with greens.", "tags": [], "options": [], "native": "叉燒飯"}, {"id": "gai-lan", "name": "Chinese Broccoli in Oyster Sauce", "price": 12.95, "desc": "Gai lan, blanched and dressed.", "tags": ["veg"], "options": [], "native": "蠔油芥蘭"}, {"id": "yangzhou", "name": "Yangzhou Fried Rice", "price": 13.95, "desc": "Shrimp, roast pork, egg and peas.", "tags": [], "options": [], "native": "揚州炒飯"}]}, {"name": "American-Chinese Favorites", "items": [{"id": "general-tso", "name": "General Tso's Chicken", "price": 15.95, "desc": "Crispy chicken, sweet chili glaze.", "tags": ["spicy", "popular"], "options": [{"name": "Spice", "required": true, "multi": false, "choices": [{"name": "Mild", "price": 0}, {"name": "Medium", "price": 0}, {"name": "Hot", "price": 0}]}, {"name": "Rice", "required": true, "multi": false, "choices": [{"name": "White rice", "price": 0}, {"name": "Pork fried rice", "price": 2.0}, {"name": "Brown rice", "price": 1.0}, {"name": "No rice", "price": 0}]}]}, {"id": "beef-broccoli", "name": "Beef with Broccoli", "price": 16.95, "desc": "Brown sauce, fresh broccoli.", "tags": [], "options": [{"name": "Rice", "required": true, "multi": false, "choices": [{"name": "White rice", "price": 0}, {"name": "Pork fried rice", "price": 2.0}, {"name": "Brown rice", "price": 1.0}, {"name": "No rice", "price": 0}]}]}, {"id": "lo-mein", "name": "Lo Mein", "price": 12.95, "desc": "Soft egg noodles, cabbage and scallion.", "tags": [], "options": [{"name": "Protein", "required": true, "multi": false, "choices": [{"name": "Vegetable", "price": 0}, {"name": "Chicken", "price": 1.0}, {"name": "Roast pork", "price": 1.0}, {"name": "Beef", "price": 2.0}, {"name": "Shrimp", "price": 3.0}, {"name": "House special", "price": 3.5}]}]}, {"id": "sweet-sour", "name": "Sweet and Sour Chicken", "price": 14.95, "desc": "Battered chicken, sauce on the side.", "tags": [], "options": [{"name": "Rice", "required": true, "multi": false, "choices": [{"name": "White rice", "price": 0}, {"name": "Pork fried rice", "price": 2.0}, {"name": "Brown rice", "price": 1.0}, {"name": "No rice", "price": 0}]}]}]}, {"name": "Weekend Dim Sum", "note": "Saturday and Sunday until 3 PM.", "items": [{"id": "har-gow", "name": "Shrimp Dumplings (4)", "price": 7.95, "desc": "Translucent wrappers, whole shrimp.", "tags": [], "options": [], "native": "蝦餃"}, {"id": "siu-mai", "name": "Pork and Shrimp Siu Mai (4)", "price": 7.5, "desc": "", "tags": [], "options": [], "native": "燒賣"}, {"id": "char-siu-bao", "name": "BBQ Pork Buns (3)", "price": 7.5, "desc": "Steamed, fluffy, sweet roast pork filling.", "tags": [], "options": [], "native": "叉燒包"}]}, {"name": "Drinks", "items": [{"id": "milk-tea", "name": "Hong Kong Milk Tea", "price": 4.5, "desc": "Strong black tea and evaporated milk.", "tags": [], "options": [{"name": "Temperature", "required": true, "multi": false, "choices": [{"name": "Hot", "price": 0}, {"name": "Iced", "price": 0}]}], "native": "港式奶茶"}, {"id": "lemon-tea", "name": "Iced Lemon Tea", "price": 4.25, "desc": "", "tags": [], "options": [], "native": "凍檸茶"}, {"id": "soda", "name": "Can of Soda", "price": 1.75, "desc": "", "tags": [], "options": [{"name": "Kind", "required": true, "multi": false, "choices": [{"name": "Cola", "price": 0}, {"name": "Diet cola", "price": 0}, {"name": "Lemon-lime", "price": 0}, {"name": "Ginger ale", "price": 0}]}]}]}]}</script>
+<script src="../shared/order.js"></script>
+</body>
+</html>
