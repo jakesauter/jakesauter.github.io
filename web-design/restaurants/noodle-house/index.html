@@ -7,7 +7,7 @@
 <meta name="description" content="A demo restaurant website: menu, hours, live open/closed status, one-tap call and directions, English and Chinese.">
 <title>Willow Street Noodle House · Restaurant Website Demo</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%23e8b04a%22%2F%3E%3Ctext%20x%3D%2232%22%20y%3D%2244%22%20font-size%3D%2234%22%20font-weight%3D%22900%22%20text-anchor%3D%22middle%22%20fill%3D%22%237a1712%22%20font-family%3D%22sans-serif%22%3E%E6%9F%B3%3C%2Ftext%3E%3C%2Fsvg%3E">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Willow Street Noodle House","servesCuisine":["Chinese","Noodles"],"telephone":"+16175550123","address":{"@type":"PostalAddress","streetAddress":"123 Example St","addressLocality":"Anytown","addressRegion":"MA","postalCode":"02100","addressCountry":"US"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Sunday"],"opens":"11:00","closes":"21:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday"],"opens":"11:00","closes":"21:30"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Friday","Saturday"],"opens":"11:00","closes":"22:30"}],"hasMenu":"#menu","acceptsReservations":false,"alternateName":"柳街面馆","priceRange":"$$"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Willow Street Noodle House","servesCuisine":["Chinese","Noodles"],"telephone":"+16175550123","address":{"@type":"PostalAddress","streetAddress":"123 Example St","addressLocality":"Anytown","addressRegion":"MA","postalCode":"02100","addressCountry":"US"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Sunday"],"opens":"11:00","closes":"21:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday"],"opens":"11:00","closes":"21:30"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Friday","Saturday"],"opens":"11:00","closes":"22:30"}],"hasMenu":"#menu","acceptsReservations":false,"specialOpeningHoursSpecification":[{"@type":"OpeningHoursSpecification","validFrom":"2026-11-26","validThrough":"2026-11-26","opens":"00:00","closes":"00:00"},{"@type":"OpeningHoursSpecification","validFrom":"2026-12-24","validThrough":"2026-12-24","opens":"11:00","closes":"18:00"},{"@type":"OpeningHoursSpecification","validFrom":"2026-12-25","validThrough":"2026-12-25","opens":"00:00","closes":"00:00"}],"alternateName":"柳街面馆","priceRange":"$$"}</script>
 <style>
 :root { --p: #a3221b; --pd: #7a1712; --a: #e8b04a; --ad: #b9852b; --on-a: #7a1712; --ink: #2a1d18; --ink-2: #6b5a52;
   --paper: #fbf6ee; --card: #fff; --line: #eadfce; --chip: #f3e8d6; }
@@ -27,7 +27,7 @@ nav.links { display: flex; gap: 18px; font-weight: 700; font-size: 15px; } nav.l
 .hero { position: relative; overflow: hidden; background: radial-gradient(120% 90% at 85% 10%, #c4372c 0%, var(--p) 45%, var(--pd) 100%); color: #fff; padding: 46px 16px 54px; }
 .hero .deco { position: absolute; right: 2%; top: 0; width: 220px; opacity: .9; }
 .wrap { max-width: 960px; margin: 0 auto; position: relative; }
-.hero .kicker { font: 700 16px "Noto Serif SC", serif; color: var(--a); letter-spacing: .2em; margin: 0 0 6px; text-transform: uppercase; }
+.hero .kicker { font: 700 16px "Noto Serif SC", serif; color: #ffedcc; letter-spacing: .2em; margin: 0 0 6px; text-transform: uppercase; }
 .hero h1 { font: 800 clamp(30px, 7.6vw, 60px)/1.04 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; margin: 0 0 12px; letter-spacing: -.01em; }
 .hero p.lede { font-size: 18px; max-width: 540px; margin: 0 0 18px; opacity: .95; }
 .status { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; font-weight: 700; margin: 0 0 16px; }
@@ -37,13 +37,20 @@ nav.links { display: flex; gap: 18px; font-weight: 700; font-size: 15px; } nav.l
 .status a { color: #fff; text-decoration-color: rgba(255,255,255,.5); }
 .rating { display: inline-flex; align-items: center; gap: 8px; background: rgba(0,0,0,.2); border-radius: 999px; padding: 6px 14px; font-size: 14px; font-weight: 700; margin-bottom: 20px; }
 .rating span { color: var(--a); letter-spacing: 1px; }
+.pills { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 18px; } .pills span { background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.35); border-radius: 999px; padding: 5px 12px; font-size: 14px; font-weight: 700; }
+.pills span.key { background: var(--a); color: var(--on-a); border-color: transparent; }
 .cta { display: flex; gap: 10px; flex-wrap: wrap; }
 .btn { display: inline-flex; align-items: center; gap: 8px; border-radius: 12px; padding: 13px 20px; font-weight: 800; font-size: 16px; text-decoration: none; border: 0; cursor: pointer; }
 .btn.gold { background: var(--a); color: var(--on-a); box-shadow: 0 4px 0 var(--ad); }
 .btn.light { background: #fff; color: var(--p); box-shadow: 0 4px 0 rgba(0,0,0,.2); }
 .btn.line { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.6); }
 .btn svg { width: 18px; height: 18px; }
-.alt { margin: 14px 0 0; font-size: 14px; opacity: .92; } .alt a { color: #fff; font-weight: 700; }
+.alt { margin: 14px 0 0; font-size: 14px; opacity: .92; } .alt a { color: #fff; font-weight: 700; display: inline-block; padding: 6px 0; }
+footer a { display: inline-block; padding: 6px 0; }
+.notice { display: inline-flex; gap: 8px; align-items: flex-start; background: #fff; color: var(--ink); border-radius: 12px; padding: 8px 12px; font-weight: 700; font-size: 14px; margin: 0 0 16px; box-shadow: 0 3px 0 rgba(0,0,0,.15); }
+.notice:empty { display: none; }
+.hol { margin: 12px 0 0; padding: 10px 12px; background: #fff6dc; border-radius: 10px; font-size: 14px; } .hol:empty { display: none; }
+.checked { color: var(--ink-2); font-size: 13px; margin: 8px 0 0; }
 .info { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: -28px auto 0; position: relative; z-index: 2; padding: 0 16px; max-width: 992px; }
 .info .c { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px; box-shadow: 0 6px 18px rgba(80,40,20,.07); }
 .info h3 { margin: 0 0 4px; font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--p); } .info p { margin: 0; font-weight: 600; }
@@ -96,13 +103,14 @@ footer { margin-top: 48px; background: var(--ink); color: #d9cbc2; padding: 26px
 </style>
 </head>
 <body>
-<div class="sample" data-t="banner"><b>Demo restaurant</b><span class="long"> made up to show what your restaurant's website could look like.</span> Not a real business.</div>
+<div class="sample" role="region" aria-label="Notice" data-t="banner"><b>Demo restaurant</b><span class="long"> made up to show what your restaurant's website could look like.</span> Not a real business.</div>
 <header class="top">
   <a class="logo" href="#top"><span class="seal">柳</span><span><b>Willow Street Noodle House</b><small>柳街面馆 · Demo restaurant</small></span></a>
   <nav class="links"><a href="#favorites" data-t="n1">Favorites</a><a href="#menu" data-t="n2">Menu</a><a href="#visit" data-t="n3">Hours &amp; Map</a></nav>
   <button class="lang" id="lang" aria-label="切换中文 / Switch language">中文</button>
 </header>
 
+<main id="main">
 <div class="hero" id="top">
   <svg class="deco" viewBox="0 0 220 200" aria-hidden="true">
     <g fill="none" stroke="#e8b04a" stroke-width="2"><path d="M60 0v34M150 0v20"/></g>
@@ -116,6 +124,8 @@ footer { margin-top: 48px; background: var(--ink); color: #d9cbc2; padding: 26px
     <h1 data-t="h1">Hand-pulled noodles<br>and dumplings.</h1>
     <p class="lede" data-t="lede">Beef noodle soup, pan-fried dumplings and scallion pancakes, made to order. Eat in, or order ahead for pickup.</p>
     <p class="status"><span class="dot" id="hero-open"></span><a href="https://www.google.com/maps/dir/?api=1&amp;destination=123%20Example%20St%2C%20Anytown%2C%20MA%2002100" target="_blank" rel="noopener" data-t="addr">123 Example St · near the T</a></p>
+    <p class="notice" id="notice" role="status"></p>
+    
     <div class="rating"><span>★★★★★</span> <b style="font-weight:inherit" data-t="rating">4.8 · sample rating</b></div>
     <div class="cta">
       <a class="btn gold" href="#order" data-order><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h15l-1.5 9h-12z"/><path d="M6 6 5 3H2"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg><span data-t="order">Order pickup</span></a>
@@ -155,12 +165,13 @@ footer { margin-top: 48px; background: var(--ink); color: #d9cbc2; padding: 26px
   <h2 data-t="visith">Hours &amp; map <span class="zh">营业时间</span></h2>
   <p class="sub" data-t="visitsub">Demo address. A real site shows your street, parking and transit.</p>
   <div class="visit">
-    <div class="hours"><table id="hours"></table>
+    <div class="hours"><table id="hours"></table><div class="hol" id="hol"></div><p class="checked" id="checked"></p>
       <p style="margin:14px 0 4px" data-t="parking"><b>Parking:</b> street parking out front. Big group? Call ahead.</p>
       <p style="margin:14px 0 0"><a class="btn gold" href="https://www.google.com/maps/dir/?api=1&amp;destination=123%20Example%20St%2C%20Anytown%2C%20MA%2002100" target="_blank" rel="noopener" data-t="dir">Get directions</a></p></div>
     <div class="map"><div style="display:grid;place-items:center;height:100%;min-height:260px;color:var(--ink-2);font-weight:700;padding:20px;text-align:center">A map of your street goes here, with a pin on your door.</div></div>
   </div>
 </div></section>
+</main>
 
 <footer><div class="wrap">
   <b>Willow Street Noodle House 柳街面馆</b> · 123 Example St, Anytown, MA 02100 · <a href="tel:+16175550123">(617) 555-0123</a><br>
@@ -174,7 +185,7 @@ footer { margin-top: 48px; background: var(--ink); color: #d9cbc2; padding: 26px
 </nav>
 
 <script>
-const SITE = {"hours":[[660,1260],null,[660,1290],[660,1290],[660,1290],[660,1350],[660,1350]],"favorites":[{"name":"Beef Noodle Soup","zh":"红烧牛肉面","desc":"Braised beef shank, hand-pulled noodles, rich broth.","descZh":"红烧牛腱，手拉面，浓郁汤底。","art":"bowl","bg":"#f6dcd2"},{"name":"Pan-Fried Dumplings","zh":"锅贴","desc":"Crisp on the bottom, juicy pork inside. 8 pieces.","descZh":"底部焦脆，猪肉馅多汁。8个。","art":"dumpling","bg":"#f4ead7"},{"name":"Scallion Pancake","zh":"葱油饼","desc":"Flaky, layered and hot off the griddle.","descZh":"层层酥脆，现煎现吃。","art":"pancake","bg":"#f7e7c4"},{"name":"Dry-Fried Green Beans","zh":"干煸四季豆","desc":"Blistered beans, garlic and chili.","descZh":"干煸四季豆，蒜香微辣。","art":"wok","bg":"#e6eedb"}],"menu":[{"cat":"Noodles","zh":"面","items":[{"n":"Beef Noodle Soup","z":"红烧牛肉面","p":15.95,"d":"Braised beef shank, bok choy, pickled mustard greens"},{"n":"Spicy Beef Noodle Soup","z":"麻辣牛肉面","p":16.95,"s":true},{"n":"Dan Dan Noodles","z":"担担面","p":13.95,"s":true,"d":"Sesame, chili oil, minced pork"},{"n":"Scallion Oil Noodles","z":"葱油拌面","p":11.95,"v":true},{"n":"Zha Jiang Noodles","z":"炸酱面","p":13.5}]},{"cat":"Dumplings","zh":"饺子","items":[{"n":"Pan-Fried Pork Dumplings (8)","z":"锅贴","p":10.95},{"n":"Soup Dumplings (6)","z":"小笼包","p":11.95},{"n":"Vegetable Dumplings (8)","z":"素饺","p":10.5,"v":true},{"n":"Spicy Wontons in Chili Oil","z":"红油抄手","p":10.95,"s":true}]},{"cat":"Small Plates","zh":"小吃","items":[{"n":"Scallion Pancake","z":"葱油饼","p":7.95,"v":true},{"n":"Cucumber Salad","z":"拍黄瓜","p":6.95,"v":true,"s":true},{"n":"Popcorn Chicken","z":"盐酥鸡","p":9.95}]},{"cat":"Rice & Vegetables","zh":"饭和蔬菜","items":[{"n":"Braised Pork over Rice","z":"卤肉饭","p":12.95},{"n":"Dry-Fried Green Beans","z":"干煸四季豆","p":13.95,"s":true,"v":true},{"n":"Mapo Tofu","z":"麻婆豆腐","p":13.95,"s":true},{"n":"Garlic Bok Choy","z":"蒜蓉小白菜","p":11.95,"v":true}]}],"orderUrl":"","orderDemo":{"en":"On a real site, this opens the restaurant's own online ordering (Square, Toast or Clover). Orders and payments go straight to the restaurant, with no app commission.","zh":"在正式网站上，这个按钮会打开餐厅自己的网上点餐页面（Square、Toast 或 Clover）。订单和货款直接进餐厅账户，不用付平台佣金。"},"zh":{"banner":"<b>示范餐厅</b><span class=\"long\">，用来展示您餐厅网站的效果。</span>不是真实的餐厅。","n1":"招牌菜","n2":"菜单","n3":"营业时间和地图","h1":"手拉面<br>和饺子","lede":"红烧牛肉面、锅贴、葱油饼，现点现做。欢迎堂食，也可以提前网上点餐到店自取。","addr":"123 Example St · 靠近地铁站","rating":"4.8分 · 示例评分","order":"网上点餐自取","seemenu":"查看菜单","alt":"需要外送？我们也在","i1":"营业时间","i2":"地址","i3":"交通","i3p":"门口可路边停车，离地铁站步行5分钟。","favh":"招牌菜 <span class=\"zh\">House favorites</span>","favsub":"老顾客最爱点的菜。","menuh":"菜单 <span class=\"zh\">Menu</span>","menusub":"价格仅为示例。🌶 = 辣 · 🌱 = 素食。","allergy":"素食、麸质或过敏问题？请<a href=\"tel:+16175550123\"><b>打电话</b></a>问我们，我们会告诉您每道菜的具体用料。","visith":"营业时间和地图 <span class=\"zh\">Hours &amp; map</span>","visitsub":"示范地址。正式网站会显示您的街道、停车和交通信息。","parking":"<b>停车：</b>门口路边停车。多人聚餐请提前来电。","dir":"导航","foot":"示范网站，由 Sauter Web Design 制作。想为您的餐厅做一个类似的网站吗？<a href=\"../../#contact\">联系我</a>。","b1":"打电话","b2":"网上点餐","b3":"导航"},"langKey":"noodle-house_lang","searchHintZh":"搜索菜单：面、饺子、豆腐…","currency":"$"};
+const SITE = {"hours":[[660,1260],null,[660,1290],[660,1290],[660,1290],[660,1350],[660,1350]],"special":{"2026-11-26":{"h":null,"label":"Thanksgiving","labelZh":"感恩节"},"2026-12-24":{"h":[660,1080],"label":"Christmas Eve","labelZh":"平安夜"},"2026-12-25":{"h":null,"label":"Christmas","labelZh":"圣诞节"}},"hoursChecked":"2026-11-14","favorites":[{"name":"Beef Noodle Soup","zh":"红烧牛肉面","desc":"Braised beef shank, hand-pulled noodles, rich broth.","descZh":"红烧牛腱，手拉面，浓郁汤底。","art":"bowl","bg":"#f6dcd2"},{"name":"Pan-Fried Dumplings","zh":"锅贴","desc":"Crisp on the bottom, juicy pork inside. 8 pieces.","descZh":"底部焦脆，猪肉馅多汁。8个。","art":"dumpling","bg":"#f4ead7"},{"name":"Scallion Pancake","zh":"葱油饼","desc":"Flaky, layered and hot off the griddle.","descZh":"层层酥脆，现煎现吃。","art":"pancake","bg":"#f7e7c4"},{"name":"Dry-Fried Green Beans","zh":"干煸四季豆","desc":"Blistered beans, garlic and chili.","descZh":"干煸四季豆，蒜香微辣。","art":"wok","bg":"#e6eedb"}],"menu":[{"cat":"Noodles","zh":"面","items":[{"n":"Beef Noodle Soup","z":"红烧牛肉面","p":15.95,"d":"Braised beef shank, bok choy, pickled mustard greens"},{"n":"Spicy Beef Noodle Soup","z":"麻辣牛肉面","p":16.95,"s":true},{"n":"Dan Dan Noodles","z":"担担面","p":13.95,"s":true,"d":"Sesame, chili oil, minced pork"},{"n":"Scallion Oil Noodles","z":"葱油拌面","p":11.95,"v":true},{"n":"Zha Jiang Noodles","z":"炸酱面","p":13.5}]},{"cat":"Dumplings","zh":"饺子","items":[{"n":"Pan-Fried Pork Dumplings (8)","z":"锅贴","p":10.95},{"n":"Soup Dumplings (6)","z":"小笼包","p":11.95},{"n":"Vegetable Dumplings (8)","z":"素饺","p":10.5,"v":true},{"n":"Spicy Wontons in Chili Oil","z":"红油抄手","p":10.95,"s":true}]},{"cat":"Small Plates","zh":"小吃","items":[{"n":"Scallion Pancake","z":"葱油饼","p":7.95,"v":true},{"n":"Cucumber Salad","z":"拍黄瓜","p":6.95,"v":true,"s":true},{"n":"Popcorn Chicken","z":"盐酥鸡","p":9.95}]},{"cat":"Rice & Vegetables","zh":"饭和蔬菜","items":[{"n":"Braised Pork over Rice","z":"卤肉饭","p":12.95},{"n":"Dry-Fried Green Beans","z":"干煸四季豆","p":13.95,"s":true,"v":true},{"n":"Mapo Tofu","z":"麻婆豆腐","p":13.95,"s":true},{"n":"Garlic Bok Choy","z":"蒜蓉小白菜","p":11.95,"v":true}]}],"orderUrl":"","orderDemo":{"en":"On a real site, this opens the restaurant's own online ordering (Square, Toast or Clover). Orders and payments go straight to the restaurant, with no app commission.","zh":"在正式网站上，这个按钮会打开餐厅自己的网上点餐页面（Square、Toast 或 Clover）。订单和货款直接进餐厅账户，不用付平台佣金。"},"zh":{"banner":"<b>示范餐厅</b><span class=\"long\">，用来展示您餐厅网站的效果。</span>不是真实的餐厅。","n1":"招牌菜","n2":"菜单","n3":"营业时间和地图","h1":"手拉面<br>和饺子","lede":"红烧牛肉面、锅贴、葱油饼，现点现做。欢迎堂食，也可以提前网上点餐到店自取。","addr":"123 Example St · 靠近地铁站","rating":"4.8分 · 示例评分","order":"网上点餐自取","seemenu":"查看菜单","alt":"需要外送？我们也在","i1":"营业时间","i2":"地址","i3":"交通","i3p":"门口可路边停车，离地铁站步行5分钟。","favh":"招牌菜 <span class=\"zh\">House favorites</span>","favsub":"老顾客最爱点的菜。","menuh":"菜单 <span class=\"zh\">Menu</span>","menusub":"价格仅为示例。🌶 = 辣 · 🌱 = 素食。","allergy":"素食、麸质或过敏问题？请<a href=\"tel:+16175550123\"><b>打电话</b></a>问我们，我们会告诉您每道菜的具体用料。","visith":"营业时间和地图 <span class=\"zh\">Hours &amp; map</span>","visitsub":"示范地址。正式网站会显示您的街道、停车和交通信息。","parking":"<b>停车：</b>门口路边停车。多人聚餐请提前来电。","dir":"导航","foot":"示范网站，由 Sauter Web Design 制作。想为您的餐厅做一个类似的网站吗？<a href=\"../../#contact\">联系我</a>。","b1":"打电话","b2":"网上点餐","b3":"导航"},"langKey":"noodle-house_lang","searchHintZh":"搜索菜单：面、饺子、豆腐…","currency":"$"};
 // Shared page behaviour for every restaurant site built by build.js. Reads the SITE object.
 (function () {
   const ART = {
@@ -237,18 +248,34 @@ const SITE = {"hours":[[660,1260],null,[660,1290],[660,1290],[660,1290],[660,135
   const fmt = m => { const h = Math.floor(m / 60) % 24, mm = m % 60, ap = h < 12 ? 'am' : 'pm', h12 = h % 12 || 12; return h12 + (mm ? ':' + String(mm).padStart(2, '0') : '') + ' ' + ap; };
   const fmtZh = m => { const h = Math.floor(m / 60) % 24, mm = m % 60, pre = h < 12 ? '上午' : h < 18 ? '下午' : '晚上', h12 = h % 12 || 12; return pre + h12 + (mm ? ':' + String(mm).padStart(2, '0') : '点'); };
   const span = (h, zh) => h ? (zh ? `${fmtZh(h[0])} – ${fmtZh(h[1])}` : `${fmt(h[0])} – ${fmt(h[1])}`) : (zh ? '休息' : 'Closed');
+  const ymd = dt => dt.getFullYear() + '-' + String(dt.getMonth() + 1).padStart(2, '0') + '-' + String(dt.getDate()).padStart(2, '0');
+  const SP = SITE.special || {};
+  const hoursFor = dt => { const sp = SP[ymd(dt)]; return sp ? sp.h : SITE.hours[dt.getDay()]; };
+  const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const dateLabel = (dt, zh) => zh ? `${dt.getMonth() + 1}月${dt.getDate()}日 ${DAYS_ZH[dt.getDay()]}` : `${DAYS[dt.getDay()].slice(0, 3)}, ${MON[dt.getMonth()]} ${dt.getDate()}`;
   function renderHours() {
     const zh = zhOn(), now = new Date(), d = now.getDay(), mins = now.getHours() * 60 + now.getMinutes(), H = SITE.hours;
     $('hours').innerHTML = [1, 2, 3, 4, 5, 6, 0].map(i => `<tr class="${i === d ? 'today' : ''}"><td>${zh ? DAYS_ZH[i] : DAYS[i]}${i === d ? (zh ? '（今天）' : ' (today)') : ''}</td><td>${span(H[i], zh)}</td></tr>`).join('');
     const same = H.every(h => JSON.stringify(h) === JSON.stringify(H[0]));
-    $('hours-short').textContent = same ? (zh ? '每天 ' : 'Open daily ') + span(H[0], zh) : (zh ? '今天 ' : 'Today ') + span(H[d], zh);
-    const t = H[d], open = t && mins >= t[0] && mins < t[1];
+    const todaySp = SP[ymd(now)];
+    $('hours-short').textContent = todaySp ? (zh ? '今天 ' : 'Today ') + span(todaySp.h, zh) : same ? (zh ? '每天 ' : 'Open daily ') + span(H[0], zh) : (zh ? '今天 ' : 'Today ') + span(H[d], zh);
+    // Holiday / special hours in the next 14 days.
+    const upcoming = [];
+    for (let k = 0; k < 14; k++) { const dt = new Date(now); dt.setDate(now.getDate() + k); const sp = SP[ymd(dt)]; if (sp) upcoming.push([dt, sp, k]); }
+    const line = ([dt, sp, k]) => zh ? `${sp.labelZh}（${k === 0 ? '今天' : dateLabel(dt, true)}）：${span(sp.h, true)}` : `${sp.label} (${k === 0 ? 'today' : dateLabel(dt, false)}): ${span(sp.h, false)}`;
+    $('notice').textContent = upcoming.length ? '📅 ' + line(upcoming[0]) : '';
+    $('hol').innerHTML = upcoming.length ? `<b>${zh ? '节假日营业时间' : 'Holiday hours'}</b><br>` + upcoming.map(line).map(esc).join('<br>') : '';
+    if (SITE.hoursChecked) { const c = new Date(SITE.hoursChecked + 'T12:00'); $('checked').textContent = zh ? `营业时间已于 ${c.getMonth() + 1}月${c.getDate()}日 与餐厅确认` : `Hours confirmed with the restaurant on ${MON[c.getMonth()]} ${c.getDate()}, ${c.getFullYear()}`; }
+    // Live status, following holiday hours.
+    const t = hoursFor(now), open = t && mins >= t[0] && mins < t[1];
     let msg;
     if (open) msg = zh ? `营业中 · ${fmtZh(t[1])}打烊` : `Open now · until ${fmt(t[1])}`;
     else if (t && mins < t[0]) msg = zh ? `休息中 · 今天${fmtZh(t[0])}开门` : `Closed · opens ${fmt(t[0])} today`;
     else {
-      for (let k = 1; k <= 7; k++) { const j = (d + k) % 7; if (H[j]) { const when = k === 1 ? (zh ? '明天' : 'tomorrow') : (zh ? DAYS_ZH[j] : DAYS[j]);
-        msg = zh ? `休息中 · ${when}${fmtZh(H[j][0])}开门` : `Closed · opens ${fmt(H[j][0])} ${when}`; break; } }
+      for (let k = 1; k <= 14; k++) { const dt = new Date(now); dt.setDate(now.getDate() + k); const h = hoursFor(dt); if (h) {
+        const when = k === 1 ? (zh ? '明天' : 'tomorrow') : (zh ? dateLabel(dt, true) : (k < 7 ? DAYS[dt.getDay()] : dateLabel(dt, false)));
+        msg = zh ? `休息中 · ${when}${fmtZh(h[0])}开门` : `Closed · opens ${fmt(h[0])} ${when}`; break; } }
+      if (todaySp && !todaySp.h) msg = (zh ? `今天${todaySp.labelZh}休息 · ` : `Closed today for ${todaySp.label} · `) + (msg || '').replace(/^(休息中 · |Closed · )/, '');
     }
     const ho = $('hero-open'); ho.textContent = msg || ''; ho.classList.toggle('closed', !open);
   }
