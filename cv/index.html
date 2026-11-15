@@ -43,6 +43,7 @@
       
       
       <link rel="stylesheet" href="/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    <link rel="stylesheet" href="/css/site-2026.css" />
     
 
     
@@ -66,7 +67,7 @@
     <a class="navigation-title" href="/">
       Jake Sauter
     </a>
-    <input type="checkbox" id="menu-toggle" />
+    <input type="checkbox" id="menu-toggle" aria-label="Menu" />
     <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
     <ul class="navigation-list">
       
@@ -103,20 +104,53 @@
 
 
       <div class="content">
-        
   <section class="container page">
-  <article>
-    <header>
-      <h1>CV</h1>
-    </header>
+  <article class="cv">
+    <header><h1>CV</h1></header>
+    <style>
+.lk { margin: .7rem 0; font-size: 1.6rem; line-height: 1.5; }
+.grp { margin: 2.4rem 0 .4rem; font-size: 1.3rem; letter-spacing: .12em; text-transform: uppercase; color: #6b6b6b; font-weight: 700; }
+.intro { font-size: 1.7rem; line-height: 1.6; max-width: 60rem; margin: 1.6rem auto 0; }
+.cv h2 { margin-top: 3rem; } .cv h3 { margin: 1.8rem 0 .2rem; font-size: 1.8rem; } .cv .when { color: #6b6b6b; font-size: 1.5rem; }
+.cv ul, .about-pg ul { margin-top: .4rem; } .cv li, .about-pg li { margin: .3rem 0; }
+@media (prefers-color-scheme: dark) { .grp, .cv .when { color: #a9a9a9; } }
+</style>
+    <p>Bioinformatics data scientist: statistical modeling, machine learning and reproducible analysis of biomedical data (sequencing, cytometry, imaging). For a full CV, <a href="/contact/">get in touch</a>.</p>
 
-    <p><img src="/images/Jake_Sauter_Curriculum_Vitae1.png" alt="CV1"></p>
-<p><img src="/images/Jake_Sauter_Curriculum_Vitae2.png" alt="CV2"></p>
+    <h2>Experience</h2>
+    <h3>Bioinformatics Data Scientist</h3>
+    <p class="when">About five years in industry, including Memorial Sloan Kettering Cancer Center; currently in drug development</p>
+    <ul>
+      <li>Analysis pipelines for bulk and single-cell RNA-seq, flow and mass cytometry, cytokine panels (MSD) and high-content imaging (Cell Painting, brightfield)</li>
+      <li>Reproducible reports (R Markdown / Quarto) and Shiny apps for scientists</li>
+    </ul>
+    <h3>Data Scientist &middot; Northeast Information Discovery</h3>
+    <p class="when">Canastota, NY &middot; 2019&ndash;2020</p>
+    <ul><li>Small R&amp;D team building signal-processing capabilities: deep learning models, statistics, Linux automation, agile process</li></ul>
+    <h3>Undergraduate Researcher &middot; Center for the Neural Basis of Cognition (CMU / Pitt)</h3>
+    <p class="when">Summer 2018</p>
+    <ul><li>fMRI multi-voxel pattern analysis of brain lateralization; poster presentation</li></ul>
+    <h3>Undergraduate Researcher &middot; NSF MedIX REU (DePaul / U. Chicago)</h3>
+    <p class="when">Summer 2017</p>
+    <ul><li>Consensus techniques for diagnostic interpretation; published in SPIE Medical Imaging 2018 proceedings</li></ul>
 
+    <h2>Education</h2>
+    <h3>M.S. Computational Biology &middot; Weill Cornell Graduate School of Medical Sciences</h3>
+    <p class="when">2020&ndash;2022 &middot; GPA 4.0 &middot; Thesis: a pipeline for pan-myeloid flow cytometry processing and clustering (AML, MPN, MDS)</p>
+    <h3>B.S. Applied Mathematics, minor Computer Science &middot; SUNY Oswego</h3>
+    <p class="when">2016&ndash;2018 &middot; Phi Kappa Phi</p>
+
+    <h2>Publication</h2>
+    <p>An Evaluation of Consensus Techniques for Diagnostic Interpretation. SPIE Medical Imaging 2018 (Houston), proceedings.</p>
+
+    <h2>Skills</h2>
+    <ul>
+      <li><b>Languages:</b> R (Bioconductor, Shiny), Python, SQL, Bash, JavaScript</li>
+      <li><b>Methods:</b> dimensionality reduction, clustering, differential expression, predictive and inferential modeling, deep learning</li>
+      <li><b>Engineering:</b> Linux, Docker/Apptainer, GPUs, Git, SDLC with wireframes, LaTeX</li>
+    </ul>
   </article>
 </section>
-
-
       </div>
 
       <footer class="footer">
@@ -124,7 +158,7 @@
     
       <p>Curious and Driven.</p>
     
-     © 2021
+     © 2021–2026
     
        · 
       Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.

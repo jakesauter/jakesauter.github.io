@@ -11,12 +11,10 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Contact Me"/>
-<meta name="twitter:description" content="Email - jake.sauter3@gmail.com
-Cell Phone - 845-891-9910"/>
+<meta name="twitter:description" content="Send a message about bioinformatics, data analysis, websites or collaboration."/>
 
     <meta property="og:title" content="Contact Me" />
-<meta property="og:description" content="Email - jake.sauter3@gmail.com
-Cell Phone - 845-891-9910" />
+<meta property="og:description" content="Send a message about bioinformatics, data analysis, websites or collaboration." />
 <meta property="og:type" content="article" />
 <meta property="og:image" content="https://jakesauter.github.io/images/og-profile.jpg" />
 <meta property="og:image:alt" content="Jake Sauter" />
@@ -45,6 +43,7 @@ Cell Phone - 845-891-9910" />
       
       
       <link rel="stylesheet" href="/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    <link rel="stylesheet" href="/css/site-2026.css" />
     
 
     
@@ -59,7 +58,8 @@ Cell Phone - 845-891-9910" />
     <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.88.1" />
-  </head>
+  <link rel="stylesheet" href="/contact-form.css">
+</head>
 
   <body class=" ">
     <main class="wrapper">
@@ -68,7 +68,7 @@ Cell Phone - 845-891-9910" />
     <a class="navigation-title" href="/">
       Jake Sauter
     </a>
-    <input type="checkbox" id="menu-toggle" />
+    <input type="checkbox" id="menu-toggle" aria-label="Menu" />
     <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
     <ul class="navigation-list">
       
@@ -112,8 +112,18 @@ Cell Phone - 845-891-9910" />
       <h1>Contact Me</h1>
     </header>
 
-    <p>Email - <a href="mailto:jake.sauter3@gmail.com">jake.sauter3@gmail.com</a></p>
-<p>Cell Phone - 845-891-9910</p>
+<p>Send me a message and I'll reply by email. You can also reach me on <a href="https://www.linkedin.com/in/jakesauter/">LinkedIn</a> or <a href="https://github.com/jakesauter/">GitHub</a>.</p>
+<form class="cform" data-contact-form data-site="analytics" data-subject="Message from jakesauter.github.io" novalidate>
+  <div class="row"><label>Name<input name="name" autocomplete="name" required></label>
+    <label>Organization <small>(optional)</small><input name="org" autocomplete="organization"></label></div>
+  <div class="row"><label>Email<input name="email" type="email" autocomplete="email" inputmode="email"></label>
+    <label>Phone <small>(optional)</small><input name="phone" type="tel" autocomplete="tel" inputmode="tel"></label></div>
+  <label>About<select name="topic"><option>Bioinformatics or data analysis</option><option>Website</option><option>Collaboration or job</option><option>Something else</option></select></label>
+  <label>Message<textarea name="message" rows="5" required></textarea></label>
+  <label class="trap" aria-hidden="true">Leave empty<input name="_honey" tabindex="-1" autocomplete="off"></label>
+  <div class="actions"><button type="submit">Send message</button><p data-status role="status"></p></div>
+</form>
+<script src="/contact-form.js" defer></script>
 
   </article>
 </section>
@@ -126,7 +136,7 @@ Cell Phone - 845-891-9910" />
     
       <p>Curious and Driven.</p>
     
-     © 2021
+     © 2021–2026
     
        · 
       Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.

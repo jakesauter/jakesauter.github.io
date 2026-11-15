@@ -1,0 +1,7 @@
+/* 2026 refresh: small fixes on top of the Coder theme (kept separate: the theme CSS is integrity-hashed). */
+.content p a, .content li a, .footer a { text-decoration: underline; text-underline-offset: 2px; } /* links not color-only */
+.avatar img { max-width: 100%; height: auto; }
+.cform input, .cform select, .cform textarea { box-sizing: border-box; max-width: 100%; }
+/* Contact form colors (contact-form.css expects these variables; the Coder theme doesn't define them) */
+.cform { --ink: #212121; --bg: #fff; --line: #9aa3a0; --accent: #1565c0; --surface: #fff; --muted: #5f6d69; }
+.cform input, .cform select, .cform textarea { border-width: 1.5px; }

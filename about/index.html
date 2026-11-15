@@ -43,6 +43,7 @@
       
       
       <link rel="stylesheet" href="/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    <link rel="stylesheet" href="/css/site-2026.css" />
     
 
     
@@ -66,7 +67,7 @@
     <a class="navigation-title" href="/">
       Jake Sauter
     </a>
-    <input type="checkbox" id="menu-toggle" />
+    <input type="checkbox" id="menu-toggle" aria-label="Menu" />
     <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
     <ul class="navigation-list">
       
@@ -103,20 +104,38 @@
 
 
       <div class="content">
-        
   <section class="container page">
-  <article>
-    <header>
-      <h1>About Me</h1>
-    </header>
-
-    <p>Budding Data Scientist with a sound foundation in Data Analytics and keen interest
-in Statistical Methods. Highly motivated to transform data into quantifiable, actionable insights through clear, representative visualizations and predictive models. Efficient independent learner and valuable team member.</p>
-
+  <article class="about-pg">
+    <header><h1>About Me</h1></header>
+    <style>
+.lk { margin: .7rem 0; font-size: 1.6rem; line-height: 1.5; }
+.grp { margin: 2.4rem 0 .4rem; font-size: 1.3rem; letter-spacing: .12em; text-transform: uppercase; color: #6b6b6b; font-weight: 700; }
+.intro { font-size: 1.7rem; line-height: 1.6; max-width: 60rem; margin: 1.6rem auto 0; }
+.cv h2 { margin-top: 3rem; } .cv h3 { margin: 1.8rem 0 .2rem; font-size: 1.8rem; } .cv .when { color: #6b6b6b; font-size: 1.5rem; }
+.cv ul, .about-pg ul { margin-top: .4rem; } .cv li, .about-pg li { margin: .3rem 0; }
+@media (prefers-color-scheme: dark) { .grp, .cv .when { color: #a9a9a9; } }
+</style>
+    <p>I'm a bioinformatics data scientist with a Master's in Computational Biology from Weill Cornell Medicine and about five years of industry experience, including Memorial Sloan Kettering Cancer Center. Today I work in drug development.</p>
+    <h2>What I work on</h2>
+    <ul>
+      <li><b>Sequencing:</b> bulk and single-cell RNA-seq pipelines</li>
+      <li><b>Cytometry:</b> flow and mass cytometry processing, clustering and rare-population analysis</li>
+      <li><b>Assays and imaging:</b> cytokine panels (MSD multiplex), high-content imaging including Cell Painting and brightfield</li>
+      <li><b>Tools:</b> R/Bioconductor, Python, Quarto reports, Shiny and React apps, Docker and Apptainer, GPUs</li>
+    </ul>
+    <h2>How I build</h2>
+    <p>I follow a standard software development lifecycle: requirements, <b>wireframes</b>, design, build, test, release and review. Wireframes come first, in the product and in the presentation. My decks are landscape LaTeX (Beamer). I run my own Linux workstation as a home server, with local AI models and automation for the boring parts.</p>
+    <h2>Outside of work</h2>
+    <ul>
+      <li><b>Languages:</b> learning Taishanese, Cantonese and Mandarin to talk with family; I built <a href="https://jakesauter.github.io/Jake-Sauter-Language-Learning-App/">Polylang</a> for it.</li>
+      <li><b>Web design:</b> sites for local businesses, from my family's <a href="https://tepco.us.com">machine shop</a> to <a href="/web-design/">restaurants</a>.</li>
+      <li><b>Linux and automation:</b> scripting, home-server setups and hardware tinkering.</li>
+      <li><b>Markets and world news:</b> data-driven research on news and stocks.</li>
+      <li><b>Endurance sports:</b> distance running and distance cycling.</li>
+    </ul>
+    <p><a href="/cv/">CV &rarr;</a> &middot; <a href="/projects/">Projects &rarr;</a> &middot; <a href="/contact/">Contact &rarr;</a></p>
   </article>
 </section>
-
-
       </div>
 
       <footer class="footer">
@@ -124,7 +143,7 @@ in Statistical Methods. Highly motivated to transform data into quantifiable, ac
     
       <p>Curious and Driven.</p>
     
-     © 2021
+     © 2021–2026
     
        · 
       Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
