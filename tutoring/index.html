@@ -111,7 +111,65 @@
       <h1>Tutoring</h1>
     </header>
 
-    <p><img src="/images/Jake_Sauter_Tutoring_Ad.png" alt="Tutoring Ad"></p>
+    <style>
+/* Tutoring page: same card look as the home page (Coder theme fonts and blue). */
+.tu-lede { font-size: 1.8rem; line-height: 1.7; color: #333; max-width: 64rem; margin: 0 0 2rem; }
+.tu-chips { display: flex; flex-wrap: wrap; gap: .8rem; margin: 0 0 1rem; padding: 0; list-style: none; }
+.tu-chips li { margin: 0; padding: .6rem 1.4rem; border-radius: 99rem; background: #e8f0fb; color: #1565c0; font-family: Lato, sans-serif; font-weight: 700; font-size: 1.4rem; }
+.tu-sec { margin-top: 4rem; }
+.tu-label { display: flex; align-items: center; gap: 1.6rem; margin: 0 0 1.6rem; font-family: Lato, sans-serif; font-size: 1.25rem;
+  letter-spacing: .16em; text-transform: uppercase; color: #6b6b6b; font-weight: 700; }
+.tu-label::after { content: ""; flex: 1; height: 1px; background: #e2e2e2; }
+.tu-grid { display: grid; gap: 1.4rem; grid-template-columns: 1fr; }
+@media (min-width: 720px) { .tu-grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); } .tu-grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.tu-card { background: #fff; border: 1px solid #e6e6e6; border-radius: 1.4rem; padding: 1.8rem; min-width: 0; }
+.tu-ico { width: 4.2rem; height: 4.2rem; border-radius: 1.1rem; display: grid; place-items: center; background: #e8f0fb; color: #1565c0; font-size: 1.8rem; }
+.tu-card h3 { font-family: Lato, sans-serif; font-size: 1.85rem; margin: 1.2rem 0 .6rem; color: #212121; }
+.tu-card ul { margin: 0; padding-left: 1.8rem; } .tu-card li { margin: .35rem 0; font-size: 1.55rem; line-height: 1.5; color: #444; }
+.tu-card p { margin: 0; font-size: 1.55rem; line-height: 1.6; color: #444; }
+.tu-shot { margin: 0; background: #fff; border: 1px solid #e6e6e6; border-radius: 1.4rem; overflow: hidden; }
+.tu-shot img { display: block; width: 100%; height: auto; aspect-ratio: 663 / 748; object-fit: cover; object-position: top left; background: #1e1e1e; }
+.tu-shot figcaption { padding: 1.1rem 1.6rem; font-family: Lato, sans-serif; font-weight: 700; font-size: 1.5rem; color: #212121; }
+.tu-shot figcaption span { display: block; font-family: Merriweather, serif; font-weight: 300; font-size: 1.35rem; color: #555; margin-top: .2rem; }
+.tu-cta { margin-top: 4rem; padding: 2.4rem; border-radius: 1.6rem; background: #fff; border: 1px solid #e6e6e6; text-align: center; }
+.tu-cta h2 { font-family: Lato, sans-serif; font-size: 2.2rem; margin: 0 0 .6rem; }
+.tu-cta p { margin: 0 auto 1.8rem; max-width: 52rem; font-size: 1.55rem; line-height: 1.6; color: #444; }
+.content a.tu-btn { display: inline-flex; align-items: center; gap: .8rem; padding: 1.1rem 2.4rem; border-radius: 99rem; background: #1565c0; color: #fff;
+  font-family: Lato, sans-serif; font-weight: 700; font-size: 1.6rem; text-decoration: none; }
+.content a.tu-btn:hover, .content a.tu-btn:focus-visible { background: #0d47a1; outline: none; }
+</style>
+    <p class="tu-lede">Computer science, math and data science tutoring, from middle school through college. Sessions are one-on-one or in small groups, and they're built around the student's class, project or goal.</p>
+    <ul class="tu-chips" aria-label="At a glance">
+      <li>Middle school to college</li><li>1-on-1 or small group</li><li>Math · CS · Data science</li>
+    </ul>
+
+    <section class="tu-sec" aria-labelledby="tu-what">
+      <p class="tu-label" id="tu-what">What I teach</p>
+      <div class="tu-grid three">
+        <div class="tu-card"><span class="tu-ico"><i class="fas fa-square-root-alt" aria-hidden="true"></i></span><h3>Math and statistics</h3><ul><li>Middle school through college math</li><li>Statistics</li></ul></div>
+        <div class="tu-card"><span class="tu-ico"><i class="fas fa-code" aria-hidden="true"></i></span><h3>Computer science</h3><ul><li>Scratch programming (visual, introductory)</li><li>AP Computer Science</li><li>Python and R / RStudio</li></ul></div>
+        <div class="tu-card"><span class="tu-ico"><i class="fas fa-chart-bar" aria-hidden="true"></i></span><h3>Data science</h3><ul><li>Data exploration</li><li>Plotting and visualization</li><li>Machine learning</li></ul></div>
+      </div>
+    </section>
+
+    <section class="tu-sec" aria-labelledby="tu-who">
+      <p class="tu-label" id="tu-who">Who you'll work with</p>
+      <div class="tu-card"><p>I'm a bioinformatics data scientist with a Master's in Computational Biology from Weill Cornell Medicine and about five years of industry experience, including Memorial Sloan Kettering Cancer Center. I write Python and R every day, and I like showing students how the math they're learning gets used on real data. <a href="/about/">More about me</a></p></div>
+    </section>
+
+    <section class="tu-sec" aria-labelledby="tu-tools">
+      <p class="tu-label" id="tu-tools">The tools we'll use</p>
+      <div class="tu-grid two">
+        <figure class="tu-shot"><img src="/images/tutoring-python.webp" width="642" height="627" alt="Python code in the VS Code editor" loading="lazy"><figcaption>Python + VS Code<span>The same editor professional developers use</span></figcaption></figure>
+        <figure class="tu-shot"><img src="/images/tutoring-r.webp" width="663" height="748" alt="R code in RStudio drawing a map of US state populations" loading="lazy"><figcaption>R + RStudio<span>From a few lines of code to a finished chart</span></figcaption></figure>
+      </div>
+    </section>
+
+    <section class="tu-cta" aria-labelledby="tu-ask">
+      <h2 id="tu-ask">Book a session</h2>
+      <p>Tell me the student's grade, the subject and what they're working on, and I'll get back to you about times.</p>
+      <a class="tu-btn" href="/contact/"><i class="fas fa-paper-plane" aria-hidden="true"></i>Get in touch</a>
+    </section>
 
   </article>
 </section>
