@@ -46,7 +46,8 @@
   ctl.addEventListener('contextmenu', e => e.preventDefault());
   // Tilt to lean (phones): turn the phone like a steering wheel. Proportional, centered on how you hold it
   // when a track starts. Lean buttons and keys still work and win over tilt.
-  const tilt = { on: (() => { try { return localStorage.getItem('th_tilt') === '1'; } catch (e) { return false; } })(), raw: null, zero: null };
+  const tilt = { on: (() => { try { return localStorage.getItem('th_tilt') === '1'; } catch (e) { return false; } })(), raw: null, zero: null,
+    unset: (() => { try { return localStorage.getItem('th_tilt') === null; } catch (e) { return true; } })() };
   addEventListener('deviceorientation', e => {
     if (e.beta === null) return;
     const ang = (screen.orientation && screen.orientation.angle) || window.orientation || 0;
@@ -345,7 +346,7 @@
   }
 
   /* ---------- wire up menus ---------- */
-  $('#play').onclick = () => { audio.unlock(); show('levels'); };
+  $('#play').onclick = () => { audio.unlock(); if (tilt.unset && matchMedia('(pointer:coarse)').matches) { tilt.unset = false; setTilt(true); } show('levels'); }; // phones: tilt to lean by default (like the genre); iOS asks once
   $('#lv-back').onclick = () => show('title');
   $('#pause').onclick = togglePause;
   $('#restart').onclick = restart;

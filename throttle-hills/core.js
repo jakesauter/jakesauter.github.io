@@ -6,13 +6,13 @@
    (wheelies); leaning twists the frame (flips). Only the rider's head or torso touching the ground is a crash. */
 (function (root) {
   'use strict';
-  const G = 15, WR = 0.38, SUB = 10;
+  const G = 8.5, WR = 0.38, SUB = 10;  // gravity measured from Bike Race footage: ≈6.5–8.5 m/s² at this bike size
   // frame, in "bike-local" coordinates: origin = rear axle at normal ride height, x toward the front axle, y up
-  const COM = [0.62, 0.45];                    // center of mass of bike + rider
+  const COM = [0.62, 0.36];                    // center of mass of bike + rider
   const MC = 6, IC = 1.1, MW = 0.8, IW = 0.6 * 0.8 * WR * WR;
   const MU = 1.25;                             // tire grip
-  const ENGINE = 30, OMAX = 58, REACT = 0.8;   // wheel torque (N·m), top wheel speed (rad/s ≈ 22 m/s), frame reaction
-  const LEAN = 52, SPINMAX = 12.5, AIRDAMP = 2.2, GROUND_LEAN = 0.8, AIR_LEAN = 1.8;  // lean torque, max lean-driven spin (rad/s), spin settling in air
+  const ENGINE = 21, OMAX = 58, REACT = 0.35;  // wheel torque (N·m), top wheel speed (rad/s ≈ 22 m/s), frame reaction
+  const LEAN = 40, SPINMAX = 8.5, AIRDAMP = 2.2, GROUND_LEAN = 0.85, AIR_LEAN = 1.8;  // lean torque, max lean-driven spin (rad/s), spin settling in air
   const SUSP = [ // E = wheel position at full extension, u = compression direction, k/c = spring/damper, pre = preload
     { E: [0, -0.10], u: [0, 1], k: 850, c: 65, travel: 0.27 },
     { E: [1.45 + 0.10 * 0.30, -0.10 * 0.954], u: [-0.30, 0.954], k: 850, c: 65, travel: 0.27 },
@@ -241,18 +241,18 @@
   /* ---------- levels ---------- */
   const T = (name, theme, par, segs) => ({ name, theme, par, segs });
   const LEVELS = [
-    T('First Ride', 'dunes', 11.5, [['flat', 12], ['hill', 18, 1.5], ['flat', 6], ['hill', 22, 2.5], ['cp'], ['bumps', 4, 3.5, 0.35], ['flat', 8], ['slope', 16, 3], ['flat', 6], ['slope', 16, -3], ['flat', 10]]),
-    T('Sand Waves', 'dunes', 19.5, [['flat', 10], ['bumps', 3, 12, 2], ['flat', 6], ['kicker', 6, 1], ['flat', 12], ['cp'], ['hill', 20, 3.5], ['bumps', 6, 4, 0.5], ['slope', 14, 2.5], ['table', 6, 1.2, 4], ['flat', 10], ['hill', 16, -2], ['flat', 8]]),
-    T('Jump School', 'dunes', 14, [['flat', 14], ['kicker', 7, 1.4], ['flat', 16], ['kicker', 7, 1.8], ['flat', 18], ['cp'], ['table', 7, 1.6, 6], ['flat', 10], ['ramp', 10, 2], ['gap', 4, -2], ['flat', 14], ['kicker', 8, 2], ['flat', 20]]),
-    T('Camel Back', 'dunes', 20, [['flat', 10], ['hill', 14, 3], ['hill', 14, 3.5], ['hill', 16, 4], ['cp'], ['bumps', 8, 3, 0.6], ['flat', 6], ['slope', 18, 5], ['flat', 4], ['drop', 2.5], ['flat', 10], ['slope', 18, -2.5], ['cp'], ['hill', 12, 2.5], ['hill', 12, 2.5], ['flat', 10]]),
-    T('Pine Trail', 'forest', 20, [['flat', 10], ['steps', 4, 4, 0.4], ['flat', 6], ['hill', 18, 3], ['cp'], ['kicker', 6, 1.5], ['flat', 14], ['steps', 4, 4, -0.5], ['flat', 8], ['bumps', 5, 3, 0.5], ['cp'], ['ramp', 14, 3.5], ['gap', 5, -1], ['flat', 12], ['hill', 20, 3], ['flat', 10]]),
-    T('Root Steps', 'forest', 34, [['flat', 10], ['steps', 6, 3.2, 0.5], ['flat', 8], ['steps', 4, 4, -0.8], ['cp'], ['hill', 12, 2.5], ['steps', 5, 3, 0.5], ['flat', 12], ['ramp', 7, 1.4], ['gap', 5, -3], ['flat', 12], ['cp'], ['bumps', 6, 3, 0.7], ['kicker', 7, 2], ['flat', 16], ['steps', 3, 3.5, -0.6], ['flat', 10]]),
-    T('Creek Gaps', 'forest', 16, [['flat', 12], ['ramp', 8, 1.2], ['gap', 4, -1.2], ['flat', 12], ['ramp', 8, 1.5], ['gap', 5, -1.5], ['flat', 10], ['cp'], ['hill', 16, 3], ['ramp', 10, 2], ['gap', 6, -2], ['flat', 12], ['cp'], ['bumps', 4, 4, 0.6], ['ramp', 10, 2.5], ['gap', 7, -2.5], ['flat', 16]]),
-    T('Logging Road', 'forest', 28.5, [['flat', 10], ['hill', 26, 6], ['bumps', 5, 3, 0.6], ['cp'], ['slope', 20, 6], ['table', 6, 1.5, 8], ['slope', 18, -6], ['flat', 8], ['cp'], ['kicker', 8, 2.2], ['flat', 18], ['steps', 5, 3, 0.5], ['flat', 12], ['ramp', 7, 1.4], ['gap', 6, -3], ['flat', 10], ['cp'], ['hill', 18, -3], ['hill', 18, 4], ['flat', 10]]),
-    T('Red Mesa', 'canyon', 21, [['flat', 12], ['slope', 16, 5], ['flat', 8], ['drop', 3], ['flat', 10], ['drop', 2], ['flat', 12], ['cp'], ['kicker', 8, 2.4], ['flat', 10], ['ramp', 6, 1], ['gap', 6, -2], ['flat', 14], ['cp'], ['hill', 20, 5], ['bumps', 6, 3, 0.7], ['ramp', 14, 3], ['gap', 7, -3], ['flat', 16]]),
-    T('Arches', 'canyon', 29, [['flat', 12], ['hill', 18, -4], ['hill', 18, 5], ['cp'], ['table', 8, 2, 6], ['flat', 6], ['table', 8, 2.5, 8], ['flat', 8], ['cp'], ['steps', 5, 3, 0.5], ['flat', 12], ['ramp', 7, 1.4], ['gap', 7, -3.5], ['flat', 12], ['cp'], ['hill', 14, 3], ['hill', 14, -3], ['kicker', 9, 2.6], ['flat', 22]]),
-    T('Night Rally', 'night', 23, [['flat', 12], ['bumps', 8, 3, 0.6], ['kicker', 8, 2.2], ['flat', 18], ['cp'], ['ramp', 14, 4], ['gap', 6, -2], ['flat', 10], ['steps', 5, 3, -0.7], ['cp'], ['hill', 22, 6], ['flat', 6], ['ramp', 10, 2.5], ['gap', 8, -3], ['flat', 14], ['cp'], ['table', 9, 2.4, 10], ['flat', 12]]),
-    T('The Gauntlet', 'night', 53, [['flat', 12], ['steps', 5, 3, 0.5], ['flat', 12], ['ramp', 7, 1.4], ['gap', 6, -3], ['flat', 10], ['cp'], ['bumps', 8, 2.8, 0.75], ['kicker', 9, 2.6], ['flat', 20], ['cp'], ['hill', 18, -4], ['hill', 18, 6], ['ramp', 12, 3], ['gap', 8, -4], ['flat', 12], ['cp'], ['table', 9, 2.6, 8], ['flat', 6], ['steps', 4, 3.2, 0.5], ['flat', 12], ['ramp', 7, 1.4], ['gap', 7, -2.8], ['flat', 10], ['cp'], ['hill', 16, 3.5], ['bumps', 5, 3, 0.8], ['kicker', 9, 2.8], ['flat', 22]]),
+    T('First Ride', 'dunes', 13, [['flat', 12], ['hill', 18, 1.5], ['flat', 6], ['hill', 22, 2.5], ['cp'], ['bumps', 4, 3.5, 0.35], ['flat', 8], ['slope', 16, 3], ['flat', 6], ['slope', 16, -3], ['flat', 10]]),
+    T('Sand Waves', 'dunes', 22, [['flat', 10], ['bumps', 3, 12, 2], ['flat', 6], ['kicker', 6, 1], ['flat', 12], ['cp'], ['hill', 20, 3.5], ['bumps', 6, 4, 0.5], ['slope', 14, 2.5], ['table', 6, 1.2, 4], ['flat', 10], ['hill', 16, -2], ['flat', 8]]),
+    T('Jump School', 'dunes', 16.5, [['flat', 14], ['kicker', 7, 1.4], ['flat', 16], ['kicker', 7, 1.8], ['flat', 18], ['cp'], ['table', 7, 1.6, 6], ['flat', 10], ['ramp', 10, 2], ['gap', 4, -2], ['flat', 14], ['kicker', 8, 2], ['flat', 20]]),
+    T('Camel Back', 'dunes', 23, [['flat', 10], ['hill', 14, 3], ['hill', 14, 3.5], ['hill', 16, 4], ['cp'], ['bumps', 8, 3, 0.6], ['flat', 6], ['slope', 18, 5], ['flat', 4], ['drop', 2.5], ['flat', 10], ['slope', 18, -2.5], ['cp'], ['hill', 12, 2.5], ['hill', 12, 2.5], ['flat', 10]]),
+    T('Pine Trail', 'forest', 23, [['flat', 10], ['steps', 4, 4, 0.4], ['flat', 6], ['hill', 18, 3], ['cp'], ['kicker', 6, 1.5], ['flat', 14], ['steps', 4, 4, -0.5], ['flat', 8], ['bumps', 5, 3, 0.5], ['cp'], ['ramp', 14, 3.5], ['gap', 5, -1], ['flat', 12], ['hill', 20, 3], ['flat', 10]]),
+    T('Root Steps', 'forest', 36, [['flat', 10], ['steps', 6, 3.2, 0.5], ['flat', 8], ['steps', 4, 4, -0.8], ['cp'], ['hill', 12, 2.5], ['steps', 5, 3, 0.5], ['flat', 12], ['ramp', 7, 1.4], ['gap', 5, -3], ['flat', 12], ['cp'], ['bumps', 6, 3, 0.7], ['kicker', 7, 2], ['flat', 16], ['steps', 3, 3.5, -0.6], ['flat', 10]]),
+    T('Creek Gaps', 'forest', 18.5, [['flat', 12], ['ramp', 8, 1.2], ['gap', 4, -1.2], ['flat', 12], ['ramp', 8, 1.5], ['gap', 5, -1.5], ['flat', 10], ['cp'], ['hill', 16, 3], ['ramp', 10, 2], ['gap', 6, -2], ['flat', 12], ['cp'], ['bumps', 4, 4, 0.6], ['ramp', 10, 2.5], ['gap', 7, -2.5], ['flat', 16]]),
+    T('Logging Road', 'forest', 31.5, [['flat', 10], ['hill', 26, 6], ['bumps', 5, 3, 0.6], ['cp'], ['slope', 20, 6], ['table', 6, 1.5, 8], ['slope', 18, -6], ['flat', 8], ['cp'], ['kicker', 8, 2.2], ['flat', 18], ['steps', 5, 3, 0.5], ['flat', 12], ['ramp', 7, 1.4], ['gap', 6, -3], ['flat', 10], ['cp'], ['hill', 18, -3], ['hill', 18, 4], ['flat', 10]]),
+    T('Red Mesa', 'canyon', 21.5, [['flat', 12], ['slope', 16, 5], ['flat', 8], ['drop', 3], ['flat', 10], ['drop', 2], ['flat', 12], ['cp'], ['kicker', 8, 2.4], ['flat', 10], ['ramp', 6, 1], ['gap', 6, -2], ['flat', 14], ['cp'], ['hill', 20, 5], ['bumps', 6, 3, 0.7], ['ramp', 14, 3], ['gap', 7, -3], ['flat', 16]]),
+    T('Arches', 'canyon', 35, [['flat', 12], ['hill', 18, -4], ['hill', 18, 5], ['cp'], ['table', 8, 2, 6], ['flat', 6], ['table', 8, 2.5, 8], ['flat', 8], ['cp'], ['steps', 5, 3, 0.5], ['flat', 12], ['ramp', 7, 1.4], ['gap', 7, -3.5], ['flat', 12], ['cp'], ['hill', 14, 3], ['hill', 14, -3], ['kicker', 9, 2.6], ['flat', 22]]),
+    T('Night Rally', 'night', 27, [['flat', 12], ['bumps', 8, 3, 0.6], ['kicker', 8, 2.2], ['flat', 18], ['cp'], ['ramp', 14, 4], ['gap', 6, -2], ['flat', 10], ['steps', 5, 3, -0.7], ['cp'], ['hill', 22, 6], ['flat', 6], ['ramp', 10, 2.5], ['gap', 8, -3], ['flat', 14], ['cp'], ['table', 9, 2.4, 10], ['flat', 12]]),
+    T('The Gauntlet', 'night', 58, [['flat', 12], ['steps', 5, 3, 0.5], ['flat', 12], ['ramp', 7, 1.4], ['gap', 6, -3], ['flat', 10], ['cp'], ['bumps', 8, 2.8, 0.75], ['kicker', 9, 2.6], ['flat', 20], ['cp'], ['hill', 18, -4], ['hill', 18, 6], ['ramp', 12, 3], ['gap', 8, -4], ['flat', 12], ['cp'], ['table', 9, 2.6, 8], ['flat', 6], ['steps', 4, 3.2, 0.5], ['flat', 12], ['ramp', 7, 1.4], ['gap', 7, -2.8], ['flat', 10], ['cp'], ['hill', 16, 3.5], ['bumps', 5, 3, 0.8], ['kicker', 9, 2.8], ['flat', 22]]),
   ];
 
   const api = { G, WR, REST, LEVELS, buildLevel, groundY, spawn, step, score, stars, comOf, angleOf, frameOrigin, SUB, SUSP };
