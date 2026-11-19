@@ -14,11 +14,11 @@
   try { Object.assign(save, JSON.parse(localStorage.getItem(SAVE_KEY) || '{}')); } catch (e) {}
   const persist = () => { try { localStorage.setItem(SAVE_KEY, JSON.stringify(save)); } catch (e) {} };
 
-  let W = 0, H = 0, S = 40, dpr = 1;
+  let W = 0, H = 0, S = 40, SB = 40, dpr = 1;
   function resize() {
     dpr = Math.min(2, window.devicePixelRatio || 1); W = innerWidth; H = innerHeight;
     cv.width = W * dpr; cv.height = H * dpr; cv.style.width = W + 'px'; cv.style.height = H + 'px';
-    S = Math.max(26, Math.min(64, Math.min(H / 9.5, W / 14)));
+    SB = S = Math.max(26, Math.min(64, Math.min(H / 9.5, W / 14)));
     $('#rotate').hidden = !(matchMedia('(pointer:coarse)').matches && H > W * 1.15) || rotateDismissed;
   }
   let rotateDismissed = false;
@@ -44,10 +44,35 @@
   ctl.addEventListener('pointermove', e => { if (pointers.has(e.pointerId)) { pointers.set(e.pointerId, pad(e)); syncTouch(); } });
   ['pointerup', 'pointercancel', 'pointerleave'].forEach(t => ctl.addEventListener(t, e => { pointers.delete(e.pointerId); syncTouch(); }));
   ctl.addEventListener('contextmenu', e => e.preventDefault());
+  // Tilt to lean (phones): turn the phone like a steering wheel. Proportional, centered on how you hold it
+  // when a track starts. Lean buttons and keys still work and win over tilt.
+  const tilt = { on: (() => { try { return localStorage.getItem('th_tilt') === '1'; } catch (e) { return false; } })(), raw: null, zero: null };
+  addEventListener('deviceorientation', e => {
+    if (e.beta === null) return;
+    const ang = (screen.orientation && screen.orientation.angle) || window.orientation || 0;
+    // landscape: turning the phone like a wheel changes beta; sign depends on which way it's rotated
+    tilt.raw = ang === 90 ? e.beta : ang === -90 || ang === 270 ? -e.beta : e.gamma;
+  });
+  function tiltLean() {
+    if (!tilt.on || tilt.raw === null) return 0;
+    if (tilt.zero === null) tilt.zero = tilt.raw;
+    const d = tilt.raw - tilt.zero, dead = 3, full = 18;
+    if (Math.abs(d) < dead) return 0;
+    return Math.max(-1, Math.min(1, (Math.abs(d) - dead) / (full - dead))) * Math.sign(d) * -1;
+  }
+  async function setTilt(on) {
+    if (on && typeof DeviceOrientationEvent !== 'undefined' && DeviceOrientationEvent.requestPermission) {
+      try { if (await DeviceOrientationEvent.requestPermission() !== 'granted') on = false; } catch (e) { on = false; }
+    }
+    tilt.on = on; tilt.zero = null;
+    try { localStorage.setItem('th_tilt', on ? '1' : '0'); } catch (e) {}
+    const b = $('#p-tilt'); if (b) b.textContent = 'Tilt to lean: ' + (on ? 'on' : 'off');
+  }
   function input() {
     const gas = keys.ArrowUp || keys.KeyW || touch.gas, brake = keys.ArrowDown || keys.KeyS || touch.brake;
     const back = keys.ArrowLeft || keys.KeyA || touch.back, fwd = keys.ArrowRight || keys.KeyD || touch.fwd;
-    return { gas: !!gas, brake: !!brake, lean: (back ? 1 : 0) - (fwd ? 1 : 0) };
+    const pressed = (back ? 1 : 0) - (fwd ? 1 : 0);
+    return { gas: !!gas, brake: !!brake, lean: pressed || tiltLean() };
   }
 
   /* ---------- sound (synthesized, no files) ---------- */
@@ -82,17 +107,18 @@
   };
 
   /* ---------- game state ---------- */
-  let state = 'title', li = 0, lv = null, bike = null, cp = 2, cpIdx = -1, cam = { x: 0, y: 0 }, shake = 0, crashAt = 0, deaths = 0;
+  let state = 'title', li = 0, lv = null, bike = null, cp = 2, cpIdx = -1, cam = { x: 0, y: 0 }, shake = 0, crashAt = 0, deaths = 0, rider = null;
   let parts = [], toasts = [];
 
   function startLevel(i) {
+    rider = null; tilt.zero = null;
     li = i; lv = TH.buildLevel(TH.LEVELS[i]); cp = 2; cpIdx = -1; deaths = 0; bike = TH.spawn(lv, cp); parts = []; toasts = [];
     const [x, y] = TH.comOf(bike); cam = { x, y };
     $('#lvname').textContent = `${i + 1}. ${TH.LEVELS[i].name}`;
     show('play');
   }
   function restart() { startLevel(li); }
-  function respawn() { const t = bike.t, f = bike.flips, bo = bike.bonus; bike = TH.spawn(lv, cp); bike.t = t; bike.flips = f; bike.bonus = bo; bike.started = true; state = 'play'; }
+  function respawn() { rider = null; const t = bike.t, f = bike.flips, bo = bike.bonus; bike = TH.spawn(lv, cp); bike.t = t; bike.flips = f; bike.bonus = bo; bike.started = true; state = 'play'; }
   function togglePause() { show(state === 'paused' ? 'play' : 'paused'); }
   function next() { const go = () => li + 1 < TH.LEVELS.length ? startLevel(li + 1) : show('levels');
     if (window.THAds && (li + 1) % 3 === 0) window.THAds.between(go); else go(); }
@@ -149,7 +175,8 @@
     const [bx, by] = TH.comOf(bike);
     for (let k = 0; k < lv.cps.length; k++) if (k > cpIdx && bx > lv.cps[k] + 1) { cpIdx = k; cp = lv.cps[k]; toast('Checkpoint'); audio.blip(880, 0.12, 'triangle', 0.15, 1.5); }
     for (const ev of bike.events.splice(0)) {
-      if (ev[0] === 'crash' || ev[0] === 'fell') { deaths++; crashAt = performance.now(); shake = 0.5; audio.crash(); burst(bike.p[3].x, bike.p[3].y, 18, '#fff'); }
+      if (ev[0] === 'crash' || ev[0] === 'fell') { deaths++; crashAt = performance.now(); shake = 0.5; audio.crash(); burst(bike.p[3].x, bike.p[3].y, 18, '#fff');
+        const h = bike.p[3]; rider = { x: (h.x + bike.p[2].x) / 2, y: (h.y + bike.p[2].y) / 2, vx: h.vx * 0.8, vy: Math.max(h.vy, 0) + 3, a: TH.angleOf(bike), om: -2 - Math.random() * 4 }; }
       if (ev[0] === 'backflip' || ev[0] === 'frontflip') { toast(`${ev[1] > 1 ? ev[1] + '× ' : ''}${ev[0] === 'backflip' ? 'BACKFLIP' : 'FRONTFLIP'}!  −${ev[1]}s`, true); audio.blip(523, 0.12, 'square', 0.15, 2); }
       if (ev[0] === 'finish') { audio.blip(523, 0.1, 'square', 0.18, 1); setTimeout(() => audio.blip(784, 0.25, 'square', 0.18, 1), 110); setTimeout(finish, 700); }
     }
@@ -158,9 +185,16 @@
     if (inp.gas && bike.ground[0] > 0 && Math.random() < 0.6) { const q = bike.p[0]; parts.push({ x: q.x - 0.2, y: q.y - TH.WR + 0.05, vx: -1 - Math.random() * 2, vy: 0.5 + Math.random() * 1.5, life: 0.6, r: 0.08 + Math.random() * 0.12, c: THEMES[lv.theme].edge }); }
     for (const p of parts) { p.x += p.vx * dt; p.y += p.vy * dt; p.vy -= 3 * dt; p.life -= dt; }
     parts = parts.filter(p => p.life > 0);
-    const vx = (bike.p[0].vx + bike.p[1].vx) / 2;
-    cam.x += (bx + Math.max(-2, Math.min(4, vx * 0.25)) - cam.x) * Math.min(1, dt * 5);
-    cam.y += (by - cam.y) * Math.min(1, dt * 4);
+    const vx = (bike.p[0].vx + bike.p[1].vx) / 2, vy = (bike.p[0].vy + bike.p[1].vy) / 2;
+    cam.x += (bx + Math.max(-2, Math.min(6, vx * 0.33)) - cam.x) * Math.min(1, dt * 5);
+    cam.y += (by + Math.max(-2, Math.min(2, vy * 0.12)) - cam.y) * Math.min(1, dt * 4);
+    const zt = 1 - Math.min(0.22, Math.hypot(vx, vy) * 0.011); // zoom out a little at speed
+    cam.z = (cam.z || 1) + (zt - (cam.z || 1)) * Math.min(1, dt * 1.5);
+    if (rider) { // the rider tumbling off after a crash
+      rider.vy -= TH.G * dt; rider.x += rider.vx * dt; rider.y += rider.vy * dt; rider.a += rider.om * dt;
+      const g = TH.groundY(lv, rider.x);
+      if (g !== null && rider.y < g + 0.5 && rider.y > g - 1) { rider.y = g + 0.5; rider.vy = Math.abs(rider.vy) * 0.35; rider.vx *= 0.6; rider.om *= 0.6; }
+    }
     shake = Math.max(0, shake - dt);
     audio.engine(Math.abs(bike.w[0]), inp.gas && !bike.crashed);
     $('#time').textContent = Math.max(0, bike.t - bike.bonus).toFixed(2);
@@ -224,8 +258,9 @@
   function flag(x, y, col) { cx.fillStyle = '#333'; cx.fillRect(x - S * 0.04, y - S * 2, S * 0.08, S * 2); cx.fillStyle = col; cx.beginPath(); cx.moveTo(x, y - S * 2); cx.lineTo(x + S * 0.7, y - S * 1.75); cx.lineTo(x, y - S * 1.5); cx.fill(); }
 
   function drawBike() {
-    const p = bike.p, ang = TH.angleOf(bike), c = Math.cos(ang), s = Math.sin(ang);
-    const L = (lx, ly) => [X(p[0].x + lx * c - ly * s), Y(p[0].y + lx * s + ly * c)]; // bike-local → screen
+    const p = bike.p, ang = TH.angleOf(bike), c = Math.cos(ang), s = Math.sin(ang), [ox, oy] = TH.frameOrigin(bike);
+    const L = (lx, ly) => [X(ox + lx * c - ly * s), Y(oy + lx * s + ly * c)]; // bike-local → screen
+    const Wp = i => [X(p[i].x), Y(p[i].y)];
     const line = (pts, w, col) => { cx.beginPath(); pts.forEach((q, i) => i ? cx.lineTo(...q) : cx.moveTo(...q)); cx.strokeStyle = col; cx.lineWidth = w * S; cx.lineCap = 'round'; cx.lineJoin = 'round'; cx.stroke(); };
     const poly = (pts, col) => { cx.beginPath(); pts.forEach((q, i) => i ? cx.lineTo(...L(...q)) : cx.moveTo(...L(...q))); cx.closePath(); cx.fillStyle = col; cx.fill(); };
     // wheels
@@ -237,8 +272,16 @@
       cx.lineWidth = Math.max(1, S * 0.02); for (let k = 0; k < 8; k++) { const a = bike.wa[i] + k * 0.785; cx.beginPath(); cx.moveTo(wx, wy); cx.lineTo(wx + Math.cos(a) * r * 0.7, wy - Math.sin(a) * r * 0.7); cx.stroke(); }
       cx.fillStyle = '#888'; cx.beginPath(); cx.arc(wx, wy, r * 0.14, 0, 7); cx.fill();
     }
-    line([L(0, 0), L(0.62, 0.36)], 0.09, '#555b66'); // swingarm
-    line([L(1.45, 0), L(1.18, 0.86)], 0.08, '#c9ccd2'); // fork
+    // rear: swingarm from its pivot to the real wheel, with a coil shock that squashes as the wheel rises
+    const piv = L(0.62, 0.36), rw = Wp(0), mid = [piv[0] + (rw[0] - piv[0]) * 0.45, piv[1] + (rw[1] - piv[1]) * 0.45], top = L(0.42, 0.7);
+    const coils = 7; cx.beginPath(); for (let k = 0; k <= coils * 2; k++) { const u = k / (coils * 2), px = top[0] + (mid[0] - top[0]) * u, py = top[1] + (mid[1] - top[1]) * u;
+      const nx = -(mid[1] - top[1]), ny = mid[0] - top[0], nl = Math.hypot(nx, ny) || 1, o = (k % 2 ? 1 : -1) * 0.06 * S * (k && k < coils * 2 ? 1 : 0);
+      k ? cx.lineTo(px + nx / nl * o, py + ny / nl * o) : cx.moveTo(px, py); }
+    cx.strokeStyle = '#ffd23a'; cx.lineWidth = Math.max(1.5, 0.03 * S); cx.stroke();
+    line([piv, rw], 0.09, '#555b66'); // swingarm
+    // front: fixed upper fork tubes, sliding lower legs down to the real wheel
+    const fw = Wp(1), crown = L(1.18, 0.86), mid2 = L(1.33, 0.38);
+    line([crown, mid2], 0.1, '#8d929b'); line([fw, [fw[0] + (crown[0] - fw[0]) * 0.55, fw[1] + (crown[1] - fw[1]) * 0.55]], 0.07, '#c9ccd2');
     poly([[0.48, 0.24], [0.92, 0.22], [1.02, 0.5], [0.6, 0.52]], '#3a3f4a'); // engine
     poly([[0.05, 0.5], [0.42, 0.66], [0.9, 0.7], [1.1, 0.78], [1.12, 0.6], [0.8, 0.52], [0.35, 0.5]], '#ff6a1a'); // body
     poly([[0.62, 0.66], [1.06, 0.8], [1.08, 0.66], [0.78, 0.56]], '#ff8b3d'); // tank highlight
@@ -246,7 +289,8 @@
     poly([[1.28, 0.46], [1.62, 0.42], [1.66, 0.36], [1.3, 0.38]], '#ff6a1a'); // front fender
     poly([[1.08, 0.72], [1.26, 0.98], [1.32, 0.8], [1.2, 0.62]], '#ffffff'); // number plate
     line([L(1.12, 0.98), L(1.02, 1.04)], 0.05, '#222'); // bars
-    // rider
+    // rider (after a crash they tumble on their own)
+    if (rider) { drawRider(); return; }
     const head = [X(p[3].x), Y(p[3].y)], hip = L(0.5, 0.82);
     const shoulder = [hip[0] + (head[0] - hip[0]) * 0.72, hip[1] + (head[1] - hip[1]) * 0.72];
     line([hip, L(0.92, 0.58), L(0.7, 0.3)], 0.13, '#1f3a8a'); // leg
@@ -259,8 +303,19 @@
     cx.fillStyle = '#1b2333'; cx.beginPath(); cx.arc(vis[0], vis[1], 0.1 * S, 0, 7); cx.fill();
   }
 
+  function drawRider() {
+    const c = Math.cos(rider.a), s = Math.sin(rider.a), P = (lx, ly) => [X(rider.x + lx * c - ly * s), Y(rider.y + lx * s + ly * c)];
+    const line = (pts, w, col) => { cx.beginPath(); pts.forEach((q, i) => i ? cx.lineTo(...q) : cx.moveTo(...q)); cx.strokeStyle = col; cx.lineWidth = w * S; cx.lineCap = 'round'; cx.stroke(); };
+    line([P(0, -0.1), P(0.25, -0.45), P(0.05, -0.75)], 0.13, '#1f3a8a');
+    line([P(0, -0.1), P(0, 0.4)], 0.2, '#2b56d9');
+    line([P(0, 0.35), P(0.3, 0.15)], 0.1, '#2b56d9');
+    const hd = P(0, 0.62); cx.fillStyle = '#f5f5f5'; cx.beginPath(); cx.arc(hd[0], hd[1], 0.24 * S, 0, 7); cx.fill();
+    cx.fillStyle = '#ff6a1a'; cx.beginPath(); cx.arc(hd[0], hd[1], 0.24 * S, Math.PI * 0.9 - rider.a, Math.PI * 1.6 - rider.a); cx.fill();
+  }
+
   function draw() {
     cx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    S = SB * (lv && cam.z ? cam.z : 1);
     if (!lv) { drawTitleBg(); return; }
     const th = THEMES[lv.theme];
     drawBackground(th); drawProps(th); drawTerrain(th);
@@ -294,6 +349,7 @@
   $('#lv-back').onclick = () => show('title');
   $('#pause').onclick = togglePause;
   $('#restart').onclick = restart;
+  $('#p-tilt').onclick = () => setTilt(!tilt.on); $('#p-tilt').textContent = 'Tilt to lean: ' + (tilt.on ? 'on' : 'off');
   $('#p-resume').onclick = togglePause; $('#p-sound').onclick = () => { audio.setMuted(!audio.muted); paintMute(); }; $('#p-restart').onclick = restart; $('#p-levels').onclick = () => { lv = null; show('levels'); };
   $('#d-next').onclick = next; $('#d-retry').onclick = restart; $('#d-levels').onclick = () => { lv = null; show('levels'); };
   $('#rotate-ok').onclick = () => { rotateDismissed = true; resize(); };
