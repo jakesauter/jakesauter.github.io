@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Terminal</title>
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="vendor/xterm.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<!-- Sign in -->
+<section id="login" class="card-screen" hidden>
+  <form class="card" id="loginForm" autocomplete="on">
+    <div class="mark" aria-hidden="true">&gt;_</div>
+    <h1>Terminal</h1>
+    <p class="sub">Sign in to your desktop.</p>
+    <label>Password<input id="pw" type="password" autocomplete="current-password" required></label>
+    <label>6-digit code from your authenticator app
+      <input id="code" inputmode="numeric" pattern="[0-9 ]{6,7}" maxlength="7" autocomplete="one-time-code" required></label>
+    <button class="primary" type="submit">Sign in</button>
+    <p class="err" id="loginErr" role="alert"></p>
+  </form>
+</section>
+
+<!-- First-time setup (link from the desktop) -->
+<section id="setup" class="card-screen" hidden>
+  <form class="card" id="setupForm">
+    <div class="mark" aria-hidden="true">&gt;_</div>
+    <h1>Set up sign-in</h1>
+    <div id="setup1">
+      <p class="sub">Choose a password (12+ characters). It's only stored as a salted hash on your desktop.</p>
+      <label>New password<input id="spw" type="password" autocomplete="new-password" minlength="12" required></label>
+      <label>Same password again<input id="spw2" type="password" autocomplete="new-password" minlength="12" required></label>
+      <button class="primary" type="submit">Next</button>
+    </div>
+    <div id="setup2" hidden>
+      <p class="sub">Scan this with an authenticator app on your phone (Google Authenticator, Microsoft Authenticator, 1Password…), then type the 6-digit code it shows.</p>
+      <div id="qr" class="qr"></div>
+      <p class="secret">Can't scan? Enter this key: <code id="secretTxt"></code></p>
+      <label>6-digit code<input id="scode" inputmode="numeric" maxlength="7" autocomplete="one-time-code"></label>
+      <button class="primary" type="submit">Finish</button>
+    </div>
+    <p class="err" id="setupErr" role="alert"></p>
+  </form>
+</section>
+
+<!-- App -->
+<section id="app" hidden>
+  <aside id="side">
+    <div class="side-top">
+      <span class="brand"><span class="mark sm">&gt;_</span> Terminal</span>
+      <button class="icon" id="closeSide" aria-label="Close menu">✕</button>
+    </div>
+    <button class="new" id="newClaude"><span>＋</span> New Claude Code</button>
+    <button class="new ghost" id="newShell"><span>＋</span> New shell</button>
+    <label class="folder">Folder<select id="folder"></select></label>
+    <h2>Sessions</h2>
+    <ul id="sessions"></ul>
+    <div class="side-bottom">
+      <span id="timer" class="muted"></span>
+      <button class="link" id="logout">Sign out</button>
+    </div>
+  </aside>
+  <main>
+    <header>
+      <button class="icon" id="openSide" aria-label="Open menu">☰</button>
+      <div class="title"><strong id="curName">No session</strong><span id="curInfo" class="muted"></span></div>
+      <span id="conn" class="dot" title="Connection"></span>
+    </header>
+    <div id="termWrap"><div id="term"></div>
+      <div id="empty" class="empty"><p>Pick a session on the left, or start a new Claude Code session.</p></div>
+    </div>
+    <div class="keys" id="keys">
+      <button data-k="esc">Esc</button><button data-k="tab">Tab</button><button data-k="stab">⇧Tab</button>
+      <button data-k="up">↑</button><button data-k="down">↓</button><button data-k="left">←</button><button data-k="right">→</button>
+      <button data-k="cc">Ctrl‑C</button><button data-k="enter">Enter</button>
+    </div>
+    <form id="composer">
+      <textarea id="msg" rows="1" placeholder="Type a message for the terminal…" autocomplete="off"></textarea>
+      <button class="send" type="submit" aria-label="Send">↑</button>
+    </form>
+  </main>
+</section>
+
+<script src="vendor/xterm.js"></script>
+<script src="vendor/addon-fit.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
