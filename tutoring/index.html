@@ -127,10 +127,17 @@
 .tu-card h3 { font-family: Lato, sans-serif; font-size: 1.85rem; margin: 1.2rem 0 .6rem; color: #212121; }
 .tu-card ul { margin: 0; padding-left: 1.8rem; } .tu-card li { margin: .35rem 0; font-size: 1.55rem; line-height: 1.5; color: #444; }
 .tu-card p { margin: 0; font-size: 1.55rem; line-height: 1.6; color: #444; }
-.tu-shot { margin: 0; background: #fff; border: 1px solid #e6e6e6; border-radius: 1.4rem; overflow: hidden; }
-.tu-shot img { display: block; width: 100%; height: auto; aspect-ratio: 663 / 748; object-fit: cover; object-position: top left; background: #1e1e1e; }
-.tu-shot figcaption { padding: 1.1rem 1.6rem; font-family: Lato, sans-serif; font-weight: 700; font-size: 1.5rem; color: #212121; }
-.tu-shot figcaption span { display: block; font-family: Merriweather, serif; font-weight: 300; font-size: 1.35rem; color: #555; margin-top: .2rem; }
+.tu-ex { margin: 0; background: #fff; border: 1px solid #e6e6e6; border-radius: 1.4rem; overflow: hidden; display: flex; flex-direction: column; min-width: 0; }
+.tu-ex figcaption { padding: 1.4rem 1.6rem 1.2rem; font-family: Lato, sans-serif; font-weight: 700; font-size: 1.6rem; color: #212121; }
+.tu-ex figcaption span { display: block; font-family: Merriweather, serif; font-weight: 300; font-size: 1.4rem; color: #555; margin-top: .3rem; line-height: 1.5; }
+.tu-code { flex: 1; margin: 0; padding: 1.4rem 1.6rem; background: #1e1e1e; color: #d4d4d4; font: 1.3rem/1.6 "Source Code Pro", ui-monospace, Menlo, monospace; overflow-x: auto; }
+.tu-code code { font: inherit; background: none; padding: 0; color: inherit; }
+@media (max-width: 480px) { .tu-code { font-size: 1.2rem; padding: 1.2rem 1.4rem; } }
+.tu-code .c { color: #6a9955; } .tu-code .s { color: #ce9178; } .tu-code .k { color: #569cd6; }
+.tu-out { padding: 1.2rem 1.6rem 1.6rem; display: grid; gap: .8rem; margin-top: auto; }
+.tu-out-label { font-family: Lato, sans-serif; font-size: 1.15rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #6b6b6b; }
+.tu-out code { font: 1.35rem "Source Code Pro", ui-monospace, monospace; background: #f3f5f8; padding: .6rem .9rem; border-radius: .7rem; color: #212121; }
+.tu-out img { display: block; width: 100%; height: auto; border-radius: .8rem; border: 1px solid #eee; }
 .tu-cta { margin-top: 4rem; padding: 2.4rem; border-radius: 1.6rem; background: #fff; border: 1px solid #e6e6e6; text-align: center; }
 .tu-cta h2 { font-family: Lato, sans-serif; font-size: 2.2rem; margin: 0 0 .6rem; }
 .tu-cta p { margin: 0 auto 1.8rem; max-width: 52rem; font-size: 1.55rem; line-height: 1.6; color: #444; }
@@ -158,10 +165,41 @@
     </section>
 
     <section class="tu-sec" aria-labelledby="tu-tools">
-      <p class="tu-label" id="tu-tools">The tools we'll use</p>
+      <p class="tu-label" id="tu-tools">What a session looks like</p>
       <div class="tu-grid two">
-        <figure class="tu-shot"><img src="/images/tutoring-python.webp" width="642" height="627" alt="Python code in the VS Code editor" loading="lazy"><figcaption>Python + VS Code<span>The same editor professional developers use</span></figcaption></figure>
-        <figure class="tu-shot"><img src="/images/tutoring-r.webp" width="663" height="748" alt="R code in RStudio drawing a map of US state populations" loading="lazy"><figcaption>R + RStudio<span>From a few lines of code to a finished chart</span></figcaption></figure>
+        <figure class="tu-ex">
+          <figcaption>Python <span>Math meets code: when does a thrown ball reach its highest point?</span></figcaption>
+          <pre class="tu-code"><code><span class="k">import</span> numpy as np
+<span class="k">import</span> matplotlib.pyplot as plt
+
+<span class="c"># A ball thrown up at 20 m/s</span>
+<span class="c"># (t in seconds, h in meters)</span>
+t = np.linspace(0, 4.1, 200)
+h = 20 * t - 4.9 * t**2
+
+top, peak = t[h.argmax()], h.max()
+print(<span class="s">f&quot;Top: {peak:.1f} m at {top:.2f} s&quot;</span>)
+
+plt.plot(t, h)
+plt.xlabel(<span class="s">&quot;time (s)&quot;</span>)
+plt.ylabel(<span class="s">&quot;height (m)&quot;</span>)
+plt.show()</code></pre>
+          <div class="tu-out"><span class="tu-out-label">Output</span><code>Top: 20.4 m at 2.04 s</code>
+            <img src="/images/tutoring-python-ball.webp" width="960" height="630" alt="Line chart of the ball's height rising to 20.4 meters at about 2 seconds and falling back to the ground near 4 seconds" loading="lazy"></div>
+        </figure>
+        <figure class="tu-ex">
+          <figcaption>R <span>Data science: do heavier cars get worse gas mileage?</span></figcaption>
+          <pre class="tu-code"><code><span class="k">library</span>(ggplot2)
+
+<span class="c"># Heavier cars, worse gas mileage?</span>
+ggplot(mtcars, aes(wt, mpg)) +
+  geom_point(size = 3) +
+  geom_smooth(method = <span class="s">&quot;lm&quot;</span>) +
+  labs(x = <span class="s">&quot;Weight (1000 lbs)&quot;</span>,
+       y = <span class="s">&quot;Miles per gallon&quot;</span>)</code></pre>
+          <div class="tu-out"><span class="tu-out-label">Output</span>
+            <img src="/images/tutoring-r-cars.webp" width="960" height="630" alt="Scatter plot of 32 cars: miles per gallon falls as weight rises, with a downward trend line" loading="lazy"></div>
+        </figure>
       </div>
     </section>
 
